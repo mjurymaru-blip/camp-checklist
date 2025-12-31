@@ -14,7 +14,7 @@
 
 ## 🚀 デモ
 
-GitHub Pages: https://YOUR_USERNAME.github.io/camp-checklist/
+GitHub Pages: https://mjurymaru-blip.github.io/camp-checklist/
 
 ## 🛠️ 技術スタック
 
