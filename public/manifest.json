@@ -2,14 +2,15 @@
   "name": "Camp Checklist",
   "short_name": "CampCheck",
   "description": "キャンプの持ち物チェックリスト",
-  "start_url": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#FDF8F5",
   "theme_color": "#5C9EAD",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/icons/app_icon_1767106511122.png",
+      "src": "./icons/app_icon_1767106511122.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
