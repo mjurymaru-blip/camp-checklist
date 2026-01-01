@@ -1,30 +1,74 @@
 import { useState } from 'react';
+import {
+    DndContext,
+    closestCenter,
+    KeyboardSensor,
+    PointerSensor,
+    useSensor,
+    useSensors,
+} from '@dnd-kit/core';
+import type { DragEndEvent } from '@dnd-kit/core';
+import {
+    SortableContext,
+    sortableKeyboardCoordinates,
+    verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
+import { SortableItem } from './SortableItem';
 import { ChecklistItem } from './ChecklistItem';
 import type { Category, ChecklistItem as ChecklistItemType } from '../types';
 
 interface Props {
     category: Category;
     items: ChecklistItemType[];
+    allItems: ChecklistItemType[]; // 全アイテム（インデックス計算用）
     onToggleItem: (itemId: string) => void;
     onUpdateItem?: (itemId: string, updates: Partial<ChecklistItemType>) => void;
     onDeleteItem?: (itemId: string) => void;
+    onReorderItem?: (oldIndex: number, newIndex: number) => void;
     isTemplate?: boolean;
 }
 
 export function CategorySection({
     category,
     items,
+    allItems,
     onToggleItem,
     onUpdateItem,
     onDeleteItem,
+    onReorderItem,
     isTemplate = false
 }: Props) {
     const [isCollapsed, setIsCollapsed] = useState(false);
+
+    const sensors = useSensors(
+        useSensor(PointerSensor, {
+            activationConstraint: {
+                distance: 8, // 8px動かさないとドラッグ開始しない
+            },
+        }),
+        useSensor(KeyboardSensor, {
+            coordinateGetter: sortableKeyboardCoordinates,
+        })
+    );
 
     if (items.length === 0) return null;
 
     const checkedCount = items.filter(item => item.checked).length;
     const progress = Math.round((checkedCount / items.length) * 100);
+
+    const handleDragEnd = (event: DragEndEvent) => {
+        const { active, over } = event;
+
+        if (over && active.id !== over.id && onReorderItem) {
+            // 全アイテム内でのインデックスを計算
+            const oldIndex = allItems.findIndex(item => item.id === active.id);
+            const newIndex = allItems.findIndex(item => item.id === over.id);
+
+            if (oldIndex !== -1 && newIndex !== -1) {
+                onReorderItem(oldIndex, newIndex);
+            }
+        }
+    };
 
     return (
         <div className="category-section">
@@ -60,17 +104,43 @@ export function CategorySection({
 
             {!isCollapsed && (
                 <div className="category-items">
-                    {items.map(item => (
-                        <ChecklistItem
-                            key={item.id}
-                            item={item}
-                            category={category}
-                            onToggle={() => onToggleItem(item.id)}
-                            onUpdate={onUpdateItem ? (updates) => onUpdateItem(item.id, updates) : undefined}
-                            onDelete={onDeleteItem ? () => onDeleteItem(item.id) : undefined}
-                            isTemplate={isTemplate}
-                        />
-                    ))}
+                    {onReorderItem ? (
+                        <DndContext
+                            sensors={sensors}
+                            collisionDetection={closestCenter}
+                            onDragEnd={handleDragEnd}
+                        >
+                            <SortableContext
+                                items={items.map(item => item.id)}
+                                strategy={verticalListSortingStrategy}
+                            >
+                                {items.map(item => (
+                                    <SortableItem key={item.id} id={item.id}>
+                                        <ChecklistItem
+                                            item={item}
+                                            category={category}
+                                            onToggle={() => onToggleItem(item.id)}
+                                            onUpdate={onUpdateItem ? (updates) => onUpdateItem(item.id, updates) : undefined}
+                                            onDelete={onDeleteItem ? () => onDeleteItem(item.id) : undefined}
+                                            isTemplate={isTemplate}
+                                        />
+                                    </SortableItem>
+                                ))}
+                            </SortableContext>
+                        </DndContext>
+                    ) : (
+                        items.map(item => (
+                            <ChecklistItem
+                                key={item.id}
+                                item={item}
+                                category={category}
+                                onToggle={() => onToggleItem(item.id)}
+                                onUpdate={onUpdateItem ? (updates) => onUpdateItem(item.id, updates) : undefined}
+                                onDelete={onDeleteItem ? () => onDeleteItem(item.id) : undefined}
+                                isTemplate={isTemplate}
+                            />
+                        ))
+                    )}
                 </div>
             )}
         </div>

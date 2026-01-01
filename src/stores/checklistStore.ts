@@ -22,6 +22,7 @@ interface ChecklistStore {
     deleteItem: (checklistId: string, itemId: string) => void;
     toggleItem: (checklistId: string, itemId: string) => void;
     toggleAllItems: (checklistId: string, checked: boolean) => void;
+    reorderItems: (checklistId: string, oldIndex: number, newIndex: number) => void;
 
     // テンプレート操作
     addTemplate: (template: Template) => void;
@@ -209,6 +210,22 @@ export const useChecklistStore = create<ChecklistStore>()(
                             }
                             : c
                     ),
+                }));
+            },
+
+            reorderItems: (checklistId, oldIndex, newIndex) => {
+                set(state => ({
+                    checklists: state.checklists.map(c => {
+                        if (c.id !== checklistId) return c;
+                        const items = [...c.items];
+                        const [removed] = items.splice(oldIndex, 1);
+                        items.splice(newIndex, 0, removed);
+                        return {
+                            ...c,
+                            items,
+                            updatedAt: new Date().toISOString(),
+                        };
+                    }),
                 }));
             },
 

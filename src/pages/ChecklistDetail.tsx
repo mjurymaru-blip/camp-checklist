@@ -17,7 +17,8 @@ export function ChecklistDetail() {
         deleteChecklist,
         createTemplateFromChecklist,
         updateItem,
-        deleteItem
+        deleteItem,
+        reorderItems
     } = useChecklistStore();
     const [showAddModal, setShowAddModal] = useState(false);
     const [showMenuModal, setShowMenuModal] = useState(false);
@@ -137,9 +138,11 @@ export function ChecklistDetail() {
                         key={category.id}
                         category={category}
                         items={categoryItems}
+                        allItems={checklist.items}
                         onToggleItem={(itemId) => toggleItem(checklist.id, itemId)}
                         onUpdateItem={(itemId, updates) => updateItem(checklist.id, itemId, updates)}
                         onDeleteItem={(itemId) => deleteItem(checklist.id, itemId)}
+                        onReorderItem={(oldIndex, newIndex) => reorderItems(checklist.id, oldIndex, newIndex)}
                     />
                 );
             })}
