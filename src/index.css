@@ -10,7 +10,7 @@
   --color-text: #3D3D3D;
   --color-text-light: #757575;
   --color-border: #E0D6D0;
-  
+
   /* カテゴリカラー */
   --cat-tent: #66BB6A;
   --cat-sleeping: #42A5F5;
@@ -19,12 +19,12 @@
   --cat-clothing: #AB47BC;
   --cat-daily: #EC407A;
   --cat-tools: #78909C;
-  
+
   /* シャドウ */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
-  
+
   /* レイアウト */
   --header-height: 60px;
   --nav-height: 64px;
@@ -70,7 +70,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
+  background:
     radial-gradient(ellipse at 20% 20%, rgba(92, 158, 173, 0.15) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 30%, rgba(232, 180, 188, 0.12) 0%, transparent 50%),
     radial-gradient(ellipse at 60% 80%, rgba(244, 162, 89, 0.1) 0%, transparent 50%);
@@ -264,7 +264,7 @@ body {
   align-items: center;
   padding: 12px 16px;
   border-bottom: 1px solid var(--color-border);
-  transition: background 0.2s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .checklist-item:last-child {
@@ -278,6 +278,7 @@ body {
 .checklist-item.checked .item-name {
   text-decoration: line-through;
   color: var(--color-text-light);
+  transition: color 0.3s ease;
 }
 
 .checkbox {
@@ -290,14 +291,33 @@ body {
   justify-content: center;
   margin-right: 12px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
+}
+
+.checkbox:active {
+  transform: scale(0.85);
 }
 
 .checkbox.checked {
   background: var(--color-success);
   border-color: var(--color-success);
   color: white;
+  animation: checkPop 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes checkPop {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .item-content {
@@ -511,13 +531,23 @@ body {
 
 /* アニメーション */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
 }
 
 /* 空の状態 */
@@ -610,12 +640,29 @@ body {
 }
 
 /* ユーティリティ */
-.text-center { text-align: center; }
-.mt-16 { margin-top: 16px; }
-.mb-16 { margin-bottom: 16px; }
-.gap-12 { gap: 12px; }
-.flex { display: flex; }
-.flex-col { flex-direction: column; }
+.text-center {
+  text-align: center;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
+}
+
+.gap-12 {
+  gap: 12px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
 
 /* レスポンシブ調整 */
 @media (min-width: 480px) {
@@ -624,7 +671,7 @@ body {
     border-radius: var(--radius-lg);
     margin: auto;
   }
-  
+
   .modal-overlay {
     align-items: center;
     padding: 24px;
