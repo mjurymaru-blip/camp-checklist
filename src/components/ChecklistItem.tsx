@@ -46,29 +46,66 @@ export function ChecklistItem({ item, category, onToggle, onUpdate, onDelete, is
     };
 
     if (isEditing) {
+        const handleCancel = () => {
+            setEditName(item.name);
+            setEditQuantity(item.quantity || 1);
+            setIsEditing(false);
+        };
+
         return (
             <div className="checklist-item editing">
-                <input
-                    ref={inputRef}
-                    type="text"
-                    className="form-input"
-                    value={editName}
-                    onChange={(e) => setEditName(e.target.value)}
-                    onBlur={handleSave}
-                    onKeyDown={handleKeyDown}
-                    style={{ flex: 1, marginRight: 8 }}
-                />
-                <input
-                    type="number"
-                    min="1"
-                    className="form-input"
-                    value={editQuantity}
-                    onChange={(e) => setEditQuantity(parseInt(e.target.value) || 1)}
-                    onBlur={handleSave}
-                    onKeyDown={handleKeyDown}
-                    style={{ width: 60, marginRight: 8 }}
-                    onClick={(e) => e.stopPropagation()}
-                />
+                <div style={{ display: 'flex', flex: 1, gap: 8, alignItems: 'center' }}>
+                    <input
+                        ref={inputRef}
+                        type="text"
+                        className="form-input"
+                        value={editName}
+                        onChange={(e) => setEditName(e.target.value)}
+                        onKeyDown={handleKeyDown}
+                        style={{ flex: 1 }}
+                        placeholder="アイテム名"
+                    />
+                    <input
+                        type="number"
+                        min="1"
+                        className="form-input"
+                        value={editQuantity}
+                        onChange={(e) => setEditQuantity(parseInt(e.target.value) || 1)}
+                        onKeyDown={handleKeyDown}
+                        style={{ width: 60 }}
+                        onClick={(e) => e.stopPropagation()}
+                    />
+                </div>
+                <div style={{ display: 'flex', gap: 4, marginLeft: 8 }}>
+                    <button
+                        onClick={handleSave}
+                        style={{
+                            background: 'var(--color-success)',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: 6,
+                            padding: '6px 12px',
+                            fontSize: '0.875rem',
+                            cursor: 'pointer',
+                        }}
+                    >
+                        ✓
+                    </button>
+                    <button
+                        onClick={handleCancel}
+                        style={{
+                            background: 'var(--color-border)',
+                            color: 'var(--color-text)',
+                            border: 'none',
+                            borderRadius: 6,
+                            padding: '6px 12px',
+                            fontSize: '0.875rem',
+                            cursor: 'pointer',
+                        }}
+                    >
+                        ✕
+                    </button>
+                </div>
             </div>
         );
     }

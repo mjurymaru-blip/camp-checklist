@@ -203,8 +203,12 @@ body {
   transition: all 0.2s ease;
 }
 
-.card:active {
+.card:active:not(.card-static) {
   transform: scale(0.98);
+}
+
+.card-static {
+  cursor: default;
 }
 
 .card-header {
@@ -279,6 +283,14 @@ body {
   text-decoration: line-through;
   color: var(--color-text-light);
   transition: color 0.3s ease;
+}
+
+.checklist-item.editing {
+  background: rgba(92, 158, 173, 0.12);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  margin: 4px 8px;
+  padding: 10px 12px;
 }
 
 .checkbox {

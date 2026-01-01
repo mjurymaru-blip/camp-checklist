@@ -12,6 +12,7 @@ export function ChecklistDetail() {
         toggleItem,
         toggleAllItems,
         archiveChecklist,
+        unarchiveChecklist,
         addItem,
         deleteChecklist,
         createTemplateFromChecklist,
@@ -63,6 +64,12 @@ export function ChecklistDetail() {
     const handleArchive = () => {
         archiveChecklist(checklist.id);
         navigate('/');
+    };
+
+    const handleUnarchive = () => {
+        unarchiveChecklist(checklist.id);
+        navigate('/');
+        alert('リストに戻しました');
     };
 
     const handleDelete = () => {
@@ -243,18 +250,21 @@ export function ChecklistDetail() {
                                 ⬜ 全てのチェックを外す
                             </button>
                             <hr style={{ border: 'none', borderTop: '1px solid var(--color-border)', margin: '4px 0' }} />
-                            <button
-                                className="btn btn-primary btn-full"
-                                onClick={() => {
-                                    setNewTemplateName(`${checklist.title}のコピー`);
-                                    setShowSaveTemplateModal(true);
-                                }}
-                            >
+                            <button className="btn btn-primary btn-full" onClick={() => {
+                                setNewTemplateName(`${checklist.title}のコピー`);
+                                setShowSaveTemplateModal(true);
+                            }}>
                                 📋 テンプレートとして保存
                             </button>
-                            <button className="btn btn-secondary btn-full" onClick={handleArchive}>
-                                📁 履歴に移動
-                            </button>
+                            {checklist.isArchived ? (
+                                <button className="btn btn-secondary btn-full" onClick={handleUnarchive}>
+                                    🔄 再利用（リストに戻す）
+                                </button>
+                            ) : (
+                                <button className="btn btn-secondary btn-full" onClick={handleArchive}>
+                                    📁 履歴に移動
+                                </button>
+                            )}
                             <button className="btn btn-danger btn-full" onClick={handleDelete}>
                                 🗑️ 削除
                             </button>

@@ -13,6 +13,7 @@ interface ChecklistStore {
     updateChecklist: (id: string, updates: Partial<Checklist>) => void;
     deleteChecklist: (id: string) => void;
     archiveChecklist: (id: string) => void;
+    unarchiveChecklist: (id: string) => void;
     duplicateChecklist: (id: string) => string;
 
     // アイテム操作
@@ -97,6 +98,14 @@ export const useChecklistStore = create<ChecklistStore>()(
                 set(state => ({
                     checklists: state.checklists.map(c =>
                         c.id === id ? { ...c, isArchived: true, updatedAt: new Date().toISOString() } : c
+                    ),
+                }));
+            },
+
+            unarchiveChecklist: (id) => {
+                set(state => ({
+                    checklists: state.checklists.map(c =>
+                        c.id === id ? { ...c, isArchived: false, updatedAt: new Date().toISOString() } : c
                     ),
                 }));
             },
