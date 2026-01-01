@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useChecklistStore } from '../stores/checklistStore';
 import { ChecklistItem } from '../components/ChecklistItem';
 import type { Template } from '../types';
@@ -28,6 +28,9 @@ export function Templates() {
     const [newItemName, setNewItemName] = useState('');
     const [newItemCategory, setNewItemCategory] = useState(categories[0]?.id || '');
     const [newItemQuantity, setNewItemQuantity] = useState(1);
+
+    // インポート用
+    const fileInputRef = useRef<HTMLInputElement>(null);
 
     const currentTemplate = templates.find(t => t.id === selectedTemplate);
 
@@ -102,6 +105,54 @@ export function Templates() {
         return acc;
     }, {} as Record<string, typeof currentTemplate.items>) || {};
 
+    // テンプレートをエクスポート
+    const handleExportTemplate = (template: Template) => {
+        const exportData = {
+            version: 1,
+            type: 'camp-checklist-template',
+            template: template
+        };
+        const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `template_${template.name.replace(/[^a-zA-Z0-9぀-鿿]/g, '_')}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+    };
+
+    // テンプレートをインポート
+    const handleImportTemplate = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            try {
+                const data = JSON.parse(event.target?.result as string);
+                if (data.type !== 'camp-checklist-template' || !data.template) {
+                    alert('無効なテンプレートファイルです');
+                    return;
+                }
+                const importedTemplate: Template = {
+                    ...data.template,
+                    id: Math.random().toString(36).substring(2, 9), // 新しいIDを付与
+                    name: `${data.template.name}(インポート)`,
+                    items: data.template.items.map((item: { id: string } & Record<string, unknown>) => ({
+                        ...item,
+                        id: Math.random().toString(36).substring(2, 9) // アイテムIDも新規
+                    }))
+                };
+                addTemplate(importedTemplate);
+                alert(`「${importedTemplate.name}」をインポートしました`);
+            } catch {
+                alert('ファイルの読み込みに失敗しました');
+            }
+        };
+        reader.readAsText(file);
+        e.target.value = ''; // リセット
+    };
+
     return (
         <div className="main-content watercolor-bg">
             {!selectedTemplate ? (
@@ -150,7 +201,22 @@ export function Templates() {
                                     >
                                         ✏️
                                     </button>
-                                    {template.id !== 'basic' && (
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            handleExportTemplate(template);
+                                        }}
+                                        style={{
+                                            background: 'none',
+                                            border: 'none',
+                                            fontSize: '1.25rem',
+                                            cursor: 'pointer',
+                                        }}
+                                        title="エクスポート"
+                                    >
+                                        📤
+                                    </button>
+                                    {!['solo', 'duo', 'family'].includes(template.id) && (
                                         <button
                                             onClick={(e) => {
                                                 e.stopPropagation();
@@ -174,6 +240,22 @@ export function Templates() {
                     <button className="fab" onClick={() => setShowNewModal(true)}>
                         ＋
                     </button>
+
+                    {/* インポートボタン */}
+                    <button
+                        className="fab"
+                        style={{ right: 80, background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%)' }}
+                        onClick={() => fileInputRef.current?.click()}
+                    >
+                        📥
+                    </button>
+                    <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept=".json"
+                        style={{ display: 'none' }}
+                        onChange={handleImportTemplate}
+                    />
                 </>
             ) : (
                 <>
