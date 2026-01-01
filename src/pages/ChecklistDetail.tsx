@@ -10,6 +10,7 @@ export function ChecklistDetail() {
         checklists,
         categories,
         toggleItem,
+        toggleAllItems,
         archiveChecklist,
         addItem,
         deleteChecklist,
@@ -223,6 +224,25 @@ export function ChecklistDetail() {
                             </button>
                         </div>
                         <div className="modal-body flex flex-col gap-12">
+                            <button
+                                className="btn btn-secondary btn-full"
+                                onClick={() => {
+                                    toggleAllItems(checklist.id, true);
+                                    setShowMenuModal(false);
+                                }}
+                            >
+                                ✅ 全てチェック
+                            </button>
+                            <button
+                                className="btn btn-secondary btn-full"
+                                onClick={() => {
+                                    toggleAllItems(checklist.id, false);
+                                    setShowMenuModal(false);
+                                }}
+                            >
+                                ⬜ 全てのチェックを外す
+                            </button>
+                            <hr style={{ border: 'none', borderTop: '1px solid var(--color-border)', margin: '4px 0' }} />
                             <button
                                 className="btn btn-primary btn-full"
                                 onClick={() => {
