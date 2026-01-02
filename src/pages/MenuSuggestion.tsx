@@ -21,16 +21,23 @@ export const MenuSuggestion = () => {
         const fetchRecipes = async () => {
             try {
                 // インデックスファイルを読み込み
-                const indexResponse = await fetch('/recipes/index.json');
+                // GitHub Pagesのサブディレクトリ対策: BASE_URLを利用
+                const baseUrl = import.meta.env.BASE_URL;
+                const indexUrl = `${baseUrl}recipes/index.json`.replace('//', '/');
+
+                const indexResponse = await fetch(indexUrl);
                 if (!indexResponse.ok) throw new Error('レシピインデックスの取得に失敗しました');
                 const indexData = await indexResponse.json();
                 const files: string[] = indexData.files;
 
                 // 各レシピファイルを並列で取得
-                const promises = files.map(file => fetch(`/recipes/${file}`).then(res => {
-                    if (!res.ok) return []; // 失敗しても他のファイルは読み込む
-                    return res.json();
-                }));
+                const promises = files.map(file => {
+                    const fileUrl = `${baseUrl}recipes/${file}`.replace('//', '/');
+                    return fetch(fileUrl).then(res => {
+                        if (!res.ok) return []; // 失敗しても他のファイルは読み込む
+                        return res.json();
+                    });
+                });
 
                 const results = await Promise.all(promises);
                 const combinedRecipes = results.flat(); // 配列を平坦化
