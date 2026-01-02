@@ -4,6 +4,9 @@ import { ChecklistDetail } from './pages/ChecklistDetail';
 import { History } from './pages/History';
 import { Templates } from './pages/Templates';
 import { Settings } from './pages/Settings';
+import { GearSettings } from './pages/GearSettings';
+import { MenuSuggestion } from './pages/MenuSuggestion';
+import { SecurityGate } from './components/SecurityGate';
 
 function App() {
   return (
@@ -22,6 +25,16 @@ function App() {
         <Route path="/checklist/:id" element={<ChecklistDetail />} />
         <Route path="/history" element={<History />} />
         <Route path="/templates" element={<Templates />} />
+        <Route path="/recipes" element={
+          <SecurityGate>
+            <MenuSuggestion />
+          </SecurityGate>
+        } />
+        <Route path="/recipes/settings" element={
+          <SecurityGate>
+            <GearSettings />
+          </SecurityGate>
+        } />
         <Route path="/settings" element={<Settings />} />
       </Routes>
 
@@ -34,6 +47,10 @@ function App() {
         <NavLink to="/templates" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
           <span className="nav-icon">📦</span>
           <span className="nav-label">テンプレート</span>
+        </NavLink>
+        <NavLink to="/recipes" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <span className="nav-icon">🍽️</span>
+          <span className="nav-label">レシピ</span>
         </NavLink>
         <NavLink to="/history" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
           <span className="nav-icon">📚</span>

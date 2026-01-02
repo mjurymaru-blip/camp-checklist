@@ -35,6 +35,78 @@ export interface Template {
   items: Omit<ChecklistItem, 'checked'>[];
 }
 
+// ====== キャンプメニュー提案機能 ======
+
+// 調理器具
+export interface CookingGear {
+  id: string;
+  name: string;
+  owned: boolean;
+}
+
+// 熱源
+export interface HeatSource {
+  id: string;
+  name: string;
+  owned: boolean;
+}
+
+// メニュー提案リクエスト
+export interface MenuRequest {
+  participants: 'solo' | 'pair' | 'group';
+  season: 'spring' | 'summer' | 'autumn' | 'winter';
+  effort: 'easy' | 'normal' | 'elaborate';
+  focus: 'breakfast' | 'lunch' | 'dinner';
+  category?: string;
+}
+
+// レシピ（AI応答）
+export interface Recipe {
+  id: string;
+  name: string;
+  meal: 'dinner' | 'breakfast' | 'lunch' | 'snack' | 'dessert';
+  servings?: number; // 何人前
+  difficulty?: 'easy' | 'normal' | 'hard';
+  season?: string[]; // 'spring', 'summer', 'autumn', 'winter', 'all'
+  calories?: string; // "約500kcal"
+  activeTime?: string; // 実作業時間 "10分"
+  cleanupLevel?: 1 | 2 | 3; // 1:楽 〜 3:大変
+  prePrep?: boolean; // 下準備推奨
+  cost?: 'low' | 'mid' | 'high';
+  isVegetarian?: boolean;
+
+  description: string;
+  ingredients: string[];
+  requiredGear: string[];
+  usedGearIds: string[];       // Phase 2用: ['iron-plate', 'wood-stove'] のようにIDで返す
+  usedHeatSourceIds: string[]; // Phase 2用
+  steps: string[];
+  cookTime: string; // 全体の調理時間
+  tips: string;
+}
+
+// デフォルト調理器具リスト
+export const DEFAULT_COOKING_GEARS: CookingGear[] = [
+  { id: 'titanium-pot', name: 'チタンポット', owned: false },
+  { id: 'iron-plate', name: '鉄鍋・鉄皿', owned: false },
+  { id: 'griddle', name: 'マルチグリドル', owned: false },
+  { id: 'mestin', name: 'メスティン', owned: false },
+  { id: 'bottom-wide-cooker', name: '底広クッカー', owned: false },
+  { id: 'steamer', name: '蒸し器', owned: false },
+  { id: 'sierra-cup', name: 'シェラカップ', owned: false },
+  { id: 'skillet', name: 'スキレット/鉄フライパン', owned: false },
+];
+
+// デフォルト熱源リスト
+export const DEFAULT_HEAT_SOURCES: HeatSource[] = [
+  { id: 'single-burner', name: 'シングルバーナー', owned: false },
+  { id: 'twin-burner', name: 'ツーバーナー', owned: false },
+  { id: 'cassette-stove', name: 'カセットコンロ', owned: false },
+  { id: 'wood-stove', name: '薪ストーブ', owned: false },
+  { id: 'bonfire', name: '焚き火台', owned: false },
+  { id: 'esbit', name: 'エスビット', owned: false },
+];
+
 // デフォルトカテゴリ
 export const DEFAULT_CATEGORIES: Category[] = [
   { id: 'tent', name: 'テント・タープ', icon: '🏕️', color: '#4CAF50' },

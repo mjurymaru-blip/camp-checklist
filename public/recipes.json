@@ -1,0 +1,1172 @@
+[
+    {
+        "id": "pork-cabbage-millefeuille",
+        "name": "豚バラと白菜のミルフィーユ鍋",
+        "meal": "dinner",
+        "servings": 2,
+        "difficulty": "easy",
+        "season": [
+            "winter",
+            "autumn"
+        ],
+        "calories": "約450kcal",
+        "activeTime": "15分",
+        "cleanupLevel": 2,
+        "prePrep": false,
+        "cost": "mid",
+        "description": "白菜と豚肉の層が織りなす断面が美しく、写真映えする冬の定番。野菜の水分で旨味が凝縮される。",
+        "ingredients": [
+            "豚バラ薄切り肉 (200g)",
+            "白菜 (1/4株)",
+            "ほんだし (小さじ2)",
+            "水 (100ml)",
+            "生姜 (薄切り1片)"
+        ],
+        "requiredGear": [
+            "ダッチオーブンまたは深型鍋"
+        ],
+        "usedGearIds": [
+            "bottom-wide-cooker"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "白菜の葉と豚肉を交互に重ね、5cm幅にカットする。",
+            "鍋の断面が見えるように、外側から中心に向かってぎっしりと敷き詰める。",
+            "だし汁と生姜を入れ、ストーブ天板の中温ゾーンで白菜がくたくたになるまで煮込む。"
+        ],
+        "cookTime": "約30分",
+        "tips": "隙間なく詰めることで煮崩れを防ぎ、見栄えをキープ。残ったスープにうどんを投入すれば洗い物も減らせます。"
+    },
+    {
+        "id": "woodstove-roast-chicken",
+        "name": "炉内で仕上げるローストチキン",
+        "meal": "dinner",
+        "servings": 2,
+        "difficulty": "normal",
+        "season": [
+            "winter"
+        ],
+        "calories": "約600kcal",
+        "activeTime": "20分",
+        "cleanupLevel": 3,
+        "prePrep": true,
+        "cost": "mid",
+        "description": "薪ストーブ炉内の強力な遠赤外線を利用し、皮はパリパリ、中はジューシーに焼き上げるメインディッシュ。",
+        "ingredients": [
+            "骨付き鶏もも肉 (2本)",
+            "じゃがいも (2個)",
+            "人参 (1本)",
+            "ローズマリー (適量)",
+            "オリーブオイル (大さじ2)",
+            "塩胡椒 (適量)"
+        ],
+        "requiredGear": [
+            "ダッチオーブンまたは蓋付きスキレット"
+        ],
+        "usedGearIds": [
+            "bottom-wide-cooker"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "鶏肉に塩胡椒を擦り込み、天板上で表面に焼き色をつける。",
+            "カットした野菜を鍋底に敷き詰め、肉を戻して蓋をする。",
+            "熾火状態の炉内に入れ、40分ほど放置する。蓋の上にも熾火を乗せると上火効果でクリスピーに。"
+        ],
+        "cookTime": "約50分",
+        "tips": "野菜が肉の脂を吸って絶品の付け合わせになります。炉内の温度が高い場合は焦げに注意してください。"
+    },
+    {
+        "id": "skillet-crispy-pizza",
+        "name": "スキレットで作るクリスピーピザ",
+        "meal": "lunch",
+        "servings": 2,
+        "difficulty": "easy",
+        "season": [
+            "all"
+        ],
+        "calories": "約400kcal",
+        "activeTime": "10分",
+        "cleanupLevel": 2,
+        "prePrep": false,
+        "cost": "mid",
+        "description": "400℃を超える炉内は石窯と同じ環境。蓄熱性の高いスキレットでお店のような焼き上がりになる。",
+        "ingredients": [
+            "ピザ生地 (1枚)",
+            "ピザソース (適量)",
+            "モッツァレラチーズ (適量)",
+            "バジル (適量)",
+            "ミニトマト (3個)"
+        ],
+        "requiredGear": [
+            "スキレット"
+        ],
+        "usedGearIds": [
+            "skillet"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "スキレットを炉内に入れカンカンに予熱する。",
+            "取り出して生地と具材を素早く乗せ、再度炉内に入れる。",
+            "チーズが溶けて生地の縁に焦げ目がつくまで3〜5分焼く。"
+        ],
+        "cookTime": "約5分",
+        "tips": "スキレットを予熱しておくことで、底がベチャつかずパリッと仕上がります。"
+    },
+    {
+        "id": "spicy-hot-wine",
+        "name": "スパイス香るホットワイン",
+        "meal": "dinner",
+        "servings": 2,
+        "difficulty": "easy",
+        "season": [
+            "winter"
+        ],
+        "calories": "約120kcal",
+        "activeTime": "5分",
+        "cleanupLevel": 1,
+        "prePrep": false,
+        "cost": "mid",
+        "description": "ストーブトップで温めるだけの簡単ドリンク。オレンジとスパイスの香りで体が芯から温まる。",
+        "ingredients": [
+            "赤ワイン (300ml)",
+            "オレンジ (2枚)",
+            "シナモンスティック (1本)",
+            "スターアニス (1個)",
+            "蜂蜜 (大さじ1)"
+        ],
+        "requiredGear": [
+            "小鍋またはチタンポット"
+        ],
+        "usedGearIds": [
+            "titanium-pot"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "全ての材料をポットに入れる。",
+            "ストーブ天板の弱熱ゾーン（端の方）に置き、沸騰させないようにじっくり温める。",
+            "湯気が立ち、香りがしてきたら飲み頃。"
+        ],
+        "cookTime": "約15分",
+        "tips": "沸騰させるとアルコールと香りが飛ぶため、天板の端でゆっくり管理するのがコツです。"
+    },
+    {
+        "id": "pot-au-feu-woodstove",
+        "name": "薪ストーブ・ポトフ",
+        "meal": "dinner",
+        "servings": 2,
+        "difficulty": "easy",
+        "season": [
+            "winter",
+            "autumn"
+        ],
+        "calories": "約350kcal",
+        "activeTime": "15分",
+        "cleanupLevel": 2,
+        "prePrep": false,
+        "cost": "mid",
+        "description": "丸ごと野菜の見た目が豪華な冬の定番。長時間放置するだけで甘みが引き出される。",
+        "ingredients": [
+            "ブロックベーコン (100g)",
+            "キャベツ (1/4玉)",
+            "じゃがいも (2個)",
+            "玉ねぎ (1個)",
+            "コンソメ (2個)"
+        ],
+        "requiredGear": [
+            "ダッチオーブン"
+        ],
+        "usedGearIds": [
+            "bottom-wide-cooker"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "野菜とベーコンを大きめにカットし、鍋に入れる。",
+            "ひたひたの水とコンソメを加え、ストーブ天板の端でじっくり煮込む。",
+            "野菜が柔らかくなるまで1時間以上放置するとより美味しくなる。"
+        ],
+        "cookTime": "約60分",
+        "tips": "翌朝は残ったスープにカレールーを溶かせば、絶品のリメイクカレーになります。"
+    },
+    {
+        "id": "beef-stew-red-wine",
+        "name": "赤ワイン煮込みビーフシチュー",
+        "meal": "dinner",
+        "servings": 2,
+        "difficulty": "normal",
+        "season": [
+            "winter"
+        ],
+        "calories": "約550kcal",
+        "activeTime": "20分",
+        "cleanupLevel": 2,
+        "prePrep": true,
+        "cost": "high",
+        "description": "濃厚な色合いが冬の雪景色に映える一品。薪ストーブの安定した熱で肉がホロホロに。",
+        "ingredients": [
+            "牛すね肉 (300g)",
+            "赤ワイン (200ml)",
+            "玉ねぎ (1個)",
+            "デミグラスソース缶 (1缶)",
+            "バター (10g)"
+        ],
+        "requiredGear": [
+            "鋳鉄鍋"
+        ],
+        "usedGearIds": [
+            "bottom-wide-cooker"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "肉の表面を天板の強火ゾーンで焼き、赤ワインを加える。",
+            "野菜とソースを加え、天板の弱火ゾーンに移動させて2時間ほど煮込む。",
+            "最後にバターを溶かしてコクを出す。"
+        ],
+        "cookTime": "約120分",
+        "tips": "肉を焼くときは天板の中央、煮込むときは端と、場所を使い分けるのが薪ストーブ調理の基本です。"
+    },
+    {
+        "id": "mestin-sukiyaki",
+        "name": "メスティンすき焼き",
+        "meal": "dinner",
+        "servings": 2,
+        "difficulty": "normal",
+        "season": [
+            "winter"
+        ],
+        "calories": "約500kcal",
+        "activeTime": "15分",
+        "cleanupLevel": 2,
+        "prePrep": false,
+        "cost": "high",
+        "description": "具材を整列させた断面が美しい、ペアでつつくのに最適な鍋料理。",
+        "ingredients": [
+            "牛肉薄切り (200g)",
+            "焼き豆腐 (1/2丁)",
+            "長ねぎ (1/2本)",
+            "春菊 (適量)",
+            "割り下 (適量)"
+        ],
+        "requiredGear": [
+            "ラージメスティン"
+        ],
+        "usedGearIds": [
+            "mestin"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "メスティンに具材をきれいに並べ、割り下を注ぐ。",
+            "天板に乗せ、グツグツしてきたら肉に火を通す。",
+            "アルミの熱伝導を活かし、全体が均一に温まったら完成。"
+        ],
+        "cookTime": "約15分",
+        "tips": "メスティンは四角いので具材が詰めやすく、見た目が整いやすいです。"
+    },
+    {
+        "id": "skillet-nachos",
+        "name": "スキレット・ナチョス",
+        "meal": "lunch",
+        "servings": 2,
+        "difficulty": "easy",
+        "season": [
+            "all"
+        ],
+        "calories": "約400kcal",
+        "activeTime": "5分",
+        "cleanupLevel": 2,
+        "prePrep": false,
+        "cost": "mid",
+        "description": "とろけるチーズのシズル感がたまらない、冬のペアキャンプのおつまみランチ。",
+        "ingredients": [
+            "トルティーヤチップス (1袋)",
+            "シュレッドチーズ (100g)",
+            "サルサソース (適量)",
+            "ハラペーニョ (適量)"
+        ],
+        "requiredGear": [
+            "スキレット"
+        ],
+        "usedGearIds": [
+            "skillet"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "スキレットにチップスを山盛りにし、チーズをたっぷりかける。",
+            "アルミホイルで蓋をし、天板または炉内に入れてチーズを溶かす。",
+            "仕上げにサルサソースをトッピングする。"
+        ],
+        "cookTime": "約10分",
+        "tips": "鋳鉄の蓄熱性で、寒い外気でもチーズが固まりにくいのがメリットです。"
+    },
+    {
+        "id": "samgyetang-chicken",
+        "name": "鶏手羽元のサムゲタン風",
+        "meal": "dinner",
+        "servings": 2,
+        "difficulty": "easy",
+        "season": [
+            "winter"
+        ],
+        "calories": "約400kcal",
+        "activeTime": "10分",
+        "cleanupLevel": 2,
+        "prePrep": false,
+        "cost": "low",
+        "description": "骨から外れるほど柔らかい鶏肉。生姜の効果で体の芯から発汗を促す。",
+        "ingredients": [
+            "鶏手羽元 (6本)",
+            "長ねぎ (1本)",
+            "生姜 (1片)",
+            "ニンニク (1片)",
+            "生米 (大さじ2)"
+        ],
+        "requiredGear": [
+            "深鍋"
+        ],
+        "usedGearIds": [
+            "bottom-wide-cooker"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "材料をすべて鍋に入れ、たっぷりの水を注ぐ。",
+            "天板の弱火ゾーンで肉がホロホロになるまでじっくり煮込む。",
+            "塩胡椒で味を整える。"
+        ],
+        "cookTime": "約90分",
+        "tips": "翌朝はお米が水分を吸ってお粥になるため、少しお湯を足すと最高の朝食になります。"
+    },
+    {
+        "id": "hot-sandwich-maker-breakfast",
+        "name": "断面が美しいホットサンド",
+        "meal": "breakfast",
+        "servings": 1,
+        "difficulty": "easy",
+        "season": [
+            "all"
+        ],
+        "calories": "約350kcal",
+        "activeTime": "5分",
+        "cleanupLevel": 1,
+        "prePrep": false,
+        "cost": "low",
+        "description": "寒い朝の定番。密閉調理で中まで熱々に仕上がる。",
+        "ingredients": [
+            "食パン (2枚)",
+            "ハム (2枚)",
+            "スライスチーズ (1枚)",
+            "マヨネーズ (少々)"
+        ],
+        "requiredGear": [
+            "ホットサンドメーカー"
+        ],
+        "usedGearIds": [
+            "iron-plate"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "パンに具材を挟み、ホットサンドメーカーを天板に乗せる。",
+            "片面3分ずつ、焼き色がつくまでひっくり返しながら焼く。",
+            "炉内の熾火に直接かざすとよりスピーディーに焼ける。"
+        ],
+        "cookTime": "約8分",
+        "tips": "半分に切った時の「萌え断」を意識して具材を重ねると写真映えします。"
+    },
+    {
+        "id": "chili-con-carne-stove",
+        "name": "薪ストーブで作るチリコンカン",
+        "meal": "dinner",
+        "servings": 2,
+        "difficulty": "normal",
+        "season": [
+            "winter",
+            "autumn"
+        ],
+        "calories": "約450kcal",
+        "activeTime": "15分",
+        "cleanupLevel": 2,
+        "prePrep": true,
+        "cost": "mid",
+        "description": "スパイスの刺激と豆の甘みが寒い夜に染み渡る。ストーブ天板でじっくり煮込むほど味が馴染みます。",
+        "ingredients": [
+            "牛豚合挽き肉 (200g)",
+            "ミックスビーンズ缶 (1缶)",
+            "玉ねぎ (1/2個)",
+            "カットトマト缶 (1/2缶)",
+            "チリパウダー (大さじ1)"
+        ],
+        "requiredGear": [
+            "深型スキレットまたは小鍋"
+        ],
+        "usedGearIds": [
+            "skillet"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "玉ねぎと挽き肉を炒め、色が変わったらスパイスを加える。",
+            "トマト缶と豆を入れ、ストーブ天板の弱熱ゾーンで水分が飛ぶまで煮込む。",
+            "塩胡椒で味を整え、お好みでチーズを散らす。"
+        ],
+        "cookTime": "約40分",
+        "tips": "クラッカーやトルティーヤチップスに乗せると、最高のおつまみになります。"
+    },
+    {
+        "id": "baked-apple-furnace",
+        "name": "炉内の熱々焼きリンゴ",
+        "meal": "dessert",
+        "servings": 1,
+        "difficulty": "easy",
+        "season": [
+            "winter"
+        ],
+        "calories": "約250kcal",
+        "activeTime": "10分",
+        "cleanupLevel": 1,
+        "prePrep": false,
+        "cost": "low",
+        "description": "薪ストーブの炉内に放り込むだけ。果汁とバターが溶け合う、冬キャンプ究極のデザート。",
+        "ingredients": [
+            "リンゴ (1個)",
+            "バター (10g)",
+            "砂糖 (大さじ1)",
+            "シナモンパウダー (適量)"
+        ],
+        "requiredGear": [
+            "アルミホイル"
+        ],
+        "usedGearIds": [
+            "none"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "リンゴの芯をスプーンでくり抜く（底は突き抜けないように）。",
+            "穴にバター、砂糖、シナモンを詰め、アルミホイルで二重に包む。",
+            "熾火のそばに置き、20〜30分じっくり焼く。"
+        ],
+        "cookTime": "約30分",
+        "tips": "焼き上がりにバニラアイスを添えると、レストランのような一皿になります。"
+    },
+    {
+        "id": "clam-chowder-pot",
+        "name": "濃厚クラムチャウダー",
+        "meal": "lunch",
+        "servings": 3,
+        "difficulty": "normal",
+        "season": [
+            "winter",
+            "spring"
+        ],
+        "calories": "約380kcal",
+        "activeTime": "15分",
+        "cleanupLevel": 2,
+        "prePrep": false,
+        "cost": "mid",
+        "description": "白い湯気が食欲をそそる。あさりの旨味と牛乳のコクで、冷えた体が内側から温まります。",
+        "ingredients": [
+            "あさりむき身 (100g)",
+            "じゃがいも (1個)",
+            "人参 (1/2本)",
+            "牛乳 (300ml)",
+            "ホワイトソース缶 (1/2缶)"
+        ],
+        "requiredGear": [
+            "ダッチオーブンまたは深鍋"
+        ],
+        "usedGearIds": [
+            "bottom-wide-cooker"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "野菜を1cm角に切り、バターで炒める。",
+            "水少々とあさりを加え、天板で野菜が柔らかくなるまで煮る。",
+            "牛乳とホワイトソースを加え、沸騰させないように弱火ゾーンで温める。"
+        ],
+        "cookTime": "約25分",
+        "tips": "パンを浸して食べると、これだけで満足感のあるランチになります。"
+    },
+    {
+        "id": "cheese-fondue-skillet",
+        "name": "薪ストーブ・チーズフォンデュ",
+        "meal": "dinner",
+        "servings": 2,
+        "difficulty": "easy",
+        "season": [
+            "winter",
+            "autumn",
+            "spring"
+        ],
+        "calories": "約550kcal",
+        "activeTime": "5分",
+        "cleanupLevel": 3,
+        "prePrep": false,
+        "cost": "mid",
+        "description": "天板の上で常にトロトロ。色とりどりの野菜やパンをディップして楽しむ、会話が弾むメニュー。",
+        "ingredients": [
+            "ピザ用チーズ (200g)",
+            "片栗粉 (小さじ1)",
+            "白ワイン (50ml)",
+            "バゲット (適量)",
+            "温野菜 (ブロッコリー等)"
+        ],
+        "requiredGear": [
+            "小型スキレットまたはシェラカップ"
+        ],
+        "usedGearIds": [
+            "skillet"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "スキレットにチーズと片栗粉を入れて混ぜ、白ワインを加える。",
+            "天板の弱火ゾーンに置き、かき混ぜながら溶かす。",
+            "チーズが滑らかになったら、好きな具材を絡めて食べる。"
+        ],
+        "cookTime": "約15分",
+        "tips": "白ワインの代わりに牛乳を使えば、お子様でも安心して食べられます。"
+    },
+    {
+        "id": "garlic-shrimp-iron-plate",
+        "name": "鉄板ガーリックシュリンプ",
+        "meal": "lunch",
+        "servings": 2,
+        "difficulty": "easy",
+        "season": [
+            "summer",
+            "spring",
+            "autumn"
+        ],
+        "calories": "約320kcal",
+        "activeTime": "10分",
+        "cleanupLevel": 2,
+        "prePrep": true,
+        "cost": "high",
+        "description": "ニンニクの香りがキャンプ場に広がる。強火の天板で一気に焼き上げるハワイアン気分の一品。",
+        "ingredients": [
+            "殻付き海老 (10匹)",
+            "ニンニクみじん切り (2片分)",
+            "オリーブオイル (大さじ3)",
+            "レモン (1/4個)",
+            "マジックソルト (適量)"
+        ],
+        "requiredGear": [
+            "鉄板またはスキレット"
+        ],
+        "usedGearIds": [
+            "iron-plate"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "海老にニンニクとオイル、塩をまぶして30分ほど置いておく。",
+            "天板の強火ゾーンで予熱した鉄板に海老を並べる。",
+            "両面が赤く、カリッとなるまで焼いてレモンを絞る。"
+        ],
+        "cookTime": "約10分",
+        "tips": "殻ごとバリバリ食べるのが醍醐味。背わたは事前に取っておくと口当たりが良くなります。"
+    },
+    {
+        "id": "mushroom-risotto-mestin",
+        "name": "3種のきのこリゾット",
+        "meal": "dinner",
+        "servings": 1,
+        "difficulty": "normal",
+        "season": [
+            "autumn",
+            "winter"
+        ],
+        "calories": "約520kcal",
+        "activeTime": "10分",
+        "cleanupLevel": 2,
+        "prePrep": false,
+        "cost": "low",
+        "description": "メスティンで作る、きのことチーズの濃厚な味わい。冬の夜にふさわしい贅沢な主食。",
+        "ingredients": [
+            "お米 (1合)",
+            "しめじ・エリンギ・舞茸 (各適量)",
+            "コンソメ (1個)",
+            "パルメザンチーズ (大さじ2)",
+            "バター (10g)"
+        ],
+        "requiredGear": [
+            "メスティン"
+        ],
+        "usedGearIds": [
+            "mestin"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "お米ときのこをバターで炒め、透き通ってきたら水とコンソメを加える。",
+            "蓋をせず、時々かき混ぜながら天板の上で煮る。",
+            "水分が減りお米に芯が少し残る程度になったらチーズを混ぜる。"
+        ],
+        "cookTime": "約20分",
+        "tips": "かき混ぜることでお米から粘りが出て、よりクリーミーに仕上がります。"
+    },
+    {
+        "id": "honey-mustard-pork",
+        "name": "ハニーマスタード・ポーク",
+        "meal": "dinner",
+        "servings": 2,
+        "difficulty": "easy",
+        "season": [
+            "all"
+        ],
+        "calories": "約650kcal",
+        "activeTime": "10分",
+        "cleanupLevel": 2,
+        "prePrep": false,
+        "cost": "high",
+        "description": "甘酸っぱいソースが豚肉の脂と絶妙にマッチ。スキレットで焼く断面のシズル感が最高です。",
+        "ingredients": [
+            "豚肩ロースステーキ肉 (2枚)",
+            "粒マスタード (大さじ1)",
+            "蜂蜜 (大さじ1)",
+            "醤油 (小さじ1)"
+        ],
+        "requiredGear": [
+            "スキレット"
+        ],
+        "usedGearIds": [
+            "skillet"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "豚肉に塩胡椒し、天板で熱したスキレットで両面をしっかり焼く。",
+            "混ぜ合わせた調味料を投入し、肉に絡める。",
+            "ソースが少し煮詰まって照りが出たら完成。"
+        ],
+        "cookTime": "約15分",
+        "tips": "ソースは焦げやすいため、肉に火が通ったら最後に入れるのがコツです。"
+    },
+    {
+        "id": "minestrone-winter-veg",
+        "name": "冬野菜の具だくさんミネストローネ",
+        "meal": "breakfast",
+        "servings": 2,
+        "difficulty": "easy",
+        "season": [
+            "winter",
+            "autumn"
+        ],
+        "calories": "約180kcal",
+        "activeTime": "15分",
+        "cleanupLevel": 1,
+        "prePrep": true,
+        "cost": "low",
+        "description": "朝の冷えた体に優しい。昨晩の残り野菜を全部入れて、ストーブでコトコト煮込むだけ。",
+        "ingredients": [
+            "ベーコン (2枚)",
+            "キャベツ (1枚)",
+            "人参 (1/4本)",
+            "トマトジュース (200ml)",
+            "コンソメ (1個)"
+        ],
+        "requiredGear": [
+            "小鍋"
+        ],
+        "usedGearIds": [
+            "titanium-pot"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "具材をすべて1cm角にカットする。",
+            "鍋に具材とトマトジュース、水を入れ、天板の端に置く。",
+            "着替えや片付けをしている間に、野菜が柔らかくなるまで放置。"
+        ],
+        "cookTime": "約30分",
+        "tips": "ショートパスタ（マカロニ等）を入れると、ボリュームのある朝食になります。"
+    },
+    {
+        "id": "french-toast-iron",
+        "name": "極厚フレンチトースト",
+        "meal": "breakfast",
+        "servings": 1,
+        "difficulty": "normal",
+        "season": [
+            "all"
+        ],
+        "calories": "約420kcal",
+        "activeTime": "10分",
+        "cleanupLevel": 2,
+        "prePrep": true,
+        "cost": "low",
+        "description": "厚切りのパンにじゅわっと染み込んだ卵液。スキレットで焼く香ばしさはキャンプならでは。",
+        "ingredients": [
+            "食パン厚切り (1枚)",
+            "卵 (1個)",
+            "牛乳 (100ml)",
+            "砂糖 (大さじ1)",
+            "バター (10g)"
+        ],
+        "requiredGear": [
+            "スキレットまたは鉄板"
+        ],
+        "usedGearIds": [
+            "skillet"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "卵、牛乳、砂糖を混ぜた液にパンを浸す（ジップロックが便利）。",
+            "天板でバターを溶かしたスキレットに乗せ、弱火でじっくり焼く。",
+            "両面がこんがり黄金色になったら完成。"
+        ],
+        "cookTime": "約15分",
+        "tips": "前日の夜から浸しておくと、中までトロトロのプロの味になります。"
+    },
+    {
+        "id": "oden-wood-stove",
+        "name": "薪ストーブおでん",
+        "meal": "dinner",
+        "servings": 4,
+        "difficulty": "easy",
+        "season": [
+            "winter"
+        ],
+        "calories": "約300kcal",
+        "activeTime": "10分",
+        "cleanupLevel": 2,
+        "prePrep": false,
+        "cost": "low",
+        "description": "冬キャンプの代名詞。ストーブの上で一日中温めておける、究極の「ほったらかし飯」。",
+        "ingredients": [
+            "おでん種セット (1パック)",
+            "大根 (厚切り2個)",
+            "ゆで卵 (2個)",
+            "おでん出汁 (適量)"
+        ],
+        "requiredGear": [
+            "深鍋"
+        ],
+        "usedGearIds": [
+            "bottom-wide-cooker"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "大根は事前に下茹で（またはレンジ加熱）しておくと時短になる。",
+            "すべての材料を鍋に入れ、天板の端（弱熱ゾーン）に置く。",
+            "数時間放置し、具材に出汁の色が染み込んだら食べ頃。"
+        ],
+        "cookTime": "約60分〜",
+        "tips": "冷え込む夜、常に熱々のおでんが横にある安心感は格別です。"
+    },
+    {
+        "id": "carbonara-one-pot",
+        "name": "ワンパン・カルボナーラ",
+        "meal": "lunch",
+        "servings": 1,
+        "difficulty": "normal",
+        "season": [
+            "all"
+        ],
+        "calories": "約600kcal",
+        "activeTime": "15分",
+        "cleanupLevel": 2,
+        "prePrep": false,
+        "cost": "mid",
+        "description": "別茹で不要！フライパン一つで仕上げる濃厚パスタ。洗い物が少ないのが嬉しいポイント。",
+        "ingredients": [
+            "パスタ (100g)",
+            "ベーコン (30g)",
+            "卵黄 (1個)",
+            "粉チーズ (大さじ2)",
+            "牛乳 (200ml)"
+        ],
+        "requiredGear": [
+            "フライパンまたはスキレット"
+        ],
+        "usedGearIds": [
+            "skillet"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "半分に折ったパスタと水、牛乳をフライパンに入れ、天板で加熱する。",
+            "水分を吸わせながらアルデンテまで煮詰める。",
+            "火から下ろし、卵黄とチーズを素早く混ぜ合わせて予熱で仕上げる。"
+        ],
+        "cookTime": "約15分",
+        "tips": "火を通しすぎると卵が固まるので、必ずストーブから下ろして混ぜるのがコツ。"
+    },
+    {
+        "id": "beef-tendon-stew",
+        "name": "牛すじの土手煮風",
+        "meal": "dinner",
+        "servings": 2,
+        "difficulty": "normal",
+        "season": [
+            "winter"
+        ],
+        "calories": "約400kcal",
+        "activeTime": "20分",
+        "cleanupLevel": 3,
+        "prePrep": true,
+        "cost": "mid",
+        "description": "薪ストーブの「長時間加熱」を最大限に活かす。トロトロに溶けた牛すじはお酒が止まりません。",
+        "ingredients": [
+            "牛すじ肉 (200g)",
+            "こんにゃく (1/2枚)",
+            "味噌 (大さじ2)",
+            "みりん (大さじ1)",
+            "生姜 (1片)"
+        ],
+        "requiredGear": [
+            "蓋付きの重い鍋"
+        ],
+        "usedGearIds": [
+            "bottom-wide-cooker"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "牛すじを一度茹でこぼし、アクを取る。",
+            "新しい水、生姜、調味料と一緒に鍋に入れ、天板の端で2時間以上煮込む。",
+            "汁気が半分くらいになり、肉が箸で切れるようになったら完成。"
+        ],
+        "cookTime": "約120分",
+        "tips": "時間はかかりますが、ストーブに乗せておくだけ。焚き火を眺めながら待ちましょう。"
+    },
+    {
+        "id": "skillet-gyoza",
+        "name": "スキレット羽付き餃子",
+        "meal": "lunch",
+        "servings": 2,
+        "difficulty": "easy",
+        "season": [
+            "all"
+        ],
+        "calories": "約400kcal",
+        "activeTime": "10分",
+        "cleanupLevel": 2,
+        "prePrep": false,
+        "cost": "low",
+        "description": "鋳鉄の強力な熱で、底はパリパリ、中は肉汁たっぷり。見た目も賑やかなキャンプ飯。",
+        "ingredients": [
+            "冷凍餃子 (12個)",
+            "片栗粉 (小さじ1)",
+            "水 (50ml)",
+            "ごま油 (少々)"
+        ],
+        "requiredGear": [
+            "スキレット",
+            "蓋"
+        ],
+        "usedGearIds": [
+            "skillet"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "油を引いたスキレットに餃子を並べ、天板に乗せる。",
+            "片栗粉水を回し入れ、蓋をして蒸し焼きにする。",
+            "水分が飛んだら蓋を取り、ごま油を垂らして焼き色をつける。"
+        ],
+        "cookTime": "約10分",
+        "tips": "冷凍餃子を使えば失敗がなく、保冷剤代わりにもなるので便利です。"
+    },
+    {
+        "id": "cabbage-roll-soup",
+        "name": "薪ストーブ・ロールキャベツ",
+        "meal": "dinner",
+        "servings": 2,
+        "difficulty": "easy",
+        "season": [
+            "winter",
+            "autumn"
+        ],
+        "calories": "約250kcal",
+        "activeTime": "10分",
+        "cleanupLevel": 2,
+        "prePrep": false,
+        "cost": "mid",
+        "description": "コンソメスープでじっくり煮込まれたキャベツの甘み。優しい味が冬のキャンプにマッチします。",
+        "ingredients": [
+            "ロールキャベツ（市販可） (4個)",
+            "玉ねぎ (1/4個)",
+            "コンソメ (1個)",
+            "ミニトマト (4個)"
+        ],
+        "requiredGear": [
+            "中鍋"
+        ],
+        "usedGearIds": [
+            "bottom-wide-cooker"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "鍋にロールキャベツとスライスした玉ねぎ、コンソメ、水を入れる。",
+            "天板の中温ゾーンでコトコト煮込む。",
+            "キャベツが透明感をおびて柔らかくなったら完成。"
+        ],
+        "cookTime": "約40分",
+        "tips": "市販の冷凍ロールキャベツを使えば、下準備ゼロで煮込むだけになります。"
+    },
+    {
+        "id": "korean-kimchi-nabe",
+        "name": "旨辛キムチチゲ",
+        "meal": "dinner",
+        "servings": 2,
+        "difficulty": "easy",
+        "season": [
+            "winter"
+        ],
+        "calories": "約480kcal",
+        "activeTime": "15分",
+        "cleanupLevel": 2,
+        "prePrep": false,
+        "cost": "mid",
+        "description": "薪ストーブの熱と唐辛子の相乗効果で、汗ばむほど温まる。冬キャンプの定番鍋。",
+        "ingredients": [
+            "豚バラ肉 (100g)",
+            "キムチ (150g)",
+            "豆腐 (1/2丁)",
+            "ニラ (少々)",
+            "コチュジャン (大さじ1)"
+        ],
+        "requiredGear": [
+            "深鍋またはメスティン"
+        ],
+        "usedGearIds": [
+            "bottom-wide-cooker"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "豚肉とキムチを鍋で軽く炒め、香りを出す。",
+            "水と豆腐を加え、天板でグツグツ煮込む。",
+            "仕上げにニラを乗せ、ひと煮立ちさせる。"
+        ],
+        "cookTime": "約20分",
+        "tips": "シメにサリ麺（韓国のラーメン）を入れると、スープを最後まで楽しめます。"
+    },
+    {
+        "id": "potato-gratin-dutch",
+        "name": "ダッチオーブン・ポテトグラタン",
+        "meal": "dinner",
+        "servings": 2,
+        "difficulty": "normal",
+        "season": [
+            "winter"
+        ],
+        "calories": "約550kcal",
+        "activeTime": "20分",
+        "cleanupLevel": 3,
+        "prePrep": true,
+        "cost": "mid",
+        "description": "ホクホクのじゃがいもにホワイトソースが絡む。ストーブの炉内で焼き色をつけて仕上げます。",
+        "ingredients": [
+            "じゃがいも (2個)",
+            "ベーコン (2枚)",
+            "ホワイトソース缶 (1缶)",
+            "シュレッドチーズ (50g)"
+        ],
+        "requiredGear": [
+            "ダッチオーブンまたは耐熱皿"
+        ],
+        "usedGearIds": [
+            "bottom-wide-cooker"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "薄切りにしたじゃがいもとベーコンを交互に並べる。",
+            "ソースをかけ、天板で加熱してじゃがいもに火を通す。",
+            "最後にチーズをのせ、鍋ごと炉内に入れて表面を焼き上げる。"
+        ],
+        "cookTime": "約40分",
+        "tips": "炉内に入れる際は、火力が強すぎない「熾火」の状態で行うのがコツ。"
+    },
+    {
+        "id": "hot-sand-meat-sauce",
+        "name": "余り物ミートソースのホットサンド",
+        "meal": "breakfast",
+        "servings": 1,
+        "difficulty": "easy",
+        "season": [
+            "all"
+        ],
+        "calories": "約400kcal",
+        "activeTime": "5分",
+        "cleanupLevel": 1,
+        "prePrep": false,
+        "cost": "low",
+        "description": "前日のパスタソースをリメイク。とろけるチーズと合わさって、最高にリッチな朝食に。",
+        "ingredients": [
+            "食パン (2枚)",
+            "残ったミートソース (大さじ3)",
+            "スライスチーズ (1枚)"
+        ],
+        "requiredGear": [
+            "ホットサンドメーカー"
+        ],
+        "usedGearIds": [
+            "iron-plate"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "パンにチーズとソースを乗せ、もう一枚のパンで挟む。",
+            "ホットサンドメーカーを天板に乗せ、両面をこんがり焼く。",
+            "ストーブの熱が強ければ、数分でサクサクになります。"
+        ],
+        "cookTime": "約5分",
+        "tips": "ソースがはみ出さないよう、中央に寄せて乗せるのがポイントです。"
+    },
+    {
+        "id": "shrimp-ahijo-mestin",
+        "name": "メスティン・アヒージョ",
+        "meal": "dinner",
+        "servings": 2,
+        "difficulty": "easy",
+        "season": [
+            "all"
+        ],
+        "calories": "約450kcal",
+        "activeTime": "10分",
+        "cleanupLevel": 3,
+        "prePrep": false,
+        "cost": "mid",
+        "description": "おつまみの王道。余ったオイルは翌朝のパスタやパンに使える、無駄のないキャンプ飯。",
+        "ingredients": [
+            "むき海老 (8匹)",
+            "マッシュルーム (4個)",
+            "オリーブオイル (100ml)",
+            "鷹の爪・ニンニク (各適量)"
+        ],
+        "requiredGear": [
+            "メスティンまたは小型スキレット"
+        ],
+        "usedGearIds": [
+            "mestin"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "メスティンにオイル、ニンニク、鷹の爪を入れ、天板で加熱する。",
+            "香りが立ったら海老とマッシュルームを入れる。",
+            "具材に火が通り、オイルがグツグツしたら完成。"
+        ],
+        "cookTime": "約10分",
+        "tips": "ブロッコリーやパプリカを入れると彩りがさらに良くなります。"
+    },
+    {
+        "id": "japanese-curry-simmer",
+        "name": "薪ストーブ・じっくりカレー",
+        "meal": "dinner",
+        "servings": 4,
+        "difficulty": "easy",
+        "season": [
+            "winter",
+            "autumn"
+        ],
+        "calories": "約700kcal",
+        "activeTime": "20分",
+        "cleanupLevel": 3,
+        "prePrep": true,
+        "cost": "mid",
+        "description": "天板の上で数時間。ゆっくり加熱された野菜の甘みが溶け出した、家庭では出せない味。",
+        "ingredients": [
+            "カレー角切り肉 (200g)",
+            "玉ねぎ (1個)",
+            "人参 (1本)",
+            "カレールー (1/2パック)"
+        ],
+        "requiredGear": [
+            "深鍋"
+        ],
+        "usedGearIds": [
+            "bottom-wide-cooker"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "肉と野菜を炒め、水を加えて天板の強火ゾーンで沸騰させる。",
+            "アクを取り、天板の端（弱火）に移動させて1時間以上放置。",
+            "一度火から下ろし、ルーを溶かしてから再び天板で少し煮込む。"
+        ],
+        "cookTime": "約90分〜",
+        "tips": "ストーブの天板が広い場合、隣でご飯も炊けば完璧な定食になります。"
+    },
+    {
+        "id": "marshmallow-smores",
+        "name": "焚き火スモア",
+        "meal": "dinner",
+        "servings": 2,
+        "difficulty": "easy",
+        "season": [
+            "all"
+        ],
+        "calories": "約250kcal",
+        "activeTime": "5分",
+        "cleanupLevel": 1,
+        "prePrep": false,
+        "cost": "low",
+        "description": "キャンプの締めくくりはこれ。炉内の火を眺めながら作る、甘い幸せのひととき。",
+        "ingredients": [
+            "マシュマロ (数個)",
+            "板チョコ (適量)",
+            "全粒粉ビスケット (数枚)"
+        ],
+        "requiredGear": [
+            "串"
+        ],
+        "usedGearIds": [
+            "none"
+        ],
+        "usedHeatSourceIds": [
+            "wood-stove"
+        ],
+        "steps": [
+            "マシュマロを串に刺し、炉内の熾火にかざして表面をきつね色にする。",
+            "チョコと一緒にビスケットで挟み、マシュマロの熱でチョコを溶かす。",
+            "サンドした状態で少し待ってから食べる。"
+        ],
+        "cookTime": "約5分",
+        "tips": "マシュマロを焦がさないよう、直火ではなく熾火（赤くなっている炭）の熱で焼くのが綺麗に仕上げるコツ。"
+    }
+]
