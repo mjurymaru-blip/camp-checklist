@@ -83,6 +83,7 @@ export interface Recipe {
   steps: string[];
   cookTime: string; // 全体の調理時間
   tips: string;
+  reason?: string; // 提案理由
 }
 
 // デフォルト調理器具リスト

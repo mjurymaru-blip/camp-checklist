@@ -7,10 +7,14 @@ interface GearStore {
     cookingGears: CookingGear[];
     heatSources: HeatSource[];
     geminiApiKey: string;
+    apiModel: string;
+    availableModels: string[];
 
     toggleGear: (id: string) => void;
     toggleHeatSource: (id: string) => void;
     setApiKey: (key: string) => void;
+    setApiModel: (model: string) => void;
+    setAvailableModels: (models: string[]) => void;
     validateApiKey: (key: string) => { valid: boolean; message: string };
 }
 
@@ -20,6 +24,8 @@ export const useGearStore = create<GearStore>()(
             cookingGears: DEFAULT_COOKING_GEARS,
             heatSources: DEFAULT_HEAT_SOURCES,
             geminiApiKey: '',
+            apiModel: 'gemini-1.5-flash',
+            availableModels: [], // 初期値は空、自動取得で埋まる
 
             toggleGear: (id) =>
                 set((state) => ({
@@ -36,6 +42,8 @@ export const useGearStore = create<GearStore>()(
                 })),
 
             setApiKey: (key) => set({ geminiApiKey: key.trim() }),
+            setApiModel: (model) => set({ apiModel: model }),
+            setAvailableModels: (models) => set({ availableModels: models }),
 
             validateApiKey: (key) => {
                 const trimmed = key.trim();

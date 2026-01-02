@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 
-const LIMIT_PER_DAY = 10;
+const LIMIT_PER_DAY = 30; // 制限緩和: 10 -> 30 (2段階生成のため)
 const STORAGE_KEY = 'camp_ai_usage_limit';
 
 interface UsageData {

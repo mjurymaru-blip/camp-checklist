@@ -1135,5 +1135,202 @@
     ],
     "cookTime": "5分",
     "tips": "マヨ七味が合います。"
+  },
+  {
+    "id": "mebaru-nitsuke",
+    "name": "メバルの煮付け",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "normal",
+    "season": [
+      "spring"
+    ],
+    "calories": "約250kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "春告げ魚と呼ばれるメバル。甘辛いタレが最高。",
+    "ingredients": [
+      "メバル",
+      "醤油",
+      "みりん",
+      "酒",
+      "砂糖",
+      "生姜"
+    ],
+    "requiredGear": [
+      "小鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "鍋に調味料と水を入れて煮立たせる。",
+      "メバルを入れて落とし蓋をし、煮汁をかけながら煮る。"
+    ],
+    "cookTime": "約20分",
+    "tips": "身が崩れやすいのであまり触らないこと。"
+  },
+  {
+    "id": "octopus-karaage",
+    "name": "タコの唐揚げ",
+    "meal": "snack",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "summer"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 3,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "ビール泥棒。揚げたて最高。",
+    "ingredients": [
+      "茹でタコ",
+      "片栗粉",
+      "醤油",
+      "ニンニク",
+      "生姜",
+      "揚げ油"
+    ],
+    "requiredGear": [
+      "深型クッカー"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "タコを一口大に切り、下味をつけて片栗粉をまぶす。",
+      "カラッと揚げる。"
+    ],
+    "cookTime": "約10分",
+    "tips": "油ハネに注意してください。"
+  },
+  {
+    "id": "kaisen-yakisoba",
+    "name": "海鮮塩焼きそば",
+    "meal": "lunch",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "summer"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "BBQの〆にも。レモンを搾ってさっぱりと。",
+    "ingredients": [
+      "焼きそば麺",
+      "シーフードミックス",
+      "キャベツ",
+      "ニラ",
+      "鶏がらスープの素",
+      "塩コショウ"
+    ],
+    "requiredGear": [
+      "鉄板",
+      "マルチグリドル"
+    ],
+    "usedGearIds": [
+      "iron-plate",
+      "griddle"
+    ],
+    "usedHeatSourceIds": [
+      "twin-burner"
+    ],
+    "steps": [
+      "具材と麺を炒め、調味料で味付けする。"
+    ],
+    "cookTime": "約15分",
+    "tips": "ごま油を最後に回しかけると香りが良いです。"
+  },
+  {
+    "id": "salmon-nanban",
+    "name": "鮭の南蛮漬け",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "autumn"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "野菜も一緒に食べられるヘルシーなメイン。",
+    "ingredients": [
+      "生鮭",
+      "玉ねぎ",
+      "人参",
+      "ピーマン",
+      "南蛮酢（酢・醤油・砂糖）",
+      "小麦粉"
+    ],
+    "requiredGear": [
+      "フライパン"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "鮭に粉をまぶして焼くか揚げる。",
+      "熱いうちに野菜と一緒に南蛮酢に漬ける。"
+    ],
+    "cookTime": "約20分（漬け込み除く）",
+    "tips": "前日に家で作って持っていくのが賢い選択。"
+  },
+  {
+    "id": "shrimp-mayo",
+    "name": "エビのマヨネーズ炒め",
+    "meal": "snack",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約400kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "みんな大好きエビマヨ。",
+    "ingredients": [
+      "むきエビ",
+      "マヨネーズ",
+      "ケチャップ",
+      "コンデンスミルク（または砂糖）"
+    ],
+    "requiredGear": [
+      "フライパン"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "エビを炒める。",
+      "調味料を混ぜたソースで和える。"
+    ],
+    "cookTime": "約10分",
+    "tips": "ソースに少し牛乳を入れるとまろやかになります。"
   }
 ]

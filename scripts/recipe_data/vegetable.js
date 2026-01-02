@@ -219,5 +219,60 @@ export const vegetableRecipes = [
         requiredGear: ['網'], usedGearIds: [], usedHeatSourceIds: ['bonfire'],
         steps: ['ネギをそのまま真っ黒になるまで焼く。', '皮を一枚剥いて中の白い部分を食べる。'],
         cookTime: '約20分', tips: 'カルソッツというスペインのお祭り料理です。'
+    },
+    {
+        id: 'yaki-edamame',
+        name: '焼き枝豆',
+        meal: 'snack', servings: 2, difficulty: 'easy', season: ['summer'],
+        calories: '約100kcal', activeTime: '10分', cleanupLevel: 1, prePrep: false, cost: 'low',
+        description: '茹でるより味が濃縮されてビールが進む。',
+        ingredients: ['枝豆', '塩', 'オリーブオイル'],
+        requiredGear: ['スキレット'], usedGearIds: ['skillet'], usedHeatSourceIds: ['single-burner'],
+        steps: ['枝豆を洗い、オリーブオイルと塩で揉む。', 'スキレットで焦げ目がつくまで焼く。'],
+        cookTime: '約10分', tips: 'ニンニクと一緒に炒めても最高。'
+    },
+    {
+        id: 'kyuri-ippon',
+        name: 'キュウリの一本漬け',
+        meal: 'snack', servings: 4, difficulty: 'easy', season: ['summer'],
+        calories: '約20kcal', activeTime: '5分', cleanupLevel: 1, prePrep: true, cost: 'low',
+        description: '夏祭りの味。割り箸に刺して。',
+        ingredients: ['キュウリ', '浅漬けの素', '和辛子'],
+        requiredGear: ['保存袋'], usedGearIds: [], usedHeatSourceIds: [],
+        steps: ['キュウリをピーラーで縞目に剥き、保存袋で漬ける。', '食べる直前に割り箸を刺す。'],
+        cookTime: '仕込み一晩', tips: 'クーラーボックスで冷やしておくのが最大のご馳走。'
+    },
+    {
+        id: 'yamaimo-butter',
+        name: '山芋のバター醤油焼き',
+        meal: 'snack', servings: 2, difficulty: 'easy', season: ['autumn', 'winter'],
+        calories: '約200kcal', activeTime: '10分', cleanupLevel: 1, prePrep: false, cost: 'low',
+        description: 'サクサクホクホク。居酒屋メニューをキャンプで。',
+        ingredients: ['山芋', 'バター', '醤油', '青のり'],
+        requiredGear: ['スキレット'], usedGearIds: ['skillet'], usedHeatSourceIds: ['single-burner'],
+        steps: ['山芋を厚めの輪切りにする。', 'バターでじっくり焼き、最後に醤油を焦がす。'],
+        cookTime: '約10分', tips: '皮付きのまま焼くと風味が良いです（ヒゲは炙って取る）。'
+    },
+    {
+        id: 'whole-piman',
+        name: '丸ごとピーマン焼き',
+        meal: 'snack', servings: 2, difficulty: 'easy', season: ['summer'],
+        calories: '約30kcal', activeTime: '10分', cleanupLevel: 1, prePrep: false, cost: 'low',
+        description: '種もワタも丸ごと食べる。苦くない！',
+        ingredients: ['ピーマン', '鰹節', 'ポン酢'],
+        requiredGear: ['網'], usedGearIds: [], usedHeatSourceIds: ['bonfire'],
+        steps: ['ピーマンを潰さないように丸ごと炭火で焼く。', 'しんなりしたら鰹節とポン酢で。'],
+        cookTime: '約10分', tips: '中のスープが熱いので注意して食べてください。'
+    },
+    {
+        id: 'cabbage-tuna-salad',
+        name: '無限キャベツ（ツナ缶ver）',
+        meal: 'snack', servings: 2, difficulty: 'easy', season: ['spring', 'summer', 'autumn', 'winter'],
+        calories: '約150kcal', activeTime: '5分', cleanupLevel: 1, prePrep: false, cost: 'low',
+        description: '火を使わないもう一品。',
+        ingredients: ['キャベツ', 'ツナ缶', 'マヨネーズ', '黒胡椒'],
+        requiredGear: ['ボウル'], usedGearIds: ['sierra-cup'], usedHeatSourceIds: [],
+        steps: ['千切りキャベツと油を切ったツナを和える。'],
+        cookTime: '5分', tips: 'コーンを入れても美味しい。'
     }
 ];

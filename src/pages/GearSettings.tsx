@@ -1,25 +1,52 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useGearStore } from '../stores/gearStore';
-import { testApiConnection } from '../services/geminiService';
+import { testApiConnection, fetchAvailableModels } from '../services/geminiService';
 
 export const GearSettings = () => {
     const {
         cookingGears,
         heatSources,
         geminiApiKey,
+        apiModel,
+        availableModels,
         toggleGear,
         toggleHeatSource,
         setApiKey,
+        setApiModel,
+        setAvailableModels,
         validateApiKey
     } = useGearStore();
 
     const [showApiKey, setShowApiKey] = useState(false);
     const [testStatus, setTestStatus] = useState<{ success?: boolean; message: string } | null>(null);
     const [isTesting, setIsTesting] = useState(false);
+    const [fetchingModels, setFetchingModels] = useState(false);
+    const [isManualInput, setIsManualInput] = useState(false);
+
+    // Auto-fetch models on mount if empty and API key exists
+    useEffect(() => {
+        const autoFetch = async () => {
+            const validation = validateApiKey(geminiApiKey);
+            if (geminiApiKey && validation.valid && availableModels.length === 0) {
+                await handleFetchModels();
+            }
+        };
+        autoFetch();
+    }, [geminiApiKey]);
 
     const handleApiKeyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setApiKey(e.target.value);
         setTestStatus(null);
+    };
+
+    const handleFetchModels = async () => {
+        if (!geminiApiKey) return;
+        setFetchingModels(true);
+        const models = await fetchAvailableModels(geminiApiKey);
+        if (models.length > 0) {
+            setAvailableModels(models);
+        }
+        setFetchingModels(false);
     };
 
     const handleTestConnection = async () => {
@@ -32,7 +59,7 @@ export const GearSettings = () => {
         setIsTesting(true);
         setTestStatus(null);
 
-        const result = await testApiConnection(geminiApiKey);
+        const result = await testApiConnection(geminiApiKey, apiModel);
         setTestStatus(result);
         setIsTesting(false);
     };
@@ -114,6 +141,97 @@ export const GearSettings = () => {
                             {testStatus.message}
                         </div>
                     )}
+                </div>
+            </div>
+
+
+
+
+
+            {/* モデル設定 */}
+            <div className="card card-static" style={{ marginTop: '16px' }}>
+                <div className="card-header">
+                    <div className="card-title">🤖 AIモデル設定</div>
+                </div>
+                <div style={{ padding: '0 16px 16px', display: 'flex', flexDirection: 'column', gap: 12 }}>
+                    <div style={{ fontSize: '0.8rem', color: '#666' }}>
+                        使用するGeminiモデルを指定できます。<br />
+                        デフォルト: <code>gemini-1.5-flash</code>
+                    </div>
+
+                    <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                        {isManualInput ? (
+                            <input
+                                type="text"
+                                value={apiModel}
+                                onChange={(e) => setApiModel(e.target.value)}
+                                placeholder="gemini-1.5-flash"
+                                style={{
+                                    flex: 1,
+                                    padding: '10px',
+                                    borderRadius: '8px',
+                                    border: '1px solid var(--color-border)',
+                                    fontSize: '0.875rem'
+                                }}
+                            />
+                        ) : (
+                            <select
+                                value={apiModel}
+                                onChange={(e) => setApiModel(e.target.value)}
+                                style={{
+                                    flex: 1,
+                                    padding: '10px',
+                                    borderRadius: '8px',
+                                    border: '1px solid var(--color-border)',
+                                    fontSize: '0.875rem',
+                                    background: 'white'
+                                }}
+                            >
+                                {/* 現在の設定値がリストにない場合、選択肢として追加表示 */}
+                                {!availableModels.includes(apiModel) && apiModel && (
+                                    <option value={apiModel}>{apiModel} (現在の設定)</option>
+                                )}
+                                {availableModels.map(m => (
+                                    <option key={m} value={m}>{m}</option>
+                                ))}
+                                {/* リストが空の場合のフォールバック */}
+                                {availableModels.length === 0 && (
+                                    <>
+                                        <option value="gemini-1.5-flash">gemini-1.5-flash (標準)</option>
+                                        <option value="gemini-1.5-pro">gemini-1.5-pro (高精度)</option>
+                                    </>
+                                )}
+                            </select>
+                        )}
+
+                        <button
+                            onClick={handleFetchModels}
+                            disabled={fetchingModels || !geminiApiKey}
+                            className="btn btn-secondary"
+                            style={{ fontSize: '1.2rem', padding: '0 12px' }}
+                            title="利用可能なモデルリストを更新"
+                        >
+                            {fetchingModels ? '...' : '🔄'}
+                        </button>
+                    </div>
+
+                    <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                        <button
+                            onClick={() => setIsManualInput(!isManualInput)}
+                            style={{
+                                background: 'none',
+                                border: 'none',
+                                color: 'var(--color-primary)',
+                                fontSize: '0.75rem',
+                                cursor: 'pointer',
+                                textDecoration: 'underline'
+                            }}
+                        >
+                            {isManualInput ? 'リストから選択' : '手動で入力する'}
+                        </button>
+                    </div>
+
+                    {fetchingModels && <span style={{ fontSize: '0.75rem' }}>モデルリスト取得中...</span>}
                 </div>
             </div>
 

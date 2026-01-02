@@ -1,15 +1,20 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useGearStore } from '../stores/gearStore';
-import { generateMenuSuggestion, getSeasonFromMonth } from '../services/geminiService';
+import { generateMainSuggestions, generateCourseBasedOnDinner, getSeasonFromMonth } from '../services/geminiService';
 import type { MenuRequest, Recipe } from '../types';
 import { useRateLimiter } from '../hooks/useRateLimiter';
 
 export const MenuSuggestion = () => {
-    const { geminiApiKey, cookingGears, heatSources } = useGearStore();
+    const { geminiApiKey, cookingGears, heatSources, apiModel } = useGearStore();
     const [loading, setLoading] = useState(false);
     const [allRecipes, setAllRecipes] = useState<Recipe[]>([]); // 全データ保持用
-    const [recipes, setRecipes] = useState<Recipe[]>([]); // 表示用（フィルタ反映後）
+    const [recipes, setRecipes] = useState<Recipe[]>([]); // 表示用（フィルタ反映後 or AI結果）
+
+    // 2段階フロー用ステート
+    const [suggestionStep, setSuggestionStep] = useState<'input' | 'dinner-selection' | 'result'>('input');
+    const [dinnerCandidates, setDinnerCandidates] = useState<Recipe[]>([]);
+    const [selectedDinner, setSelectedDinner] = useState<Recipe | null>(null);
 
     // 初回ロード時にレシピデータをフェッチ
     useEffect(() => {
@@ -158,6 +163,16 @@ export const MenuSuggestion = () => {
     // const filteredRecipes = recipes.filter(...) -> 削除
 
     const toggleFilter = (type: 'season' | 'difficulty' | 'cost', value: string) => {
+        // UI操作でフィルタを変更したら、入力モードに戻る（AI結果をクリアして検索モードへ）
+        if (suggestionStep !== 'input') {
+            if (window.confirm('現在のAI提案結果を破棄して検索モードに戻りますか？')) {
+                setSuggestionStep('input');
+                setRecipes([]);
+            } else {
+                return;
+            }
+        }
+
         setActiveFilters(prev => ({
             ...prev,
             [type]: prev[type] === value ? undefined : value
@@ -176,14 +191,14 @@ export const MenuSuggestion = () => {
         }
 
         // 2. ユーザー確認（誤操作防止）
-        if (!window.confirm(`AIを呼び出してメニューを生成しますか？\n（本日の残り回数: ${remaining} / ${limit}）`)) {
+        if (!window.confirm(`AIを呼び出して「夕食の候補」を生成しますか？\n（消費: 1回 / 本日の残り: ${remaining}回）`)) {
             return;
         }
 
         // 3. 回数消費
         incrementUsage();
 
-        // フィルタリング処理（既存ロジック）
+        // フィルタリング処理（既存ロジック）- 候補選定のコンテキスト用
         let candidates = recipes;
         if (candidates.length === 0 && allRecipes.length > 0) {
             candidates = allRecipes.filter(recipe => {
@@ -199,25 +214,88 @@ export const MenuSuggestion = () => {
 
         setLoading(true);
         setError(null);
-        setRecipes([]);
-        // 検索時はフィルタをリセット
+        setDinnerCandidates([]);
+        // 検索時はフィルタをリセットしない方が親切かもしれないが、AIモードに入るので一旦クリア
         setActiveFilters({});
 
         try {
-            const result = await generateMenuSuggestion(
+            // Step 1: 候補の生成 (夕食以外も対応)
+            const result = await generateMainSuggestions(
                 geminiApiKey,
                 request,
                 cookingGears,
                 heatSources,
-                candidates
+                candidates,
+                apiModel,
+                request.focus // mealType
             );
-            setRecipes(result);
+            setDinnerCandidates(result);
+            setSuggestionStep('dinner-selection');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         } catch (err) {
             console.error(err);
             setError(err instanceof Error ? err.message : '予期せぬエラーが発生しました');
         } finally {
             setLoading(false);
         }
+    };
+
+    const handleSelectCandidate = async (recipe: Recipe) => {
+        if (!geminiApiKey) return;
+
+        // 夕食の場合: フルコース生成へ (Step 2)
+        if (request.focus === 'dinner') {
+            // レート制限チェック
+            if (!checkLimit()) {
+                alert(`本日のAI利用上限に達しました。\n候補までは表示できましたが、フルコース生成はできませんでした。`);
+                return;
+            }
+            incrementUsage(); // Step 2 cost
+
+            setLoading(true);
+            setError(null);
+            setSelectedDinner(recipe);
+
+            try {
+                const candidates = allRecipes;
+                const courseRecipes = await generateCourseBasedOnDinner(
+                    geminiApiKey,
+                    recipe,
+                    request,
+                    cookingGears,
+                    heatSources,
+                    candidates,
+                    apiModel
+                );
+
+                const fullCourse = [recipe, ...courseRecipes];
+                const order = { breakfast: 1, lunch: 2, snack: 3, dinner: 4, dessert: 5 };
+                fullCourse.sort((a, b) => (order[a.meal] || 99) - (order[b.meal] || 99));
+
+                setRecipes(fullCourse);
+                setSuggestionStep('result');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            } catch (err) {
+                console.error(err);
+                setError(err instanceof Error ? err.message : '予期せぬエラーが発生しました');
+            } finally {
+                setLoading(false);
+            }
+        }
+        // 昼食・朝食の場合: そのまま完了
+        else {
+            setRecipes([recipe]);
+            setSelectedDinner(recipe); // 名前表示用（便宜上セット）
+            setSuggestionStep('result');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    };
+
+    const handleBackToInput = () => {
+        setSuggestionStep('input');
+        setDinnerCandidates([]);
+        setRecipes([]);
     };
 
 
@@ -231,7 +309,7 @@ export const MenuSuggestion = () => {
                 </NavLink>
             </div>
 
-            <div className="card card-static">
+            <div className="card card-static" style={{ display: suggestionStep === 'input' ? 'block' : 'none' }}>
                 <div className="card-header">
                     <div className="card-title">🍲 条件を設定</div>
                 </div>
@@ -288,6 +366,11 @@ export const MenuSuggestion = () => {
                     {/* 重点 */}
                     <div>
                         <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.875rem', fontWeight: 600 }}>メインの食事</label>
+                        <p style={{ fontSize: '0.8rem', color: '#666', marginBottom: '4px' }}>
+                            {request.focus === 'dinner'
+                                ? '※夕食は「フルコース提案」になります（AI消費: 2回）'
+                                : '※朝食・昼食は「単品提案」になります（AI消費: 1回）'}
+                        </p>
                         <div style={{ display: 'flex', gap: '8px' }}>
                             {(['breakfast', 'lunch', 'dinner'] as const).map(f => (
                                 <button
@@ -321,7 +404,7 @@ export const MenuSuggestion = () => {
                             className="btn btn-primary btn-full"
                             style={{ marginTop: '8px', height: '48px', fontSize: '1rem', fontWeight: 600 }}
                         >
-                            {loading ? 'AIが考え中...🍳' : '✨ この条件でAIに提案してもらう'}
+                            {loading ? 'AIが考え中...🍳' : `✨ 条件決定：${{ breakfast: '朝食', lunch: '昼食', dinner: '夕食' }[request.focus]}の候補を見る`}
                         </button>
                     ) : (
                         <div style={{ marginTop: '8px' }}>
@@ -340,6 +423,70 @@ export const MenuSuggestion = () => {
                 </div>
             </div>
 
+            {/* Step 2: 夕食選択画面 */}
+            {suggestionStep === 'dinner-selection' && (
+                <div style={{ animation: 'fadeIn 0.3s' }}>
+                    <div style={{ marginBottom: '16px' }}>
+                        <button onClick={handleBackToInput} className="btn btn-secondary" style={{ fontSize: '0.8rem' }}>
+                            ← 条件に戻る
+                        </button>
+                    </div>
+
+                    <h3 style={{ marginLeft: '8px', fontSize: '1.2rem', marginBottom: '16px' }}>
+                        🍽️ {{ breakfast: '朝食', lunch: '昼食', dinner: '夕食' }[request.focus]}の候補を選んでください
+                    </h3>
+                    {request.focus === 'dinner' ? (
+                        <p style={{ marginLeft: '8px', fontSize: '0.9rem', color: '#666', marginBottom: '24px' }}>
+                            選んだ料理に合わせて、明日の朝食やランチも提案します。
+                        </p>
+                    ) : (
+                        <p style={{ marginLeft: '8px', fontSize: '0.9rem', color: '#666', marginBottom: '24px' }}>
+                            気に入ったものを選んでください。
+                        </p>
+                    )}
+
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                        {dinnerCandidates.map((recipe, index) => (
+                            <div key={recipe.id || index} className="card" style={{ border: '2px solid transparent', transition: 'all 0.2s' }}>
+                                <div className="card-header" style={{ background: '#fff8e1', borderBottom: '1px solid #ffe0b2' }}>
+                                    <div className="card-title" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                                        <div>🌙 案{index + 1}: {recipe.name}</div>
+                                        <span style={{ fontSize: '0.75rem', background: '#fff', padding: '2px 8px', borderRadius: '12px', border: '1px solid #ddd' }}>
+                                            {recipe.cookTime}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div style={{ padding: '16px' }}>
+                                    <p style={{ margin: '0 0 12px', fontWeight: 'bold', color: '#e65100' }}>{recipe.description}</p>
+                                    {recipe.reason && <p style={{ fontSize: '0.85rem', color: '#666', marginBottom: '12px' }}>💡 {recipe.reason}</p>}
+
+                                    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '16px' }}>
+                                        {recipe.ingredients.slice(0, 5).map((ing, i) => (
+                                            <span key={i} style={{ fontSize: '0.75rem', background: '#f5f5f5', padding: '2px 6px', borderRadius: '4px', color: '#555' }}>
+                                                {ing}
+                                            </span>
+                                        ))}
+                                        {recipe.ingredients.length > 5 && <span style={{ fontSize: '0.75rem', color: '#999' }}>...</span>}
+                                    </div>
+
+                                    <button
+                                        onClick={() => handleSelectCandidate(recipe)}
+                                        disabled={loading}
+                                        className="btn btn-primary btn-full"
+                                        style={{ height: '40px' }}
+                                    >
+                                        {loading
+                                            ? '生成中...'
+                                            : (request.focus === 'dinner' ? 'これにする！👉 他の食事も決める' : 'これにする！(決定)')
+                                        }
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+
             {/* エラー表示 */}
             {error && (
                 <div style={{
@@ -351,10 +498,23 @@ export const MenuSuggestion = () => {
                 </div>
             )}
 
-            {/* 結果表示 */}
-            {recipes.length > 0 && (
+            {/* 結果表示 (Step 3 or フィルタ検索結果) */}
+            {/* suggestionStep === 'dinner-selection' の時は非表示にする */}
+            {suggestionStep !== 'dinner-selection' && recipes.length > 0 && (
                 <div style={{ marginTop: '24px' }}>
-                    <h3 style={{ marginLeft: '8px', fontSize: '1.1rem', marginBottom: '16px' }}>🤖 提案レシピ</h3>
+                    {suggestionStep === 'result' ? (
+                        <div style={{ marginBottom: '16px' }}>
+                            <button onClick={handleBackToInput} className="btn btn-secondary" style={{ fontSize: '0.8rem' }}>
+                                ← 初めからやり直す
+                            </button>
+                            <h3 style={{ marginTop: '16px', fontSize: '1.2rem' }}>
+                                🎉 {request.focus === 'dinner' ? 'ご提案のキャンプフルコース' : '決定したレシピ'}
+                            </h3>
+                            {selectedDinner && <p style={{ fontSize: '0.9rem', color: '#666' }}>メイン：{selectedDinner.name}</p>}
+                        </div>
+                    ) : (
+                        <h3 style={{ marginLeft: '8px', fontSize: '1.1rem', marginBottom: '16px' }}>🔍 レシピ検索結果</h3>
+                    )}
 
                     {/* 絞り込みチップス */}
                     <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '8px', marginBottom: '16px', paddingLeft: '8px' }}>
@@ -443,6 +603,7 @@ export const MenuSuggestion = () => {
                                             </div>
 
                                             <p style={{ margin: '0 0 16px', lineHeight: 1.6 }}>{recipe.description}</p>
+                                            {recipe.reason && <p style={{ fontSize: '0.9rem', color: '#666', background: '#f9f9f9', padding: '8px', borderRadius: '4px', marginBottom: '16px' }}>💡 {recipe.reason}</p>}
 
                                             <div style={{ marginBottom: '16px' }}>
                                                 <div style={{ fontWeight: 600, marginBottom: '8px', fontSize: '0.875rem', color: 'var(--color-primary)' }}>
