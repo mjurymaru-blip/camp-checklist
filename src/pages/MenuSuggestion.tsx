@@ -178,7 +178,7 @@ export const MenuSuggestion = () => {
                             <div className="card-header" style={{ background: '#f5f5f5', borderBottom: '1px solid var(--color-border)' }}>
                                 <div className="card-title">
                                     <span style={{ marginRight: '8px' }}>
-                                        {{ breakfast: '🌅 朝食', lunch: '☀️ 昼食', dinner: '🌙 夕食' }[recipe.meal] || recipe.meal}
+                                        {{ breakfast: '🌅 朝食', lunch: '☀️ 昼食', dinner: '🌙 夕食', snack: '🍪 おやつ', dessert: '🍰 デザート' }[recipe.meal] || recipe.meal}
                                     </span>
                                     {recipe.name}
                                 </div>
