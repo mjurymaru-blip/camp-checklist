@@ -1,0 +1,225 @@
+
+export const snackRecipes = [
+    // Existing
+    {
+        id: 'hot-wine',
+        name: 'ホットワイン（ヴァンショー）',
+        meal: 'snack', servings: 2, difficulty: 'easy', season: ['autumn', 'winter'],
+        calories: '約150kcal', activeTime: '10分', cleanupLevel: 1, prePrep: false, cost: 'mid',
+        description: '焚き火を見ながら飲む甘くてスパイシーな温かいワイン。',
+        ingredients: ['赤ワイン', 'オレンジスライス', 'シナモンスティック', 'クローブ', '砂糖または蜂蜜'],
+        requiredGear: ['シェラカップまたは小鍋'], usedGearIds: ['sierra-cup'], usedHeatSourceIds: ['single-burner'],
+        steps: ['材料を全て鍋に入れ、沸騰させないように温める。'],
+        cookTime: '約10分', tips: '安ワインでも美味しくなります。白ワインで作るのもあり。'
+    },
+    {
+        id: 'popcorn',
+        name: '焚き火ポップコーン',
+        meal: 'snack', servings: 4, difficulty: 'easy', season: ['spring', 'summer', 'autumn', 'winter'],
+        calories: '約200kcal', activeTime: '5分', cleanupLevel: 1, prePrep: false, cost: 'low',
+        description: 'ポンポン弾ける音が楽しい。出来立ては格別。',
+        ingredients: ['ポップコーン豆', '油', '塩'],
+        requiredGear: ['蓋付き鍋または専用パン'], usedGearIds: ['titanium-pot'], usedHeatSourceIds: ['bonfire', 'single-burner'],
+        steps: ['鍋に油と豆を入れ、蓋をして火にかける。', 'ポンポン音がし始めたら鍋を揺すり続ける。', '音が止んだら完成。'],
+        cookTime: '約5分', tips: 'アルミホイル製の使い捨てタイプも便利です。'
+    },
+    {
+        id: 'cheese-fondue',
+        name: 'カマンベールチーズフォンデュ',
+        meal: 'snack', servings: 2, difficulty: 'easy', season: ['autumn', 'winter'],
+        calories: '約400kcal', activeTime: '10分', cleanupLevel: 1, prePrep: false, cost: 'mid',
+        description: 'カマンベールチーズを丸ごと温めるだけの簡単フォンデュ。',
+        ingredients: ['カマンベールチーズ', 'ソーセージ', 'ブロッコリー', 'フランスパン'],
+        requiredGear: ['スキレット'], usedGearIds: ['skillet'], usedHeatSourceIds: ['single-burner'],
+        steps: ['カマンベールの上部の白カビ部分を切り取る。', 'スキレットでチーズと具材を温め、チーズが溶けたらディップして食べる。'],
+        cookTime: '約10分', tips: '黒胡椒を振るとアクセントになります。'
+    },
+    {
+        id: 'smoked-nuts',
+        name: '燻製ナッツ',
+        meal: 'snack', servings: 4, difficulty: 'normal', season: ['spring', 'summer', 'autumn', 'winter'],
+        calories: '約200kcal', activeTime: '20分', cleanupLevel: 2, prePrep: false, cost: 'mid',
+        description: 'ウイスキーのお供に最高。香ばしい香りがたまらない。',
+        ingredients: ['ミックスナッツ', 'スモークチップ（サクラなど）'],
+        requiredGear: ['燻製器または段ボールスモーカー'], usedGearIds: ['steamer'], usedHeatSourceIds: ['single-burner'],
+        steps: ['スモーカーにチップをセットし、煙が出たら網にナッツを広げる。', '15分〜30分ほど燻す。'],
+        cookTime: '約30分', tips: '燻製直後より少し時間を置いた方が香りが馴染みます。'
+    },
+    {
+        id: 'baked-apple',
+        name: '焼きリンゴ',
+        meal: 'dessert', servings: 2, difficulty: 'normal', season: ['autumn', 'winter'],
+        calories: '約200kcal', activeTime: '10分', cleanupLevel: 1, prePrep: true, cost: 'low',
+        description: 'ダッチオーブンやホイルで作る甘酸っぱいデザート。',
+        ingredients: ['リンゴ', 'バター', '砂糖', 'シナモン'],
+        requiredGear: ['ダッチオーブンまたはホイル'], usedGearIds: ['bottom-wide-cooker'], usedHeatSourceIds: ['wood-stove', 'bonfire'],
+        steps: ['リンゴの芯をくり抜く。', '穴にバター、砂糖、シナモンを詰める。', 'ホイルで包んで焼くか、ダッチオーブンで焼く。'],
+        cookTime: '約40分', tips: 'バニラアイスを添えると最強です。'
+    },
+    {
+        id: 'french-toast',
+        name: 'ふわふわフレンチトースト',
+        meal: 'breakfast', servings: 2, difficulty: 'easy', season: ['spring', 'summer', 'autumn', 'winter'],
+        calories: '約400kcal', activeTime: '15分', cleanupLevel: 1, prePrep: true, cost: 'low',
+        description: '前日から卵液に漬け込んでおけば朝焼くだけ。',
+        ingredients: ['食パンまたはバゲット', '卵', '牛乳', '砂糖', 'バター', 'メープルシロップ'],
+        requiredGear: ['スキレット'], usedGearIds: ['skillet'], usedHeatSourceIds: ['single-burner'],
+        steps: ['スキレットにバターを溶かし、たっぷり液を吸ったパンを焼く。', '弱火でじっくり中まで火を通す。'],
+        cookTime: '約15分', tips: '蓋をして蒸し焼きにするとぷるぷるになります。'
+    },
+    {
+        id: 'sweet-potato',
+        name: '焚き火焼き芋',
+        meal: 'snack', servings: 4, difficulty: 'easy', season: ['autumn', 'winter'],
+        calories: '約300kcal', activeTime: '5分', cleanupLevel: 1, prePrep: false, cost: 'low',
+        description: 'シンプルイズベスト。ねっとり系かホクホク系か芋選びも楽しい。',
+        ingredients: ['さつまいも', '新聞紙', 'アルミホイル'],
+        requiredGear: ['焚き火'], usedGearIds: [], usedHeatSourceIds: ['bonfire', 'wood-stove'],
+        steps: ['芋を濡らした新聞紙で包み、さらにアルミホイルで包む。', '焚き火の熾火の中に入れて30分〜1時間放置。', '竹串がスッと通れば完成。'],
+        cookTime: '約45分', tips: '濡れ新聞紙が蒸し焼き効果を生み出します。'
+    },
+    {
+        id: 'coffee',
+        name: 'ハンドドリップコーヒー',
+        meal: 'breakfast', servings: 1, difficulty: 'normal', season: ['spring', 'summer', 'autumn', 'winter'],
+        calories: '0kcal', activeTime: '10分', cleanupLevel: 1, prePrep: false, cost: 'mid',
+        description: '朝の静寂の中で豆を挽き、ゆっくり淹れる至福の時間。',
+        ingredients: ['コーヒー豆', '水'],
+        requiredGear: ['ケトル', 'ドリッパー', 'ミル', 'マグカップ'], usedGearIds: ['sierra-cup'], usedHeatSourceIds: ['single-burner'],
+        steps: ['お湯を沸かす。', '豆を挽く。', '粉を蒸らしながらゆっくりお湯を注ぐ。'],
+        cookTime: '約10分', tips: '外で飲むコーヒーはなぜあんなに美味しいのでしょう。'
+    },
+    {
+        id: 'ozoni',
+        name: 'キャンプお雑煮',
+        meal: 'breakfast', servings: 2, difficulty: 'normal', season: ['winter'],
+        calories: '約300kcal', activeTime: '15分', cleanupLevel: 2, prePrep: true, cost: 'mid',
+        description: '正月キャンプならこれ。地域ごとの味を楽しむのも良い。',
+        ingredients: ['切り餅', '鶏肉', '小松菜', '蒲鉾', 'だし汁'],
+        requiredGear: ['鍋', '焼き網'], usedGearIds: ['titanium-pot'], usedHeatSourceIds: ['single-burner', 'bonfire'],
+        steps: ['餅を網で焼く。', '鍋でつゆを作り、具材を煮る。', '焼いた餅を入れる。'],
+        cookTime: '約20分', tips: '炭火で焼いた餅の香ばしさはキャンプならでは。'
+    },
+    {
+        id: 'amazake',
+        name: '温かい甘酒',
+        meal: 'snack', servings: 2, difficulty: 'easy', season: ['winter'],
+        calories: '約150kcal', activeTime: '5分', cleanupLevel: 1, prePrep: false, cost: 'low',
+        description: '飲む点滴。体がポカポカ温まる。',
+        ingredients: ['酒粕または米麹甘酒', '生姜'],
+        requiredGear: ['シェラカップ'], usedGearIds: ['sierra-cup'], usedHeatSourceIds: ['single-burner'],
+        steps: ['甘酒を温め、おろし生姜を加える。'],
+        cookTime: '5分', tips: '牛乳で割るのもおすすめ。'
+    },
+    // New Additions
+    {
+        id: 'fruit-punch',
+        name: 'フルーツポンチ',
+        meal: 'snack', servings: 4, difficulty: 'easy', season: ['summer'],
+        calories: '約200kcal', activeTime: '10分', cleanupLevel: 1, prePrep: false, cost: 'mid',
+        description: 'サイダーにフルーツを入れるだけ。子供が喜ぶ。',
+        ingredients: ['フルーツ缶詰', 'サイダー', '冷凍フルーツ'],
+        requiredGear: ['ボウル'], usedGearIds: ['sierra-cup'], usedHeatSourceIds: [],
+        steps: ['ボウルにフルーツを入れ、直前にサイダーを注ぐ。'],
+        cookTime: '5分', tips: 'メントスを入れて噴水にするのは屋外ならではの遊び。'
+    },
+    {
+        id: 'hot-chocolate',
+        name: 'マシュマロホットチョコレート',
+        meal: 'snack', servings: 2, difficulty: 'easy', season: ['winter'],
+        calories: '約300kcal', activeTime: '5分', cleanupLevel: 1, prePrep: false, cost: 'low',
+        description: '甘党にはたまらない。',
+        ingredients: ['牛乳', 'チョコレート（またはココア）', 'マシュマロ'],
+        requiredGear: ['シェラカップ'], usedGearIds: ['sierra-cup'], usedHeatSourceIds: ['single-burner'],
+        steps: ['ホットチョコを作り、マシュマロを浮かべる。', 'マシュマロが溶けてきたら飲み頃。'],
+        cookTime: '5分', tips: 'ラム酒を垂らすと大人用に。'
+    },
+    {
+        id: 'yakimochi-kinako',
+        name: '焼き餅（きな粉・磯部）',
+        meal: 'snack', servings: 2, difficulty: 'easy', season: ['winter'],
+        calories: '約250kcal', activeTime: '10分', cleanupLevel: 1, prePrep: false, cost: 'low',
+        description: '小腹が空いた時に最高。',
+        ingredients: ['切り餅', 'きな粉', '砂糖', '醤油', '海苔'],
+        requiredGear: ['網'], usedGearIds: [], usedHeatSourceIds: ['bonfire'],
+        steps: ['餅を炭火で焼く。', 'お湯にくぐらせてきな粉をまぶすか、醤油をつけて海苔で巻く。'],
+        cookTime: '約10分', tips: '網にくっつき注意。'
+    },
+    {
+        id: 'pancakes',
+        name: 'スキレットパンケーキ',
+        meal: 'breakfast', servings: 2, difficulty: 'easy', season: ['spring', 'summer', 'autumn', 'winter'],
+        calories: '約500kcal', activeTime: '15分', cleanupLevel: 1, prePrep: false, cost: 'low',
+        description: '絵本に出てくるような厚焼きパンケーキ。',
+        ingredients: ['ホットケーキミックス', '卵', '牛乳', 'バター', 'メープルシロップ'],
+        requiredGear: ['スキレット'], usedGearIds: ['skillet'], usedHeatSourceIds: ['single-burner'],
+        steps: ['生地を流し込み、弱火でじっくり焼く。', '表面がプツプツしてきたら裏返す。'],
+        cookTime: '約15分', tips: '高さを出すならセルクルを使うと良いです。'
+    },
+    {
+        id: 'anko-butter-sand',
+        name: 'あんバターホットサンド',
+        meal: 'snack', servings: 1, difficulty: 'easy', season: ['autumn', 'winter'],
+        calories: '約400kcal', activeTime: '10分', cleanupLevel: 1, prePrep: false, cost: 'low',
+        description: '悪魔的美味しさ。',
+        ingredients: ['食パン', '粒あん', 'バター'],
+        requiredGear: ['ホットサンドメーカー'], usedGearIds: ['skillet'], usedHeatSourceIds: ['single-burner'],
+        steps: ['パンにあんこと厚切りのバターを挟んで焼く。'],
+        cookTime: '約10分', tips: 'カロリーは熱で消える説を信じましょう。'
+    },
+    {
+        id: 'dried-fruits-cheese',
+        name: 'ドライフルーツとクリームチーズ',
+        meal: 'snack', servings: 2, difficulty: 'easy', season: ['spring', 'summer', 'autumn', 'winter'],
+        calories: '約200kcal', activeTime: '5分', cleanupLevel: 1, prePrep: false, cost: 'mid',
+        description: 'ワインのお供に切って混ぜるだけ。',
+        ingredients: ['クリームチーズ', 'ドライフルーツ（イチジク、マンゴーなど）', 'クラッカー'],
+        requiredGear: ['ナイフ'], usedGearIds: [], usedHeatSourceIds: [],
+        steps: ['室温に戻したチーズに刻んだドライフルーツを混ぜる。', 'クラッカーに乗せる。'],
+        cookTime: '5分', tips: 'ナッツを入れても美味しい。'
+    },
+    {
+        id: 'edamame',
+        name: '焼き枝豆',
+        meal: 'snack', servings: 2, difficulty: 'easy', season: ['summer'],
+        calories: '約100kcal', activeTime: '10分', cleanupLevel: 1, prePrep: false, cost: 'low',
+        description: '茹でるより味が濃縮されます。',
+        ingredients: ['枝豆', '塩', 'ごま油', '鷹の爪'],
+        requiredGear: ['スキレット'], usedGearIds: ['skillet'], usedHeatSourceIds: ['single-burner'],
+        steps: ['ごま油で枝豆をさやごと炒める。', '焦げ目がついたら塩を振る。'],
+        cookTime: '約10分', tips: '手が汚れますが止まらなくなります。'
+    },
+    {
+        id: 'nachos',
+        name: 'スキレットナチョス',
+        meal: 'snack', servings: 4, difficulty: 'easy', season: ['summer'],
+        calories: '約500kcal', activeTime: '10分', cleanupLevel: 1, prePrep: false, cost: 'low',
+        description: 'ビールのお供に。みんなでつまめる。',
+        ingredients: ['トルティーヤチップス', 'サルサソース', 'とろけるチーズ', 'ハラペーニョ'],
+        requiredGear: ['スキレット'], usedGearIds: ['skillet'], usedHeatSourceIds: ['single-burner'],
+        steps: ['チップスをスキレットに広げ、ソースとチーズをかける。', 'チーズが溶けるまで加熱する。'],
+        cookTime: '約10分', tips: 'アボカドディップ（ワカモレ）があると完璧。'
+    },
+    {
+        id: 'cucumber-pickles',
+        name: 'きゅうりの一本漬け',
+        meal: 'snack', servings: 4, difficulty: 'easy', season: ['summer'],
+        calories: '約20kcal', activeTime: '5分', cleanupLevel: 1, prePrep: true, cost: 'low',
+        description: '夏祭りの味。割り箸に刺して。',
+        ingredients: ['きゅうり', '浅漬けの素', '割り箸'],
+        requiredGear: ['ジップロック'], usedGearIds: [], usedHeatSourceIds: [],
+        steps: ['きゅうりの両端を落とし、ピーラーで縞模様に皮を剥く。', '浅漬けの素と一緒に袋に入れ、クーラーボックスで冷やす。', '食べる直前に割り箸を刺す。'],
+        cookTime: '仕込み5分', tips: '半日以上漬けると美味しいです。'
+    },
+    {
+        id: 'hujin-dip',
+        name: '焼きマシュマロ用ディップ',
+        meal: 'snack', servings: 4, difficulty: 'easy', season: ['winter'],
+        calories: '約300kcal', activeTime: '5分', cleanupLevel: 1, prePrep: false, cost: 'mid',
+        description: '甘じょっぱさが癖になる。',
+        ingredients: ['マシュマロ', 'ポテトチップス（塩味）', 'チョコソース'],
+        requiredGear: ['シェラカップ'], usedGearIds: [], usedHeatSourceIds: [],
+        steps: ['焼いたマシュマロとポテチを交互に食べる。'],
+        cookTime: '5分', tips: 'カロリーの暴力ですがキャンプだから許されます。'
+    }
+];

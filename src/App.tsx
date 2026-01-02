@@ -6,7 +6,7 @@ import { Templates } from './pages/Templates';
 import { Settings } from './pages/Settings';
 import { GearSettings } from './pages/GearSettings';
 import { MenuSuggestion } from './pages/MenuSuggestion';
-import { SecurityGate } from './components/SecurityGate';
+
 
 function App() {
   return (
@@ -25,16 +25,8 @@ function App() {
         <Route path="/checklist/:id" element={<ChecklistDetail />} />
         <Route path="/history" element={<History />} />
         <Route path="/templates" element={<Templates />} />
-        <Route path="/recipes" element={
-          <SecurityGate>
-            <MenuSuggestion />
-          </SecurityGate>
-        } />
-        <Route path="/recipes/settings" element={
-          <SecurityGate>
-            <GearSettings />
-          </SecurityGate>
-        } />
+        <Route path="/recipes" element={<MenuSuggestion />} />
+        <Route path="/recipes/settings" element={<GearSettings />} />
         <Route path="/settings" element={<Settings />} />
       </Routes>
 

@@ -1,0 +1,1139 @@
+[
+  {
+    "id": "paella",
+    "name": "シーフードパエリア",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "彩り豊かで写真映え間違いなし。おこげが美味しい。",
+    "ingredients": [
+      "米 (2合)",
+      "シーフードミックスまたは有頭エビ、貝類",
+      "パプリカ",
+      "サフラン（またはターメリック）",
+      "コンソメ"
+    ],
+    "requiredGear": [
+      "パエリアパンまたはスキレット"
+    ],
+    "usedGearIds": [
+      "skillet",
+      "griddle"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "オリーブオイルで具材を炒めて取り出す。",
+      "米を透き通るまで炒め、スープとサフランを入れる。",
+      "具材を戻し、蓋をして弱火で15分、蒸らし10分。",
+      "最後に強火で底をチリチリ言わせておこげを作る。"
+    ],
+    "cookTime": "約40分",
+    "tips": "お米は洗わずに使うのが本格的です。"
+  },
+  {
+    "id": "ajillo",
+    "name": "海老とキノコのアヒージョ",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "オリーブオイルで煮るだけ。パンを浸して食べるのが最高。",
+    "ingredients": [
+      "むきエビ",
+      "マッシュルーム",
+      "ブロッコリー",
+      "ニンニク (たっぷり)",
+      "オリーブオイル",
+      "鷹の爪"
+    ],
+    "requiredGear": [
+      "シェラカップまたはスキレット"
+    ],
+    "usedGearIds": [
+      "sierra-cup",
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "オイルにみじん切りニンニクと鷹の爪を入れ弱火にかける。",
+      "香りが立ったら具材を入れ、中火で火を通す。"
+    ],
+    "cookTime": "約10分",
+    "tips": "残ったオイルはパスタに絡めると絶品ペペロンチーノになります。"
+  },
+  {
+    "id": "aqua-pazza",
+    "name": "白身魚のアクアパッツァ",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "normal",
+    "season": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "魚介の旨味が凝縮されたスープが美味しいイタリアン。",
+    "ingredients": [
+      "白身魚切り身（タラ、鯛など）",
+      "アサリ",
+      "ミニトマト",
+      "オリーブ",
+      "白ワイン",
+      "オリーブオイル"
+    ],
+    "requiredGear": [
+      "スキレットまたはフライパン"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "魚の両面を軽く焼く。",
+      "アサリ、トマト、白ワインを加え、蓋をして蒸し煮にする。"
+    ],
+    "cookTime": "約20分",
+    "tips": "切り身を使うと簡単ですが、丸ごとの魚を使うとより豪華になります。"
+  },
+  {
+    "id": "salmon-foil-yaki",
+    "name": "鮭の味噌バターホイル焼き",
+    "meal": "lunch",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "autumn"
+    ],
+    "calories": "約400kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "秋の味覚。味噌とバターのコクが鮭に合う。",
+    "ingredients": [
+      "生鮭切り身",
+      "玉ねぎ",
+      "エノキ",
+      "味噌",
+      "バター"
+    ],
+    "requiredGear": [
+      "アルミホイル"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [
+      "bonfire",
+      "gas-stove"
+    ],
+    "steps": [
+      "ホイルに玉ねぎ、鮭、キノコを乗せる。",
+      "味噌とバターを乗せて包む。",
+      "網の上かフライパンで15分ほど蒸し焼きにする。"
+    ],
+    "cookTime": "約15分",
+    "tips": "ちゃんちゃん焼き風の味付けです。"
+  },
+  {
+    "id": "clam-chowder",
+    "name": "温まるクラムチャウダー",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "winter"
+    ],
+    "calories": "約400kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "牛乳たっぷりのスープで体の中から温まる。",
+    "ingredients": [
+      "アサリ水煮缶",
+      "ベーコン",
+      "じゃがいも",
+      "人参",
+      "玉ねぎ",
+      "牛乳",
+      "小麦粉"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "gas-stove"
+    ],
+    "steps": [
+      "具材を炒め、小麦粉を振り入れてさらに炒める。",
+      "水とコンソメを加えて野菜が柔らかくなるまで煮る。",
+      "牛乳とアサリ缶を汁ごと加え、沸騰させないように温める。"
+    ],
+    "cookTime": "約30分",
+    "tips": "牛乳は分離しやすいので、最後に加えて温める程度にするのがコツ。"
+  },
+  {
+    "id": "steamed-oysters",
+    "name": "缶ごとの焼き牡蠣（カンカン焼き）",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "winter"
+    ],
+    "calories": "約100kcal/個",
+    "activeTime": "5分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "high",
+    "description": "冬キャンプの醍醐味。缶ごと火にかけて蒸し焼きにするだけ。",
+    "ingredients": [
+      "殻付き牡蠣（一斗缶セットなど）",
+      "日本酒（少々）"
+    ],
+    "requiredGear": [
+      "カセットコンロまたは焚き火台"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [
+      "bonfire",
+      "cassette-stove"
+    ],
+    "steps": [
+      "缶に牡蠣を入れ、酒を回しかけて蓋をする。",
+      "火にかけて蒸気が勢いよく出てから10分ほど蒸す。"
+    ],
+    "cookTime": "約15分",
+    "tips": "通販で「カンカン焼きセット」を買うのが一番手軽です。"
+  },
+  {
+    "id": "grilled-squid",
+    "name": "イカの姿焼き",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "summer"
+    ],
+    "calories": "約200kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": true,
+    "cost": "low",
+    "description": "祭りの屋台の味。醤油の焦げる匂いがたまらない。",
+    "ingredients": [
+      "スルメイカ",
+      "醤油",
+      "酒",
+      "みりん"
+    ],
+    "requiredGear": [
+      "焼き網"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [
+      "bonfire"
+    ],
+    "steps": [
+      "イカは内臓を取り除いておく。",
+      "タレを塗りながら炭火で焼く。",
+      "丸まらないように串を打っておくと良い。"
+    ],
+    "cookTime": "約10分",
+    "tips": "マヨネーズと七味唐辛子を添えて。"
+  },
+  {
+    "id": "tuna-avocado-poke",
+    "name": "マグロとアボカドのポキ風",
+    "meal": "snack",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "summer"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "火を使わないおしゃれなおつまみ。",
+    "ingredients": [
+      "マグロ刺身（柵）",
+      "アボカド",
+      "ごま油",
+      "醤油",
+      "ワサビ",
+      "白ごま"
+    ],
+    "requiredGear": [
+      "ボウル"
+    ],
+    "usedGearIds": [
+      "sierra-cup"
+    ],
+    "usedHeatSourceIds": [],
+    "steps": [
+      "マグロとアボカドをサイコロ状に切る。",
+      "調味料と和えるだけ。"
+    ],
+    "cookTime": "5分",
+    "tips": "韓国海苔で巻いて食べるとさらに美味しいです。"
+  },
+  {
+    "id": "seafood-bbq",
+    "name": "海鮮BBQ串",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "summer"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": true,
+    "cost": "high",
+    "description": "肉だけじゃないBBQの楽しみ。彩りも綺麗。",
+    "ingredients": [
+      "エビ",
+      "ホタテ",
+      "イカ",
+      "パプリカ",
+      "玉ねぎ"
+    ],
+    "requiredGear": [
+      "串",
+      "BBQグリル"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [
+      "bonfire"
+    ],
+    "steps": [
+      "具材を一口大に切り、串に刺す。",
+      "塩コショウかハーブソルトで焼く。"
+    ],
+    "cookTime": "約15分",
+    "tips": "レモンを絞ってさっぱりと。"
+  },
+  {
+    "id": "saba-sandwich",
+    "name": "サバサンド",
+    "meal": "lunch",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "トルコ名物。脂の乗った塩サバとパンの相性が抜群。",
+    "ingredients": [
+      "バゲット",
+      "塩サバフィレ",
+      "レタス",
+      "玉ねぎスライス",
+      "レモン"
+    ],
+    "requiredGear": [
+      "フライパンまたは網"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "gas-stove"
+    ],
+    "steps": [
+      "サバを皮パリパリに焼く。",
+      "バゲットに切り込みを入れ、野菜とサバを挟む。",
+      "レモンをたっぷり絞って食べる。"
+    ],
+    "cookTime": "約15分",
+    "tips": "骨取りサバを使うと食べる時に楽です。"
+  },
+  {
+    "id": "buri-daikon",
+    "name": "キャンプでブリ大根",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "normal",
+    "season": [
+      "winter"
+    ],
+    "calories": "約400kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "冬の夜にしっぽりと。",
+    "ingredients": [
+      "ブリの切り身（またはアラ）",
+      "大根",
+      "生姜",
+      "醤油",
+      "みりん",
+      "酒"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "wood-stove"
+    ],
+    "steps": [
+      "ブリは熱湯をかけ霜降りする。",
+      "大根、生姜、調味料、水を入れて煮込む。"
+    ],
+    "cookTime": "約40分",
+    "tips": "一度冷ますと味が染みます。"
+  },
+  {
+    "id": "shrimp-cocktail",
+    "name": "シュリンプカクテル",
+    "meal": "snack",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "summer"
+    ],
+    "calories": "約100kcal/個",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": true,
+    "cost": "high",
+    "description": "冷やしておいた茹でエビをピリ辛ソースで。",
+    "ingredients": [
+      "ボイルむきエビ",
+      "ケチャップ",
+      "タバスコ",
+      "レモン",
+      "ホースラディッシュ"
+    ],
+    "requiredGear": [
+      "クーラーボックス"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [],
+    "steps": [
+      "ソースの材料を混ぜる。",
+      "エビにつけて食べる。"
+    ],
+    "cookTime": "0分",
+    "tips": "エビはキンキンに冷やしておいてください。"
+  },
+  {
+    "id": "sazae-tsuboyaki",
+    "name": "サザエの壺焼き",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "summer"
+    ],
+    "calories": "約100kcal/個",
+    "activeTime": "5分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "high",
+    "description": "海辺のキャンプ場なら現地の鮮魚店で手に入れたい。",
+    "ingredients": [
+      "サザエ",
+      "醤油",
+      "酒"
+    ],
+    "requiredGear": [
+      "網"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [
+      "bonfire"
+    ],
+    "steps": [
+      "サザエを網に乗せて焼く。",
+      "グツグツしてきたら醤油と酒を垂らす。"
+    ],
+    "cookTime": "約10分",
+    "tips": "熱いので軍手必須。"
+  },
+  {
+    "id": "hotaru-ika-sumiso",
+    "name": "ホタルイカの酢味噌和え",
+    "meal": "snack",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring"
+    ],
+    "calories": "約150kcal",
+    "activeTime": "5分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "春のキャンプに。日本酒との相性抜群。",
+    "ingredients": [
+      "ボイルホタルイカ",
+      "酢味噌（市販）",
+      "わけぎ"
+    ],
+    "requiredGear": [
+      "シェラカップ"
+    ],
+    "usedGearIds": [
+      "sierra-cup"
+    ],
+    "usedHeatSourceIds": [],
+    "steps": [
+      "ホタルイカとわけぎを酢味噌で和える。"
+    ],
+    "cookTime": "5分",
+    "tips": "目玉を取ると食感が良くなります。"
+  },
+  {
+    "id": "katsuo-tataki",
+    "name": "カツオの藁焼き風",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "normal",
+    "season": [
+      "spring",
+      "autumn"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "焚き火で皮目を炙って香ばしく。",
+    "ingredients": [
+      "カツオ柵",
+      "ニンニク",
+      "ネギ",
+      "ポン酢",
+      "塩"
+    ],
+    "requiredGear": [
+      "串",
+      "焚き火台"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [
+      "bonfire"
+    ],
+    "steps": [
+      "カツオに串を打ち、皮目を強火で炙る。",
+      "氷水で締め、厚めに切る。"
+    ],
+    "cookTime": "約15分",
+    "tips": "藁があればベストですが、焚き火でも十分雰囲気出ます。"
+  },
+  {
+    "id": "chan-chan-yaki",
+    "name": "鮭のチャンチャン焼き",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "autumn"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "北海道の郷土料理。鉄板で豪快に。",
+    "ingredients": [
+      "鮭半身（または切り身）",
+      "キャベツ",
+      "玉ねぎ",
+      "人参",
+      "味噌",
+      "バター",
+      "砂糖"
+    ],
+    "requiredGear": [
+      "鉄板",
+      "マルチグリドル"
+    ],
+    "usedGearIds": [
+      "iron-plate",
+      "griddle"
+    ],
+    "usedHeatSourceIds": [
+      "twin-burner"
+    ],
+    "steps": [
+      "野菜を敷き詰め、鮭を乗せる。",
+      "調味料を合わせた味噌ダレをかけ、バターを乗せて蒸し焼きにする。"
+    ],
+    "cookTime": "約20分",
+    "tips": "最後は全部ぐちゃぐちゃに混ぜて食べるのが旨い。"
+  },
+  {
+    "id": "seafood-curry",
+    "name": "シーフードミックスカレー",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "summer"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "low",
+    "description": "肉を使わないアッサリめのカレー。",
+    "ingredients": [
+      "シーフードミックス",
+      "玉ねぎ",
+      "ジャガイモ",
+      "カレールー"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "野菜を炒め、煮る。",
+      "シーフードミックスは硬くなるので最後に入れる。"
+    ],
+    "cookTime": "約30分",
+    "tips": "ココナッツミルクを入れると南国風に。"
+  },
+  {
+    "id": "white-bait-toast",
+    "name": "しらすトースト",
+    "meal": "breakfast",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "カリカリのパンとしらすの塩気、海苔の香りが朝に合う。",
+    "ingredients": [
+      "食パン",
+      "しらす",
+      "とろけるチーズ",
+      "マヨネーズ",
+      "刻み海苔"
+    ],
+    "requiredGear": [
+      "ホットサンドメーカー",
+      "網"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "パンにマヨネーズを塗り、しらすとチーズを乗せて焼く。",
+      "仕上げに海苔を散らす。"
+    ],
+    "cookTime": "約10分",
+    "tips": "ごま油を少し垂らしても美味しい。"
+  },
+  {
+    "id": "cod-foil-mushi",
+    "name": "タラのホイル蒸し（ポン酢）",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "winter"
+    ],
+    "calories": "約200kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "ヘルシーで温まる。胃に優しい。",
+    "ingredients": [
+      "タラ切り身",
+      "えのき",
+      "長ネギ",
+      "ポン酢",
+      "昆布"
+    ],
+    "requiredGear": [
+      "アルミホイル"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [
+      "bonfire"
+    ],
+    "steps": [
+      "ホイルに昆布を敷き、具材を乗せて酒を振って包む。",
+      "蒸し焼きにする。"
+    ],
+    "cookTime": "約15分",
+    "tips": "柚子胡椒を添えて。"
+  },
+  {
+    "id": "ishikari-nabe",
+    "name": "石狩鍋",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "winter"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "鮭と味噌とバター、間違いない組み合わせ。",
+    "ingredients": [
+      "鮭",
+      "じゃがいも",
+      "キャベツ",
+      "玉ねぎ",
+      "味噌",
+      "バター",
+      "牛乳"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "wood-stove"
+    ],
+    "steps": [
+      "出し汁に味噌を溶き、具材を煮る。",
+      "仕上げにバターと牛乳を少し加える。"
+    ],
+    "cookTime": "約30分",
+    "tips": "山椒を振っても美味しいです。"
+  },
+  {
+    "id": "octopus-carpaccio",
+    "name": "タコのカルパッチョ",
+    "meal": "snack",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "summer"
+    ],
+    "calories": "約150kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "切って並べるだけ。白ワイン泥棒。",
+    "ingredients": [
+      "茹でタコ",
+      "オリーブオイル",
+      "レモン汁",
+      "ハーブソルト",
+      "ベビーリーフ"
+    ],
+    "requiredGear": [
+      "皿"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [],
+    "steps": [
+      "タコを薄切りにする。",
+      "調味料をかける。"
+    ],
+    "cookTime": "5分",
+    "tips": "トマトを添えて彩りよく。"
+  },
+  {
+    "id": "himono",
+    "name": "朝の干物定食",
+    "meal": "breakfast",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "キャンプ場の朝、炭火で焼くアジの開き。日本人でよかった。",
+    "ingredients": [
+      "アジの開き",
+      "大根おろし",
+      "ご飯"
+    ],
+    "requiredGear": [
+      "網"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [
+      "bonfire"
+    ],
+    "steps": [
+      "炭火の遠火でじっくり焼く。"
+    ],
+    "cookTime": "約15分",
+    "tips": "皮が網にくっつかないように、網をしっかり熱してから乗せること。"
+  },
+  {
+    "id": "tempura",
+    "name": "山菜の天ぷら",
+    "meal": "lunch",
+    "servings": 4,
+    "difficulty": "hard",
+    "season": [
+      "spring"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "30分",
+    "cleanupLevel": 3,
+    "prePrep": true,
+    "cost": "low",
+    "description": "春キャンプの楽しみ。現地調達（道の駅など）した山菜をその場で。",
+    "ingredients": [
+      "タラの芽",
+      "ふきのとう",
+      "こごみ",
+      "天ぷら粉",
+      "揚げ油"
+    ],
+    "requiredGear": [
+      "深型クッカー"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "衣を薄めにつけて揚げる。",
+      "塩で食べる。"
+    ],
+    "cookTime": "約20分",
+    "tips": "油の処理剤を忘れずに。"
+  },
+  {
+    "id": "sardine-can-ahijo",
+    "name": "オイルサーディンの缶ごとアヒージョ",
+    "meal": "snack",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "5分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "究極のズボラ飯にして至高のつまみ。",
+    "ingredients": [
+      "オイルサーディン缶",
+      "ニンニクチューブ",
+      "醤油",
+      "一味唐辛子"
+    ],
+    "requiredGear": [
+      "バーナー"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "缶を開け、ニンニクと醤油を垂らす。",
+      "弱火にかけてグツグツさせる。"
+    ],
+    "cookTime": "5分",
+    "tips": "ネギを散らすとなお良し。"
+  },
+  {
+    "id": "ika-meshi",
+    "name": "いかめし",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "hard",
+    "season": [
+      "summer"
+    ],
+    "calories": "約400kcal",
+    "activeTime": "40分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "ダッチオーブンで作る屋台の味。",
+    "ingredients": [
+      "スルメイカ（胴）",
+      "もち米",
+      "醤油",
+      "砂糖",
+      "みりん"
+    ],
+    "requiredGear": [
+      "ダッチオーブン"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "wood-stove"
+    ],
+    "steps": [
+      "洗ったもち米をイカのお腹に7分目まで詰め、爪楊枝で止める。",
+      "煮汁で煮る。"
+    ],
+    "cookTime": "約40分",
+    "tips": "詰めすぎると破裂します。"
+  },
+  {
+    "id": "kani-nabe",
+    "name": "カニ鍋",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "winter"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": false,
+    "cost": "high",
+    "description": "正月の贅沢。出汁がすごい。",
+    "ingredients": [
+      "カニ（冷凍ポーション）",
+      "白菜",
+      "豆腐",
+      "春菊"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "cassette-stove"
+    ],
+    "steps": [
+      "昆布だしでカニと野菜を煮る。"
+    ],
+    "cookTime": "約20分",
+    "tips": "カニは食べる直前に入れるのがプリプリの秘訣。"
+  },
+  {
+    "id": "clams-sake",
+    "name": "アサリの酒蒸し",
+    "meal": "snack",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring"
+    ],
+    "calories": "約100kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": true,
+    "cost": "low",
+    "description": "春のアサリは身が大きくて美味しい。",
+    "ingredients": [
+      "アサリ（砂抜き済み）",
+      "酒",
+      "ネギ",
+      "バター"
+    ],
+    "requiredGear": [
+      "シェラカップ",
+      "スキレット"
+    ],
+    "usedGearIds": [
+      "sierra-cup",
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "アサリと酒を入れ蓋をして蒸す。",
+      "口が開いたらバターを落とす。"
+    ],
+    "cookTime": "約5分",
+    "tips": "ニンニクを入れても美味しい。"
+  },
+  {
+    "id": "shrimp-bisque",
+    "name": "海老のビスク風スープ",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "normal",
+    "season": [
+      "winter"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "有頭エビの頭を炒めて出汁をとる本格派。",
+    "ingredients": [
+      "有頭エビ",
+      "玉ねぎ",
+      "人参",
+      "トマトペースト",
+      "生クリーム"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "エビの頭と野菜を炒め、水を加えて煮出し、潰して濃い出汁をとる。",
+      "具としての身を加え、クリームで仕上げる。"
+    ],
+    "cookTime": "約30分",
+    "tips": "ざるで濾すと滑らかになりますが、キャンプなら殻ごとワイルドにいってもOK？"
+  },
+  {
+    "id": "mentai-pasta",
+    "name": "明太子パスタ",
+    "meal": "lunch",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "和えるだけ系パスタの最高峰。",
+    "ingredients": [
+      "パスタ",
+      "辛子明太子",
+      "バター",
+      "大葉",
+      "海苔"
+    ],
+    "requiredGear": [
+      "鍋",
+      "ボウル"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "パスタを茹でる。",
+      "ボウルでほぐした明太子、バター、茹で汁を混ぜ、パスタを絡める。"
+    ],
+    "cookTime": "約10分",
+    "tips": "レモン汁を少し入れるとさっぱりします。"
+  },
+  {
+    "id": "salmon-jerky",
+    "name": "鮭とば（炙り）",
+    "meal": "snack",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "winter"
+    ],
+    "calories": "約100kcal",
+    "activeTime": "5分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "市販の鮭とばを炙るだけ。無限に酒が飲める。",
+    "ingredients": [
+      "鮭とば"
+    ],
+    "requiredGear": [
+      "網"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [
+      "bonfire"
+    ],
+    "steps": [
+      "皮目を少し焦げるくらい炙る。",
+      "キッチンバサミで切る。"
+    ],
+    "cookTime": "5分",
+    "tips": "マヨ七味が合います。"
+  }
+]

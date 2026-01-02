@@ -17,7 +17,7 @@ export function getSeasonFromMonth(): MenuRequest['season'] {
 export async function testApiConnection(apiKey: string): Promise<{ success: boolean; message: string }> {
   try {
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -44,10 +44,23 @@ export async function testApiConnection(apiKey: string): Promise<{ success: bool
 function buildPrompt(
   request: MenuRequest,
   ownedGears: CookingGear[],
-  ownedHeatSources: HeatSource[]
+  ownedHeatSources: HeatSource[],
+  availableRecipes: Recipe[] = [] // コンテキストとして注入するレシピリスト
 ): string {
   const gearNames = ownedGears.filter(g => g.owned).map(g => `${g.name} (ID: ${g.id})`).join(', ');
   const heatNames = ownedHeatSources.filter(h => h.owned).map(h => `${h.name} (ID: ${h.id})`).join(', ');
+
+  // レシピ情報をテキスト化して知識ベースとして整形
+  const recipeContext = availableRecipes.length > 0
+    ? availableRecipes.map(r => `
+      - 名前: ${r.name}
+      - 特徴: ${r.description}
+      - 季節: ${r.season ? r.season.join('/') : '指定なし'}
+      - 難易度: ${r.difficulty}
+      - メイン具材: ${r.ingredients.slice(0, 5).join(', ')}
+    `).join('\n')
+    : '（外部レシピ情報なし。一般的なキャンプ知識に基づいて回答してください）';
+
 
   const participantsLabel = {
     solo: 'ソロ（1人）',
@@ -77,7 +90,7 @@ function buildPrompt(
   const hasWoodStove = ownedHeatSources.some(h => h.id === 'wood-stove' && h.owned);
   const isWinter = request.season === 'winter';
 
-  return `あなたはキャンプ料理の専門家です。以下の条件でキャンプ飯のメニューを3食分（朝・昼・晩）提案してください。
+  return `あなたはキャンプ料理の専門家です。以下の条件でキャンプ飯のメニューを5品（朝・昼・夕食、またはおつまみ・デザートなどからバランスよく）提案してください。
 
 ## 条件
 - 参加人数: ${participantsLabel}
@@ -97,6 +110,11 @@ ${heatNames || '（未設定）'}
 2. **器具の使い回し最優先**: ${focusLabel}で使うメイン調理器具を、他の食事でも積極的に再利用してください。持参する道具の総数を最小化することが最重要です。
 3. **IDでの返却**: usedGearIds と usedHeatSourceIds は、上記で示したID（例: iron-plate, wood-stove）を使って返してください。
 ${isWinter && hasWoodStove ? '4. **薪ストーブ活用**: 冬で薪ストーブがあるため、天板での煮込みや保温、オーブン調理を積極的に活用してください。' : ''}
+5. **提供されたレシピデータの活用**: 以下の「知識ベース」にあるレシピの中から、条件に合うものを選んで提案してください。もし条件に合致するものが知識ベースになければ、近いものをアレンジするか、一般的なキャンプ知識から提案してください。
+
+## 知識ベース (レシピリスト)
+${recipeContext}
+
 
 ## 回答形式（JSON）
 以下の形式で、正確なJSONを返してください。説明文や前置きは不要です。
@@ -150,12 +168,14 @@ export async function generateMenuSuggestion(
   apiKey: string,
   request: MenuRequest,
   ownedGears: CookingGear[],
-  ownedHeatSources: HeatSource[]
+  ownedHeatSources: HeatSource[],
+  availableRecipes: Recipe[] = []
 ): Promise<Recipe[]> {
-  const prompt = buildPrompt(request, ownedGears, ownedHeatSources);
+  const prompt = buildPrompt(request, ownedGears, ownedHeatSources, availableRecipes);
+
 
   const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

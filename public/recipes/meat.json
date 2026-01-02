@@ -1,0 +1,1299 @@
+[
+  {
+    "id": "roast-beef-dutch",
+    "name": "ダッチオーブンローストビーフ",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "30分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "high",
+    "description": "キャンプの王様。ダッチオーブンでじっくり火を通し、肉の旨味を閉じ込める。",
+    "ingredients": [
+      "牛モモブロック (500g)",
+      "塩コショウ (適量)",
+      "ニンニク (1片)",
+      "ローズマリー",
+      "オリーブオイル"
+    ],
+    "requiredGear": [
+      "ダッチオーブン"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "wood-stove",
+      "bonfire"
+    ],
+    "steps": [
+      "肉に塩コショウ、ニンニクをすり込み、表面を全面焼く。",
+      "底網を敷いたダッチオーブンに入れ、蓋をして炭火を乗せる。",
+      "中心温度が少し温かくなるまで焼く（約20-30分）。アルミホイルに包んで休ませる。"
+    ],
+    "cookTime": "約1時間",
+    "tips": "余熱で火を通す時間が重要です。"
+  },
+  {
+    "id": "tonjiru",
+    "name": "具だくさん豚汁",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "autumn",
+      "winter"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "low",
+    "description": "寒いキャンプの朝晩に染み渡る、野菜たっぷりの豚汁。",
+    "ingredients": [
+      "豚バラ肉 (200g)",
+      "大根",
+      "人参",
+      "ごぼう",
+      "長ネギ",
+      "味噌",
+      "だし汁"
+    ],
+    "requiredGear": [
+      "深型鍋"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "gas-stove",
+      "wood-stove"
+    ],
+    "steps": [
+      "野菜は一口大、ごぼうはささがきにする。",
+      "鍋で豚肉と野菜を炒める。",
+      "だし汁を加え、野菜が柔らかくなるまで煮たら味噌を溶く。"
+    ],
+    "cookTime": "約30分",
+    "tips": "根菜類は家でカットして下茹でしておくと時短になります。"
+  },
+  {
+    "id": "skillet-hamburg",
+    "name": "スキレットハンバーグ",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "normal",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約700kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "スキレットで焼くことで外はカリッと、中はジューシーに。ソースもそのまま作れる。",
+    "ingredients": [
+      "合い挽き肉 (300g)",
+      "玉ねぎ",
+      "パン粉",
+      "卵",
+      "ナツメグ",
+      "デミグラスソース缶"
+    ],
+    "requiredGear": [
+      "スキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "タネを成形し、スキレットで両面に焼き色をつける。",
+      "デミグラスソースを加え、蓋をして中まで火を通す。"
+    ],
+    "cookTime": "約25分",
+    "tips": "チーズを乗せて蓋をするとさらに美味しいです。"
+  },
+  {
+    "id": "yakiniku-platter",
+    "name": "特選焼肉盛り合わせ",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "calories": "約800kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "high",
+    "description": "結局これが一番盛り上がる。炭火で焼くお肉は格別。",
+    "ingredients": [
+      "牛カルビ",
+      "牛タン",
+      "ハラミ",
+      "焼き野菜セット",
+      "焼肉のタレ"
+    ],
+    "requiredGear": [
+      "焚き火台（網）",
+      "トング"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [
+      "bonfire"
+    ],
+    "steps": [
+      "炭をおこす。",
+      "好きな肉を焼く。",
+      "食べる。"
+    ],
+    "cookTime": "約1時間",
+    "tips": "良い炭を使うと味が変わります。"
+  },
+  {
+    "id": "samgyopsal",
+    "name": "サムギョプサル風豚バラ焼き",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "calories": "約700kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 2,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "カリカリに焼いた豚バラをサンチュで巻いて。",
+    "ingredients": [
+      "豚バラブロック（厚切り）",
+      "サンチュ",
+      "キムチ",
+      "ニンニク",
+      "ごま油",
+      "サムジャン"
+    ],
+    "requiredGear": [
+      "鉄板",
+      "マルチグリドル"
+    ],
+    "usedGearIds": [
+      "griddle",
+      "iron-plate"
+    ],
+    "usedHeatSourceIds": [
+      "twin-burner"
+    ],
+    "steps": [
+      "豚バラ肉を鉄板で全体がカリカリになるまで焼く。",
+      "ハサミで一口大に切る。",
+      "サンチュに肉、キムチ、味噌を乗せて巻く。"
+    ],
+    "cookTime": "約20分",
+    "tips": "豚の脂でキムチを焼くと最高です。"
+  },
+  {
+    "id": "shogayaki-don",
+    "name": "直火豚丼",
+    "meal": "lunch",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約700kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "甘辛いタレと炭火の香りが食欲をそそる男飯。",
+    "ingredients": [
+      "豚ロース肉",
+      "ご飯",
+      "豚丼のタレ",
+      "白髪ネギ"
+    ],
+    "requiredGear": [
+      "網",
+      "シェラカップ"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [
+      "bonfire"
+    ],
+    "steps": [
+      "豚肉にタレを絡めて網で焼く。",
+      "ご飯の上に乗せ、残りのタレをかける。"
+    ],
+    "cookTime": "約10分",
+    "tips": "タレを焦がすのがポイント。"
+  },
+  {
+    "id": "dutch-spare-ribs-marmalade",
+    "name": "スペアリブのマーマレード煮",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "winter"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "マーマレードの酸味と甘味で柔らかく煮込む。",
+    "ingredients": [
+      "スペアリブ",
+      "マーマレードジャム",
+      "醤油",
+      "酒",
+      "ニンニク"
+    ],
+    "requiredGear": [
+      "ダッチオーブン"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "wood-stove",
+      "bonfire"
+    ],
+    "steps": [
+      "スペアリブに焼き目をつける。",
+      "調味料と水を入れ、蓋をして1時間煮込む。"
+    ],
+    "cookTime": "約1時間",
+    "tips": "お箸で切れるくらい柔らかくなります。"
+  },
+  {
+    "id": "chicken-namban",
+    "name": "揚げないチキン南蛮",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "normal",
+    "season": [
+      "spring",
+      "summer"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "low",
+    "description": "多めの油で揚げ焼きにして、甘酢とタルタルでこれでもかと味付け。",
+    "ingredients": [
+      "鶏もも肉",
+      "小麦粉",
+      "卵",
+      "甘酢ダレ",
+      "タルタルソース"
+    ],
+    "requiredGear": [
+      "スキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "鶏肉に小麦粉と溶き卵をつける。",
+      "スキレットで揚げ焼きにする。",
+      "甘酢にくぐらせ、タルタルをかける。"
+    ],
+    "cookTime": "約20分",
+    "tips": "カロリーは考えないでください。"
+  },
+  {
+    "id": "rum-steak",
+    "name": "ラムステーキ",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "normal",
+    "season": [
+      "spring",
+      "autumn"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "high",
+    "description": "厚切りのラム肉をシンプルに塩とハーブで。",
+    "ingredients": [
+      "ラム肩ロース厚切り",
+      "塩",
+      "クミン",
+      "ローズマリー",
+      "オリーブオイル"
+    ],
+    "requiredGear": [
+      "鉄板"
+    ],
+    "usedGearIds": [
+      "iron-plate"
+    ],
+    "usedHeatSourceIds": [
+      "bonfire"
+    ],
+    "steps": [
+      "肉を常温に戻す。",
+      "鉄板をカンカンに熱し、表面を焼き固める。",
+      "弱火で中まで火を通す。"
+    ],
+    "cookTime": "約15分",
+    "tips": "クミンを振ると一気にエスニックになります。"
+  },
+  {
+    "id": "sausage-mori",
+    "name": "世界のソーセージ盛り合わせ",
+    "meal": "snack",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約400kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "チョリソー、ハーブ、カレー味など。ビールが止まらない。",
+    "ingredients": [
+      "アソートソーセージ",
+      "粒マスタード",
+      "ザワークラウト"
+    ],
+    "requiredGear": [
+      "スキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "スキレットで皮が破れないように転がしながら焼く。",
+      "ボイルしてから焼くとプリッとします。"
+    ],
+    "cookTime": "約10分",
+    "tips": "粒マスタードは必須。"
+  },
+  {
+    "id": "smoked-chicken",
+    "name": "鶏ハムの瞬間燻製",
+    "meal": "snack",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "autumn"
+    ],
+    "calories": "約200kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "low",
+    "description": "市販の鶏ハム（サラダチキン）を燻製するだけの裏技。",
+    "ingredients": [
+      "サラダチキン (プレーン)",
+      "スモークチップ"
+    ],
+    "requiredGear": [
+      "燻製器"
+    ],
+    "usedGearIds": [
+      "steamer"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "サラダチキンの水気を拭き取る。",
+      "15分ほど熱燻する。"
+    ],
+    "cookTime": "約15分",
+    "tips": "コンビニ食材が高級つまみに化けます。"
+  },
+  {
+    "id": "gyu-kushi",
+    "name": "牛串BBQスタイル",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "summer"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "ピーマンや玉ねぎと一緒に串に刺したクラシックスタイル。",
+    "ingredients": [
+      "サイコロステーキ肉",
+      "ピーマン",
+      "玉ねぎ",
+      "BBQソース"
+    ],
+    "requiredGear": [
+      "串",
+      "BBQコンロ"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [
+      "bonfire"
+    ],
+    "steps": [
+      "具材を交互に刺す。",
+      "タレを塗りながら焼く。"
+    ],
+    "cookTime": "約15分",
+    "tips": "彩りが大事です。"
+  },
+  {
+    "id": "horumon-yaki",
+    "name": "鉄板ホルモン焼き",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "summer",
+      "winter"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 2,
+    "prePrep": false,
+    "cost": "low",
+    "description": "味噌ダレに漬け込んだホルモンをキャベツと炒める。",
+    "ingredients": [
+      "豚ホルモン（味付き）",
+      "キャベツ",
+      "ニラ",
+      "うどん"
+    ],
+    "requiredGear": [
+      "マルチグリドル"
+    ],
+    "usedGearIds": [
+      "griddle"
+    ],
+    "usedHeatSourceIds": [
+      "twin-burner"
+    ],
+    "steps": [
+      "ホルモンと野菜を豪快に炒める。",
+      "最後にうどんを入れて〆る（ホルモンうどん）。"
+    ],
+    "cookTime": "約15分",
+    "tips": "B-1グランプリの味。"
+  },
+  {
+    "id": "roast-chicken-leg",
+    "name": "骨つき鶏モモ肉のロースト",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "normal",
+    "season": [
+      "christmas",
+      "winter"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "30分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "クリスマスキャンプに最適。ダッチオーブンならふっくら焼ける。",
+    "ingredients": [
+      "骨つき鶏モモ肉",
+      "じゃがいも",
+      "人参",
+      "ローズマリー",
+      "塩コショウ"
+    ],
+    "requiredGear": [
+      "ダッチオーブン"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "wood-stove"
+    ],
+    "steps": [
+      "肉に下味をつける。",
+      "ダッチオーブンに野菜を敷き、肉を乗せる。",
+      "蓋をして上火強めで40分焼く。"
+    ],
+    "cookTime": "約40分",
+    "tips": "皮をパリッとさせるため、最後は蓋の炭を増やしてください。"
+  },
+  {
+    "id": "sukiyaki",
+    "name": "キャンプですき焼き",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "winter"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": false,
+    "cost": "high",
+    "description": "冬のご馳走。良い肉を奮発して。",
+    "ingredients": [
+      "すき焼き用牛肉",
+      "白菜",
+      "春菊",
+      "しらたき",
+      "焼き豆腐",
+      "割り下",
+      "卵"
+    ],
+    "requiredGear": [
+      "浅型鍋",
+      "スキレット"
+    ],
+    "usedGearIds": [
+      "skillet",
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "cassette-stove"
+    ],
+    "steps": [
+      "牛脂でネギを焼き、肉を焼く。",
+      "割り下を入れ、他の具材を煮る。",
+      "溶き卵につけて食べる。"
+    ],
+    "cookTime": "約20分",
+    "tips": "関西風に最初は肉だけ焼いて砂糖と醤油で味わうのがおすすめ。"
+  },
+  {
+    "id": "shabu-shabu",
+    "name": "豚しゃぶしゃぶ",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "autumn"
+    ],
+    "calories": "約400kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 2,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "準備も片付けも楽。ポン酢とゴマだれで。",
+    "ingredients": [
+      "豚しゃぶしゃぶ肉",
+      "レタス",
+      "ネギ",
+      "ポン酢",
+      "だし昆布"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "cassette-stove"
+    ],
+    "steps": [
+      "鍋に湯を沸かし昆布を入れる。",
+      "肉と野菜をくぐらせて食べる。"
+    ],
+    "cookTime": "約15分",
+    "tips": "千切りにしたレタスを巻いて食べるのが美味しいです。"
+  },
+  {
+    "id": "jingisukan",
+    "name": "ジンギスカン",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "summer"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "専用鍋がなくてもマルチグリドルで代用可能。",
+    "ingredients": [
+      "ラム肉（味付きまたは生）",
+      "もやし",
+      "玉ねぎ",
+      "ピーマン",
+      "ジンギスカンのタレ"
+    ],
+    "requiredGear": [
+      "マルチグリドル"
+    ],
+    "usedGearIds": [
+      "griddle"
+    ],
+    "usedHeatSourceIds": [
+      "twin-burner"
+    ],
+    "steps": [
+      "中央で肉を焼き、周りで野菜を煮焼きにする。"
+    ],
+    "cookTime": "約20分",
+    "tips": "北海道スタイルでいきましょう。"
+  },
+  {
+    "id": "keema-curry",
+    "name": "ひき肉たっぷりのキーマカレー",
+    "meal": "lunch",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "summer"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "low",
+    "description": "煮込み時間が短くて済むのでキャンプ向きのカレー。",
+    "ingredients": [
+      "合い挽き肉",
+      "玉ねぎ（みじん切り）",
+      "トマト缶",
+      "カレールー",
+      "温泉卵"
+    ],
+    "requiredGear": [
+      "フライパン"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "玉ねぎを飴色になるまで炒める。",
+      "肉を炒め、トマト缶と水を少し入れる。",
+      "ルーを溶かし、水分を飛ばす。"
+    ],
+    "cookTime": "約20分",
+    "tips": "ナンとの相性も抜群です。"
+  },
+  {
+    "id": "tandoori-chicken",
+    "name": "タンドリーチキン",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "normal",
+    "season": [
+      "summer"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "low",
+    "description": "ヨーグルトとスパイスに漬け込んで焼くだけ。スパイシーでビールが進む。",
+    "ingredients": [
+      "鶏もも肉",
+      "ヨーグルト",
+      "カレー粉",
+      "パプリカパウダー",
+      "ニンニク"
+    ],
+    "requiredGear": [
+      "スキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "前日に全ての材料をジップロックに入れて揉み込む。",
+      "スキレットで皮目からじっくり焼く。"
+    ],
+    "cookTime": "約20分",
+    "tips": "焦げやすいので火加減に注意。"
+  },
+  {
+    "id": "pot-au-feu",
+    "name": "丸ごと野菜のポトフ",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "winter"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "30分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "ソーセージと野菜の旨味がスープに溶け出す。",
+    "ingredients": [
+      "ソーセージ",
+      "ベーコンブロック",
+      "じゃがいも",
+      "人参",
+      "玉ねぎ",
+      "キャベツ",
+      "コンソメ"
+    ],
+    "requiredGear": [
+      "ダッチオーブン"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "wood-stove"
+    ],
+    "steps": [
+      "野菜は大きく切る。",
+      "全ての材料と水を入れ、蓋をして煮込む。"
+    ],
+    "cookTime": "約50分",
+    "tips": "粒マスタードをつけて召し上がれ。"
+  },
+  {
+    "id": "meat-loaf",
+    "name": "ダッチオーブンデミグラスミートローフ",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "hard",
+    "season": [
+      "winter"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "30分",
+    "cleanupLevel": 3,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "ハンバーグより豪華に見える、切り分けて食べる肉料理。",
+    "ingredients": [
+      "合い挽き肉",
+      "ミックスベジタブル",
+      "ゆで卵",
+      "パン粉",
+      "牛乳"
+    ],
+    "requiredGear": [
+      "ダッチオーブン"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "wood-stove"
+    ],
+    "steps": [
+      "タネの中にゆで卵を入れて成形する。",
+      "ダッチオーブンに入れ、周りにジャガイモなどを置く。",
+      "1時間ほど焼く。"
+    ],
+    "cookTime": "約1時間",
+    "tips": "切り分けた時の断面（卵）が綺麗です。"
+  },
+  {
+    "id": "cheese-in-hamburg",
+    "name": "チーズインハンバーグ",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "normal",
+    "season": [
+      "spring",
+      "autumn"
+    ],
+    "calories": "約700kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "中からとろーりチーズが出てくる幸せ。",
+    "ingredients": [
+      "ハンバーグのタネ",
+      "とろけるチーズ"
+    ],
+    "requiredGear": [
+      "スキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "チーズをタネで包む。",
+      "蒸し焼きにする。"
+    ],
+    "cookTime": "約20分",
+    "tips": "チーズが漏れ出さないようにしっかり閉じるのがコツ。"
+  },
+  {
+    "id": "mutton-curry",
+    "name": "マトンカレー",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "hard",
+    "season": [
+      "summer"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "40分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "羊肉の癖とスパイスが融合した本格カレー。",
+    "ingredients": [
+      "マトン角切り",
+      "玉ねぎ",
+      "トマト",
+      "クミン",
+      "コリアンダー",
+      "チリパウダー"
+    ],
+    "requiredGear": [
+      "ダッチオーブン"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "bonfire"
+    ],
+    "steps": [
+      "ホールスパイスを炒め、玉ねぎを炒める。",
+      "肉とパウダースパイスを加え、煮込む。"
+    ],
+    "cookTime": "約1時間",
+    "tips": "翌日の方が美味しいです。"
+  },
+  {
+    "id": "pulled-pork",
+    "name": "プルドポーク",
+    "meal": "dinner",
+    "servings": 6,
+    "difficulty": "hard",
+    "season": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "30分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "アメリカンBBQの定番。ホロホロになるまで煮込んだ豚肉。",
+    "ingredients": [
+      "豚肩ロース塊肉",
+      "BBQソース",
+      "コーラ",
+      "パプリカパウダー"
+    ],
+    "requiredGear": [
+      "ダッチオーブン"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "bonfire"
+    ],
+    "steps": [
+      "肉にスパイスを擦り込む。",
+      "ダッチオーブンで表面を焼き、ソースとコーラを入れて数時間煮込む。",
+      "フォークで裂いてバンズに挟む。"
+    ],
+    "cookTime": "約3時間",
+    "tips": "大量に作ってサンドイッチにするのが正解。"
+  },
+  {
+    "id": "cassoulet",
+    "name": "カスレ（白いんげん豆と肉の煮込み）",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "hard",
+    "season": [
+      "winter"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "30分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "high",
+    "description": "フランスの郷土料理。肉の旨味を吸った豆が絶品。",
+    "ingredients": [
+      "白いんげん豆",
+      "ソーセージ",
+      "豚バラブロック",
+      "鴨のコンフィ（あれば）",
+      "トマトペースト"
+    ],
+    "requiredGear": [
+      "ダッチオーブン"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "wood-stove"
+    ],
+    "steps": [
+      "豆を一晩戻しておく。",
+      "肉類を焼き、豆とスープを加えてオーブンで焼くように煮込む。"
+    ],
+    "cookTime": "約2時間",
+    "tips": "パン粉を振って表面を焼くと香ばしいです。"
+  },
+  {
+    "id": "gyu-suji-nikomi",
+    "name": "牛すじ煮込み",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "winter"
+    ],
+    "calories": "約400kcal",
+    "activeTime": "30分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "居酒屋メニューをキャンプで。七味が合う。",
+    "ingredients": [
+      "牛すじ肉",
+      "こんにゃく",
+      "大根",
+      "味噌",
+      "生姜"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "wood-stove"
+    ],
+    "steps": [
+      "牛すじは下茹でする。",
+      "全ての材料を入れて柔らかくなるまで煮込む。"
+    ],
+    "cookTime": "約2時間",
+    "tips": "冬キャンで薪ストーブの上に置いておけば勝手にできます。"
+  },
+  {
+    "id": "gapao-meat-only",
+    "name": "肉肉しいガパオ炒め",
+    "meal": "snack",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "summer"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "ご飯なしでビールのアテにするガパオの具。",
+    "ingredients": [
+      "鶏ひき肉",
+      "バジル",
+      "唐辛子",
+      "ナンプラー"
+    ],
+    "requiredGear": [
+      "フライパン"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "ひき肉をポロポロに炒める。",
+      "調味料とバジルを加えてさっと炒める。"
+    ],
+    "cookTime": "約10分",
+    "tips": "レタス包みにしても良いです。"
+  },
+  {
+    "id": "spam-musubi",
+    "name": "スパムおにぎり",
+    "meal": "lunch",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer"
+    ],
+    "calories": "約400kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "ハワイアンスタイル。缶詰なので保存も効く。",
+    "ingredients": [
+      "スパム缶",
+      "卵",
+      "ご飯",
+      "海苔",
+      "照り焼きソース"
+    ],
+    "requiredGear": [
+      "フライパン"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "スパムと薄焼き卵を焼く。",
+      "俵型のご飯に乗せて海苔で巻く。"
+    ],
+    "cookTime": "約15分",
+    "tips": "スパムの空き缶にラップを敷いて型にすると綺麗に抜けます。"
+  },
+  {
+    "id": "teriyaki-chicken",
+    "name": "照り焼きチキン",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "autumn"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "子供から大人まで大好きな味。",
+    "ingredients": [
+      "鶏もも肉",
+      "醤油",
+      "みりん",
+      "砂糖",
+      "酒"
+    ],
+    "requiredGear": [
+      "スキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "鶏肉を焼き、タレを入れて煮絡める。"
+    ],
+    "cookTime": "約15分",
+    "tips": "炭焼きにしてからタレを潜らせると本格的。"
+  },
+  {
+    "id": "buta-kimchi",
+    "name": "豚キムチ炒め",
+    "meal": "lunch",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "スタミナ満点。マヨネーズをかけると禁断の味。",
+    "ingredients": [
+      "豚バラ肉",
+      "キムチ",
+      "ごま油",
+      "ニラ"
+    ],
+    "requiredGear": [
+      "フライパン"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "豚肉を炒め、キムチを加えてさらに炒める。"
+    ],
+    "cookTime": "約10分",
+    "tips": "古くなった酸っぱいキムチの方が炒め物には合います。"
+  },
+  {
+    "id": "beef-stroganoff",
+    "name": "ビーフストロガノフ",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "normal",
+    "season": [
+      "winter"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "サワークリームの代わり生クリームとレモンで。",
+    "ingredients": [
+      "牛薄切り肉",
+      "玉ねぎ",
+      "マッシュルーム",
+      "生クリーム",
+      "レモン汁",
+      "バター"
+    ],
+    "requiredGear": [
+      "フライパン"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "肉と野菜をバターで炒める。",
+      "小麦粉を振り入れ、水を加えて煮る。",
+      "仕上げにクリームとレモン汁。"
+    ],
+    "cookTime": "約20分",
+    "tips": "バターライスと一緒に。"
+  },
+  {
+    "id": "kakuni",
+    "name": "豚の角煮",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "hard",
+    "season": [
+      "winter"
+    ],
+    "calories": "約700kcal",
+    "activeTime": "30分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "箸で切れるトロトロの角煮。",
+    "ingredients": [
+      "豚バラブロック",
+      "ネギ",
+      "生姜",
+      "醤油",
+      "砂糖",
+      "酒",
+      "ゆで卵"
+    ],
+    "requiredGear": [
+      "ダッチオーブン"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "wood-stove"
+    ],
+    "steps": [
+      "肉を焼き付け、たっぷりの水と香味野菜で下茹でする（1時間）。",
+      "茹で汁を捨て、調味料を入れて落とし蓋をしてさらに1時間煮る。"
+    ],
+    "cookTime": "約2.5時間",
+    "tips": "圧力鍋があれば時短できますが、コトコト煮る時間もキャンプの味。"
+  },
+  {
+    "id": "korokke",
+    "name": "揚げたてコロッケ",
+    "meal": "snack",
+    "servings": 4,
+    "difficulty": "hard",
+    "season": [
+      "spring",
+      "autumn"
+    ],
+    "calories": "約400kcal",
+    "activeTime": "30分",
+    "cleanupLevel": 3,
+    "prePrep": true,
+    "cost": "low",
+    "description": "外で食べる揚げたては反則級の美味しさ。",
+    "ingredients": [
+      "じゃがいも",
+      "合い挽き肉",
+      "玉ねぎ",
+      "小麦粉",
+      "卵",
+      "パン粉"
+    ],
+    "requiredGear": [
+      "深型スキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "タネは家で作って形成し、衣までつけて持参する（揚げるだけ状態）。",
+      "少なめの油で揚げ焼きにする。"
+    ],
+    "cookTime": "約15分（揚げ時間）",
+    "tips": "冷凍コロッケを持っていくのも賢い選択です。"
+  }
+]

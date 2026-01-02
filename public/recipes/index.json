@@ -1,0 +1,12 @@
+{
+    "files": [
+        "core.json",
+        "meat.json",
+        "seafood.json",
+        "noodle.json",
+        "rice.json",
+        "snack.json",
+        "vegetable.json",
+        "soup.json"
+    ]
+}

@@ -1,0 +1,703 @@
+[
+  {
+    "id": "minestrone",
+    "name": "具だくさんミネストローネ",
+    "meal": "breakfast",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約200kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "野菜不足解消。ショートパスタを入れれば主食にもなる。",
+    "ingredients": [
+      "ベーコン",
+      "玉ねぎ",
+      "人参",
+      "キャベツ",
+      "ズッキーニ",
+      "トマト缶",
+      "コンソメ"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "角切りにした野菜とベーコンを炒める。",
+      "トマト缶と水を加え、柔らかくなるまで煮る。"
+    ],
+    "cookTime": "約30分",
+    "tips": "余ったらリゾットにリメイクできます。"
+  },
+  {
+    "id": "corn-soup",
+    "name": "粒たっぷりコーンスープ",
+    "meal": "breakfast",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約150kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "クリームコーン缶で簡単に濃厚な味。",
+    "ingredients": [
+      "クリームコーン缶",
+      "牛乳",
+      "コンソメ",
+      "パセリ"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "コーン缶と牛乳を1:1で混ぜて温める。",
+      "コンソメで味を調える。"
+    ],
+    "cookTime": "約10分",
+    "tips": "焦げ付きやすいので混ぜながら温めてください。"
+  },
+  {
+    "id": "miso-soup-instant",
+    "name": "至高のインスタント味噌汁",
+    "meal": "breakfast",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約50kcal",
+    "activeTime": "5分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "乾燥具材を足して豪華にする。",
+    "ingredients": [
+      "インスタント味噌汁（生味噌タイプ）",
+      "乾燥わかめ",
+      "麩",
+      "乾燥ネギ"
+    ],
+    "requiredGear": [
+      "シェラカップ"
+    ],
+    "usedGearIds": [
+      "sierra-cup"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "お湯を注ぐ。",
+      "通常の倍の具材を入れる。"
+    ],
+    "cookTime": "5分",
+    "tips": "キャンプの朝はこれだけで十分幸せだったりします。"
+  },
+  {
+    "id": "onion-gratin-soup",
+    "name": "オニオングラタンスープ",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "normal",
+    "season": [
+      "winter"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "30分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "low",
+    "description": "玉ねぎを飴色になるまで炒められるか、それが勝負。",
+    "ingredients": [
+      "玉ねぎ",
+      "バター",
+      "バゲット",
+      "チーズ",
+      "コンソメ"
+    ],
+    "requiredGear": [
+      "小鍋",
+      "バーナー（炙り用）"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "玉ねぎをじっくり炒め、水を加えて煮込む。",
+      "バゲットとチーズを乗せ、バーナーで炙るか蓋をして溶かす。"
+    ],
+    "cookTime": "約30分",
+    "tips": "家で炒め玉ねぎを作っていくのが賢い方法です。"
+  },
+  {
+    "id": "chinese-soup",
+    "name": "わかめと卵の中華スープ",
+    "meal": "lunch",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約100kcal",
+    "activeTime": "5分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "どんな料理にも合う万能スープ。",
+    "ingredients": [
+      "卵",
+      "乾燥わかめ",
+      "鶏ガラスープの素",
+      "ごま油",
+      "ごま"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "スープを沸かし、わかめを入れる。",
+      "溶き卵を回し入れ、ふわっと浮いたら火を止める。",
+      "ごま油を垂らす。"
+    ],
+    "cookTime": "約5分",
+    "tips": "片栗粉で少しとろみをつけると卵が綺麗に散ります。"
+  },
+  {
+    "id": "kenchin-jiru",
+    "name": "具だくさんけんちん汁",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "winter"
+    ],
+    "calories": "約200kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "根菜の旨味が染み出た醤油ベースの汁。",
+    "ingredients": [
+      "大根",
+      "人参",
+      "ごぼう",
+      "里芋",
+      "豆腐",
+      "こんにゃく",
+      "ごま油",
+      "醤油"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "wood-stove"
+    ],
+    "steps": [
+      "具材をごま油で炒める。",
+      "出汁を加えて煮込む。",
+      "醤油で味を調える。"
+    ],
+    "cookTime": "約30分",
+    "tips": "精進料理なので肉は入れませんが、入れても美味しいです。"
+  },
+  {
+    "id": "tomato-soup",
+    "name": "丸ごとトマトの冷製スープ",
+    "meal": "breakfast",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "summer"
+    ],
+    "calories": "約100kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "暑い朝にさっぱりと。",
+    "ingredients": [
+      "トマト",
+      "オリーブオイル",
+      "塩",
+      "バジル"
+    ],
+    "requiredGear": [
+      "クーラーボックス"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [],
+    "steps": [
+      "トマトを湯剥きして冷やしておく。",
+      "食べる直前に潰しながらオリーブオイルと塩で食べる。"
+    ],
+    "cookTime": "10分",
+    "tips": "良いトマトを使ってください。"
+  },
+  {
+    "id": "consomme-soup",
+    "name": "ベーコンと野菜のコンソメスープ",
+    "meal": "breakfast",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約150kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "冷蔵庫の残り野菜片付けスープ。",
+    "ingredients": [
+      "ベーコン",
+      "キャベツ",
+      "玉ねぎ",
+      "コンソメ"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "具材を切って煮るだけ。"
+    ],
+    "cookTime": "約15分",
+    "tips": "粗挽き胡椒をたっぷりと。"
+  },
+  {
+    "id": "pumpkin-soup",
+    "name": "カボチャのポタージュ",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "hard",
+    "season": [
+      "autumn",
+      "winter"
+    ],
+    "calories": "約200kcal",
+    "activeTime": "30分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "low",
+    "description": "ハロウィンキャンプに。手間はかかるがその価値はある。",
+    "ingredients": [
+      "カボチャ",
+      "玉ねぎ",
+      "バター",
+      "牛乳",
+      "コンソメ"
+    ],
+    "requiredGear": [
+      "鍋",
+      "潰し器"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "薄切りの玉ねぎとカボチャをバターで炒め、水で煮る。",
+      "柔らかくなったら潰してペーストにする。",
+      "牛乳で伸ばす。"
+    ],
+    "cookTime": "約30分",
+    "tips": "皮ごと潰すと緑色のワイルドなスープになります。"
+  },
+  {
+    "id": "clams-soup-simple",
+    "name": "アサリの潮汁",
+    "meal": "breakfast",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring"
+    ],
+    "calories": "約50kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "アサリの出汁だけで勝負。二日酔いに効く。",
+    "ingredients": [
+      "アサリ",
+      "酒",
+      "昆布",
+      "塩"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "水、昆布、アサリを入れて火にかける。",
+      "口が開いたら酒と塩で調味。"
+    ],
+    "cookTime": "約10分",
+    "tips": "沸騰させすぎないのがコツ。"
+  },
+  {
+    "id": "samgyetang-style",
+    "name": "手羽元のサムゲタン風スープ",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "winter"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "40分",
+    "cleanupLevel": 2,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "鶏肉がホロホロになるまで煮込む。体力が回復する味。",
+    "ingredients": [
+      "鶏手羽元",
+      "長ネギ",
+      "ニンニク",
+      "生姜",
+      "米（少量）",
+      "酒"
+    ],
+    "requiredGear": [
+      "ダッチオーブン"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "wood-stove"
+    ],
+    "steps": [
+      "全ての材料と水を鍋に入れ、蓋をして1時間煮込む。"
+    ],
+    "cookTime": "約1時間",
+    "tips": "米を少し入れることでとろみがつきます。"
+  },
+  {
+    "id": "curry-soup",
+    "name": "野菜たっぷりカレースープ",
+    "meal": "breakfast",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "summer"
+    ],
+    "calories": "約200kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 2,
+    "prePrep": false,
+    "cost": "low",
+    "description": "食欲がない朝でもスパイスの香りで食べられる。",
+    "ingredients": [
+      "カレールー（1かけ）",
+      "ウインナー",
+      "キャベツ",
+      "人参"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "具材を煮て、最後にルーを溶かす（とろみがつかない程度に薄く）。"
+    ],
+    "cookTime": "約15分",
+    "tips": "コンソメベースにカレー粉を加えるだけでもOK。"
+  },
+  {
+    "id": "borscht",
+    "name": "ボルシチ風トマト煮込み",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "winter"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "40分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "ビーツがなくてもトマト缶と牛肉でそれっぽく。",
+    "ingredients": [
+      "牛角切り肉",
+      "玉ねぎ",
+      "じゃがいも",
+      "人参",
+      "キャベツ",
+      "トマト缶",
+      "サワークリーム"
+    ],
+    "requiredGear": [
+      "ダッチオーブン"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "wood-stove"
+    ],
+    "steps": [
+      "肉を炒め、野菜を炒める。",
+      "トマト缶とひたひたの水を入れ煮込む。",
+      "食べる直前にサワークリームを乗せる。"
+    ],
+    "cookTime": "約40分",
+    "tips": "サワークリームがロシア感を演出します。"
+  },
+  {
+    "id": "kimchi-jjigae",
+    "name": "あさりのスンドゥブチゲ",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "winter"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 2,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "辛さで温まる。豆腐たっぷり。",
+    "ingredients": [
+      "絹ごし豆腐",
+      "あさり",
+      "豚肉",
+      "キムチ",
+      "コチュジャン",
+      "卵"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "豚肉とキムチをごま油で炒める。",
+      "水と調味料、アサリを入れる。",
+      "豆腐をスプーンですくって入れ、最後に卵を落とす。"
+    ],
+    "cookTime": "約15分",
+    "tips": "ご飯を入れてクッパにしても最高です。"
+  },
+  {
+    "id": "gazpacho",
+    "name": "ガスパチョ（飲むサラダ）",
+    "meal": "breakfast",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "summer"
+    ],
+    "calories": "約100kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "野菜ジュースを使う簡単バージョン。",
+    "ingredients": [
+      "トマトジュース",
+      "キュウリ",
+      "パプリカ",
+      "オリーブオイル",
+      "酢",
+      "タバスコ"
+    ],
+    "requiredGear": [
+      "コップ"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [],
+    "steps": [
+      "野菜をごく細かいみじん切りにする。",
+      "冷やしたトマトジュースと混ぜ、調味する。"
+    ],
+    "cookTime": "10分",
+    "tips": "パンを浸しても美味しい。"
+  },
+  {
+    "id": "ginger-soup",
+    "name": "生姜たっぷり白菜スープ",
+    "meal": "breakfast",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "winter"
+    ],
+    "calories": "約100kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "風邪予防に。体が芯から温まる。",
+    "ingredients": [
+      "白菜",
+      "生姜（千切り）",
+      "鶏ひき肉",
+      "春雨",
+      "中華だし"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "白菜と生姜をたっぷり入れて煮込む。",
+      "とろみをつけても美味しい。"
+    ],
+    "cookTime": "約15分",
+    "tips": "チューブ生姜ではなく生の生姜を使うと香りが違います。"
+  },
+  {
+    "id": "beer-soup",
+    "name": "ビールスープ",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "normal",
+    "season": [
+      "autumn",
+      "winter"
+    ],
+    "calories": "約250kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "ドイツの伝統料理。アルコールは飛ばします。",
+    "ingredients": [
+      "ビール",
+      "玉ねぎ",
+      "ベーコン",
+      "コンソメ",
+      "生クリーム",
+      "チーズ"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "玉ねぎとベーコンを炒める。",
+      "ビールを注ぎ、アルコールを飛ばしながら煮る。",
+      "クリームとチーズでコクを出す。"
+    ],
+    "cookTime": "約20分",
+    "tips": "苦味が癖になる大人のスープ。"
+  },
+  {
+    "id": "milk-soup",
+    "name": "白菜とベーコンのミルクスープ",
+    "meal": "breakfast",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "winter"
+    ],
+    "calories": "約250kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 2,
+    "prePrep": false,
+    "cost": "low",
+    "description": "優しい味で朝ごはんにぴったり。",
+    "ingredients": [
+      "白菜",
+      "ベーコン",
+      "牛乳",
+      "コンソメ",
+      "バター"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "白菜とベーコンをバターで炒める。",
+      "水少々で蒸し煮にしてから牛乳を加える。"
+    ],
+    "cookTime": "約15分",
+    "tips": "沸騰させると分離するので注意。"
+  }
+]
