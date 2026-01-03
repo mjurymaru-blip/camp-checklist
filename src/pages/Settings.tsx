@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useChecklistStore } from '../stores/checklistStore';
+import { useGearStore } from '../stores/gearStore';
 
 interface BackupEntry {
     id: string;
@@ -14,6 +15,7 @@ const MAX_BACKUPS = 5;
 
 export const Settings = () => {
     const { checklists, templates, categories, importData } = useChecklistStore();
+    const { theme, setTheme } = useGearStore();
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [backupHistory, setBackupHistory] = useState<BackupEntry[]>([]);
 
@@ -142,6 +144,25 @@ export const Settings = () => {
     return (
         <div className="main-content watercolor-bg">
             <div className="section-title">設定</div>
+
+            {/* テーマ設定 */}
+            <div className="card card-static">
+                <div className="card-header">
+                    <div className="card-title">🎨 テーマ設定</div>
+                </div>
+                <div style={{ padding: '0 16px 16px', display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                    {(['auto', 'light', 'dark'] as const).map(t => (
+                        <button
+                            key={t}
+                            onClick={() => setTheme(t)}
+                            className={theme === t ? 'btn btn-primary' : 'btn btn-secondary'}
+                            style={{ flex: 1, minWidth: 80, padding: '10px 8px' }}
+                        >
+                            {{ auto: '🌗 自動', light: '☀️ ライト', dark: '🌙 ダーク' }[t]}
+                        </button>
+                    ))}
+                </div>
+            </div>
 
             {/* ファイルバックアップ */}
             <div className="card card-static">

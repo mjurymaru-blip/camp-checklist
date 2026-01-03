@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useChecklistStore } from '../../stores/checklistStore';
 import { useGearStore } from '../../stores/gearStore';
 import { buildShoppingList, toChecklistItems } from '../../utils/shoppingListUtils';
-import type { MenuRequest, SavedRecipe } from '../../types';
+import type { SavedRecipe } from '../../types';
 import { useMenuSuggestion } from './hooks/useMenuSuggestion';
 import { RecipeCard } from './components/RecipeCard';
 import type { FavoriteRecipe } from '../../stores/gearStore';
@@ -17,17 +17,17 @@ export const MenuSuggestion = () => {
         loading,
         error,
         recipes,
-        request,
-        activeFilters,
+        conditions,
+        mode,
         suggestionStep,
         dinnerCandidates,
         selectedDinner,
         loadingRecipeId,
         showCourseConfirm,
         pendingDinnerRecipe,
-        setRequest,
-        toggleFilter,
-        handleGenerate,
+        setConditions,
+        setMode,
+        handleExecute,
         handleSelectCandidate,
         handleGenerateFullCourse,
         handleDinnerOnly,
@@ -60,7 +60,7 @@ export const MenuSuggestion = () => {
         });
     };
 
-    const targetServings = getTargetServings(request.participants);
+    const targetServings = getTargetServings(conditions.participants);
 
     return (
         <div className="main-content watercolor-bg">
@@ -84,8 +84,8 @@ export const MenuSuggestion = () => {
                             {(['solo', 'pair', 'group'] as const).map(p => (
                                 <button
                                     key={p}
-                                    onClick={() => setRequest({ ...request, participants: p })}
-                                    className={`btn ${request.participants === p ? 'btn-primary' : 'btn-secondary'}`}
+                                    onClick={() => setConditions(prev => ({ ...prev, participants: p }))}
+                                    className={`btn ${conditions.participants === p ? 'btn-primary' : 'btn-secondary'}`}
                                     style={{ flex: 1, fontSize: '0.875rem', padding: '8px' }}
                                 >
                                     {{ solo: 'ソロ', pair: 'ペア', group: 'グループ' }[p]}
@@ -101,8 +101,8 @@ export const MenuSuggestion = () => {
                             {(['spring', 'summer', 'autumn', 'winter'] as const).map(s => (
                                 <button
                                     key={s}
-                                    onClick={() => setRequest({ ...request, season: s })}
-                                    className={`btn ${request.season === s ? 'btn-primary' : 'btn-secondary'}`}
+                                    onClick={() => setConditions(prev => ({ ...prev, season: s }))}
+                                    className={`btn ${conditions.season === s ? 'btn-primary' : 'btn-secondary'}`}
                                     style={{ flex: 1, fontSize: '0.875rem', padding: '8px' }}
                                 >
                                     {{ spring: '春', summer: '夏', autumn: '秋', winter: '冬' }[s]}
@@ -111,131 +111,119 @@ export const MenuSuggestion = () => {
                         </div>
                     </div>
 
-                    {/* Effort */}
+                    {/* Difficulty */}
                     <div>
-                        <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.875rem', fontWeight: 600 }}>手間レベル</label>
-                        <select
-                            value={request.effort}
-                            onChange={(e) => setRequest({ ...request, effort: e.target.value as MenuRequest['effort'] })}
-                            style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid var(--color-border)' }}
-                        >
-                            <option value="easy">手抜き（簡単・時短）</option>
-                            <option value="normal">普通</option>
-                            <option value="elaborate">こだわり（手間をかける）</option>
-                        </select>
-                    </div>
-
-                    {/* Focus */}
-                    <div>
-                        <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.875rem', fontWeight: 600 }}>メインの食事</label>
-                        <p style={{ fontSize: '0.8rem', color: '#666', marginBottom: '4px' }}>
-                            {request.focus === 'dinner'
-                                ? '※夕食のみ or フルコース提案を選択可（AI消費: 1〜2回）'
-                                : '※朝食・昼食は「単品提案」になります（AI消費: 1回）'}
-                        </p>
+                        <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.875rem', fontWeight: 600 }}>難易度（任意）</label>
                         <div style={{ display: 'flex', gap: '8px' }}>
-                            {(['breakfast', 'lunch', 'dinner'] as const).map(f => (
+                            {([undefined, 'easy', 'normal', 'hard'] as const).map((d, i) => (
                                 <button
-                                    key={f}
-                                    onClick={() => setRequest({ ...request, focus: f })}
-                                    className={`btn ${request.focus === f ? 'btn-primary' : 'btn-secondary'}`}
-                                    style={{ flex: 1, fontSize: '0.875rem', padding: '8px' }}
+                                    key={i}
+                                    onClick={() => setConditions(prev => ({ ...prev, difficulty: d }))}
+                                    className={`btn ${conditions.difficulty === d ? 'btn-primary' : 'btn-secondary'}`}
+                                    style={{ flex: 1, fontSize: '0.75rem', padding: '8px' }}
                                 >
-                                    {{ breakfast: '朝食', lunch: '昼食', dinner: '夕食' }[f]}
+                                    {{ undefined: '指定なし', easy: '簡単', normal: '普通', hard: '本格' }[String(d) as 'undefined' | 'easy' | 'normal' | 'hard']}
                                 </button>
                             ))}
                         </div>
                     </div>
 
-                    {/* Category */}
+                    {/* Meal Type */}
                     <div>
-                        <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.875rem', fontWeight: 600 }}>食べたいもの（任意）</label>
+                        <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.875rem', fontWeight: 600 }}>食事タイプ</label>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                            {(['breakfast', 'lunch', 'dinner', 'snack', 'dessert'] as const).map(m => (
+                                <button
+                                    key={m}
+                                    onClick={() => setConditions(prev => ({ ...prev, mealType: m }))}
+                                    className={`btn ${conditions.mealType === m ? 'btn-primary' : 'btn-secondary'}`}
+                                    style={{ flex: 1, fontSize: '0.8rem', padding: '8px 4px', minWidth: 0 }}
+                                >
+                                    {{ breakfast: '🌅朝食', lunch: '☀️昼食', dinner: '🌙夕食', snack: '🍿おつまみ', dessert: '🍰デザート' }[m]}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Cost (Optional) */}
+                    <div>
+                        <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.875rem', fontWeight: 600 }}>コスト（任意）</label>
+                        <div style={{ display: 'flex', gap: '8px' }}>
+                            {([undefined, 'low', 'mid', 'high'] as const).map((c, i) => (
+                                <button
+                                    key={i}
+                                    onClick={() => setConditions(prev => ({ ...prev, cost: c }))}
+                                    className={`btn ${conditions.cost === c ? 'btn-primary' : 'btn-secondary'}`}
+                                    style={{ flex: 1, fontSize: '0.75rem', padding: '8px' }}
+                                >
+                                    {{ undefined: '指定なし', low: '💰 安', mid: '💰💰 普通', high: '💰💰💰 贅沢' }[String(c) as 'undefined' | 'low' | 'mid' | 'high']}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Text search */}
+                    <div>
+                        <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.875rem', fontWeight: 600 }}>キーワード検索（任意）</label>
                         <input
                             type="text"
-                            value={request.category || ''}
-                            onChange={(e) => setRequest({ ...request, category: e.target.value })}
-                            placeholder="例: パスタ、肉料理、和食..."
+                            value={conditions.searchText || ''}
+                            onChange={(e) => setConditions(prev => ({ ...prev, searchText: e.target.value }))}
+                            placeholder="例: カレー、パスタ、鶏肉..."
                             style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid var(--color-border)' }}
                         />
                     </div>
 
-                    {geminiApiKey ? (
-                        <button
-                            onClick={handleGenerate}
-                            disabled={loading}
-                            className="btn btn-primary btn-full"
-                            style={{ marginTop: '8px', height: '48px', fontSize: '1rem', fontWeight: 600 }}
-                        >
-                            {loading ? 'AIが考え中...🍳' : `✨ 条件決定：${{ breakfast: '朝食', lunch: '昼食', dinner: '夕食' }[request.focus]}の候補を見る`}
-                        </button>
-                    ) : (
+                    {/* Mode selection */}
+                    <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: '16px' }}>
+                        <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.875rem', fontWeight: 600 }}>探し方</label>
+                        <div style={{ display: 'flex', gap: '8px' }}>
+                            <button
+                                onClick={() => setMode('ai')}
+                                className={`btn ${mode === 'ai' ? 'btn-primary' : 'btn-secondary'}`}
+                                style={{ flex: 1, padding: '12px', fontSize: '0.875rem' }}
+                            >
+                                ✨ おすすめしてもらう
+                            </button>
+                            <button
+                                onClick={() => setMode('manual')}
+                                className={`btn ${mode === 'manual' ? 'btn-primary' : 'btn-secondary'}`}
+                                style={{ flex: 1, padding: '12px', fontSize: '0.875rem' }}
+                            >
+                                🔍 自分で探す
+                            </button>
+                        </div>
+                        <p style={{ fontSize: '0.75rem', color: 'var(--color-text-light)', marginTop: '8px', textAlign: 'center' }}>
+                            {mode === 'ai'
+                                ? 'AIが条件に合うレシピを5つおすすめします'
+                                : '条件に合うレシピを一覧で表示します'}
+                        </p>
+                    </div>
+
+                    {/* Execute button */}
+                    {mode === 'ai' && !geminiApiKey ? (
                         <div style={{ textAlign: 'center', padding: '16px', background: '#fff8e1', borderRadius: '12px' }}>
                             <p style={{ margin: 0, fontSize: '0.875rem', color: '#f57f17' }}>
-                                APIキーを設定するとAI提案が利用できます
+                                ✨ AIにおすすめしてもらうにはAPIキーの設定が必要です
                             </p>
                             <NavLink to="/recipes/settings" className="btn btn-secondary" style={{ marginTop: '12px', display: 'inline-block' }}>
                                 ⚙️ 設定へ
                             </NavLink>
                         </div>
+                    ) : (
+                        <button
+                            onClick={handleExecute}
+                            disabled={loading}
+                            className="btn btn-primary btn-full"
+                            style={{ marginTop: '8px', height: '48px', fontSize: '1rem', fontWeight: 600 }}
+                        >
+                            {loading
+                                ? 'AIが考え中...🍳'
+                                : mode === 'ai'
+                                    ? `✨ AIにおすすめを聞く`
+                                    : `🔍 条件で絞り込む`}
+                        </button>
                     )}
-
-                    {/* Filter chips */}
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '16px', borderTop: '1px solid #eee', paddingTop: '16px' }}>
-                        <span style={{ fontSize: '0.75rem', color: '#666', width: '100%' }}>📚 レシピ検索フィルタ:</span>
-                        {(['easy', 'normal', 'hard'] as const).map(d => (
-                            <button key={d}
-                                onClick={() => toggleFilter('difficulty', d)}
-                                className="btn"
-                                style={{
-                                    padding: '4px 12px', fontSize: '0.75rem', borderRadius: '20px',
-                                    background: activeFilters.difficulty === d ? 'var(--color-primary)' : '#f0f0f0',
-                                    color: activeFilters.difficulty === d ? '#fff' : '#333',
-                                    border: 'none', whiteSpace: 'nowrap'
-                                }}>
-                                {{ easy: '🟢 簡単', normal: '🟡 普通', hard: '🔴 本格' }[d]}
-                            </button>
-                        ))}
-                        {(['low', 'mid', 'high'] as const).map(c => (
-                            <button key={c}
-                                onClick={() => toggleFilter('cost', c)}
-                                className="btn"
-                                style={{
-                                    padding: '4px 12px', fontSize: '0.75rem', borderRadius: '20px',
-                                    background: activeFilters.cost === c ? 'var(--color-secondary)' : '#f0f0f0',
-                                    color: activeFilters.cost === c ? '#fff' : '#333',
-                                    border: 'none', whiteSpace: 'nowrap'
-                                }}>
-                                {{ low: '💰 安い', mid: '💰💰 普通', high: '💰💰💰 贅沢' }[c]}
-                            </button>
-                        ))}
-                        {(['winter', 'summer', 'autumn', 'spring'] as const).map(s => (
-                            <button key={s}
-                                onClick={() => toggleFilter('season', s)}
-                                className="btn"
-                                style={{
-                                    padding: '4px 12px', fontSize: '0.75rem', borderRadius: '20px',
-                                    background: activeFilters.season === s ? '#2196F3' : '#f0f0f0',
-                                    color: activeFilters.season === s ? '#fff' : '#333',
-                                    border: 'none', whiteSpace: 'nowrap'
-                                }}>
-                                {{ winter: '⛄️ 冬', summer: '🌻 夏', autumn: '🍁 秋', spring: '🌸 春' }[s]}
-                            </button>
-                        ))}
-                        {/* Meal Type filters */}
-                        {(['meal', 'snack'] as const).map(m => (
-                            <button key={m}
-                                onClick={() => toggleFilter('mealType', m)}
-                                className="btn"
-                                style={{
-                                    padding: '4px 12px', fontSize: '0.75rem', borderRadius: '20px',
-                                    background: activeFilters.mealType === m ? '#673ab7' : '#f0f0f0',
-                                    color: activeFilters.mealType === m ? '#fff' : '#333',
-                                    border: 'none', whiteSpace: 'nowrap'
-                                }}>
-                                {{ meal: '🍽️ 食事系', snack: '🍪 おつまみ・デザート' }[m]}
-                            </button>
-                        ))}
-                    </div>
                 </div>
             </div>
 
@@ -350,7 +338,7 @@ export const MenuSuggestion = () => {
                 <div className="card card-static">
                     <div className="card-header" style={{ background: '#3f51b5' }}>
                         <div className="card-title" style={{ color: 'white' }}>
-                            🍽️ {{ breakfast: '朝食', lunch: '昼食', dinner: '夕食' }[request.focus]}の候補（{dinnerCandidates.length}件）
+                            🍽️ {{ breakfast: '朝食', lunch: '昼食', dinner: '夕食', snack: 'おつまみ', dessert: 'デザート' }[conditions.mealType]}の候補（{dinnerCandidates.length}件）
                         </div>
                     </div>
                     <div style={{ padding: '16px' }}>
@@ -362,7 +350,7 @@ export const MenuSuggestion = () => {
                                 key={recipe.id}
                                 recipe={recipe}
                                 variant="candidate"
-                                request={request}
+                                conditions={conditions}
                                 loadingRecipeId={loadingRecipeId}
                                 onSelect={handleSelectCandidate}
                             />
@@ -391,7 +379,7 @@ export const MenuSuggestion = () => {
                                 ← 初めからやり直す
                             </button>
                             <h3 style={{ marginTop: '16px', fontSize: '1.2rem' }}>
-                                🎉 {request.focus === 'dinner' ? 'ご提案のキャンプフルコース' : '決定したレシピ'}
+                                🎉 {conditions.mealType === 'dinner' ? 'ご提案のキャンプフルコース' : '決定したレシピ'}
                             </h3>
                             {selectedDinner && <p style={{ fontSize: '0.9rem', color: '#666' }}>メイン：{selectedDinner.name}</p>}
 
@@ -424,7 +412,7 @@ export const MenuSuggestion = () => {
                                 key={recipe.id}
                                 recipe={recipe}
                                 variant="result"
-                                request={request}
+                                conditions={conditions}
                                 targetServings={targetServings}
                                 scaleIngredients={scaleIngredients}
                                 onToggleExpand={toggleExpand}

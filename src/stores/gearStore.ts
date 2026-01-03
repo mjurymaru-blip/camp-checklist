@@ -36,6 +36,9 @@ interface GearStore {
     favoriteRecipes: FavoriteRecipe[];
     recipeHistory: HistoryRecipe[];
 
+    // テーマ設定
+    theme: 'auto' | 'light' | 'dark';
+
     toggleGear: (id: string) => void;
     toggleHeatSource: (id: string) => void;
     setApiKey: (key: string) => void;
@@ -49,6 +52,9 @@ interface GearStore {
     isFavorite: (id: string) => boolean;
     addToHistory: (recipes: Recipe[]) => void;
     clearHistory: () => void;
+
+    // テーマアクション
+    setTheme: (theme: 'auto' | 'light' | 'dark') => void;
 }
 
 export const useGearStore = create<GearStore>()(
@@ -61,6 +67,7 @@ export const useGearStore = create<GearStore>()(
             availableModels: [],
             favoriteRecipes: [],
             recipeHistory: [],
+            theme: 'auto',
 
             toggleGear: (id) =>
                 set((state) => ({
@@ -141,6 +148,16 @@ export const useGearStore = create<GearStore>()(
             },
 
             clearHistory: () => set({ recipeHistory: [] }),
+
+            setTheme: (theme) => {
+                // DOMにテーマを適用
+                if (theme === 'auto') {
+                    document.documentElement.removeAttribute('data-theme');
+                } else {
+                    document.documentElement.setAttribute('data-theme', theme);
+                }
+                set({ theme });
+            },
         }),
         { name: 'camp-gear-storage' }
     )

@@ -1,10 +1,10 @@
-import type { Recipe, MenuRequest } from '../../../types';
+import type { Recipe, UnifiedConditions } from '../../../types';
 import { useGearStore } from '../../../stores/gearStore';
 
 interface RecipeCardProps {
     recipe: Recipe;
     variant: 'candidate' | 'result';
-    request: MenuRequest;
+    conditions: UnifiedConditions;
     loadingRecipeId?: string | null;
     targetServings?: number;
     scaleIngredients?: (ingredients: string[], base: number, target: number) => string[];
@@ -24,7 +24,7 @@ const mealLabels: Record<string, { label: string; color: string }> = {
 export const RecipeCard = ({
     recipe,
     variant,
-    request,
+    conditions,
     loadingRecipeId,
     targetServings,
     scaleIngredients,
@@ -84,7 +84,7 @@ export const RecipeCard = ({
                         >
                             {loadingRecipeId === recipe.id
                                 ? '生成中...'
-                                : request.focus === 'dinner'
+                                : conditions.mealType === 'dinner'
                                     ? 'これにする！👉 他の食事も決める'
                                     : 'これにする！(決定)'}
                         </button>

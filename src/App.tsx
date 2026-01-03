@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { ChecklistDetail } from './pages/ChecklistDetail';
@@ -6,9 +7,21 @@ import { Templates } from './pages/Templates';
 import { Settings } from './pages/Settings';
 import { GearSettings } from './pages/GearSettings';
 import { MenuSuggestion } from './pages/MenuSuggestion';
+import { useGearStore } from './stores/gearStore';
 
 
 function App() {
+  const { theme } = useGearStore();
+
+  // 起動時にテーマを適用
+  useEffect(() => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+  }, [theme]);
+
   return (
     <BrowserRouter>
       {/* ヘッダー */}

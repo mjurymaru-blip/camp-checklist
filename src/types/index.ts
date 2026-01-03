@@ -60,6 +60,35 @@ export interface MenuRequest {
   category?: string;
 }
 
+// UI-level condition model (not AI-specific)
+// UIの唯一の真実（SSOT）として機能
+export interface UnifiedConditions {
+  participants: 'solo' | 'pair' | 'group';
+  season: 'spring' | 'summer' | 'autumn' | 'winter';
+  difficulty?: 'easy' | 'normal' | 'hard'; // optional: 指定なし可
+  mealType: 'breakfast' | 'lunch' | 'dinner' | 'snack' | 'dessert';
+  cost?: 'low' | 'mid' | 'high';
+  searchText?: string; // recipe name / ingredients / category keyword
+}
+
+// 実行モード
+export type ExecutionMode = 'ai' | 'manual';
+
+// UnifiedConditions → MenuRequest 変換（1箇所に集約）
+export function toMenuRequest(cond: UnifiedConditions): MenuRequest {
+  // difficultyが未指定の場合は'normal'をデフォルトに
+  const diff = cond.difficulty ?? 'normal';
+  return {
+    participants: cond.participants,
+    season: cond.season,
+    effort: diff === 'hard' ? 'elaborate' : diff,
+    focus: ['snack', 'dessert'].includes(cond.mealType)
+      ? 'dinner'
+      : cond.mealType as 'breakfast' | 'lunch' | 'dinner',
+    category: cond.searchText,
+  };
+}
+
 // レシピ（AI応答）
 export interface Recipe {
   id: string;

@@ -3,16 +3,10 @@ import { useGearStore } from '../../../stores/gearStore';
 import { generateMainSuggestions, generateCourseBasedOnDinner, getSeasonFromMonth } from '../../../services/geminiService';
 import { useRateLimiter } from '../../../hooks/useRateLimiter';
 import { validateRecipes } from '../../../schemas/recipeSchema';
-import type { MenuRequest, Recipe } from '../../../types';
+import type { Recipe, UnifiedConditions, ExecutionMode } from '../../../types';
+import { toMenuRequest } from '../../../types';
 
 export type SuggestionStep = 'input' | 'dinner-selection' | 'result';
-
-interface FilterState {
-    season?: string;
-    difficulty?: string;
-    cost?: string;
-    mealType?: 'meal' | 'snack'; // meal: 食事系(breakfast/lunch/dinner), snack: 軽食系(snack/dessert)
-}
 
 export interface UseMenuSuggestionReturn {
     // State
@@ -20,8 +14,8 @@ export interface UseMenuSuggestionReturn {
     error: string | null;
     allRecipes: Recipe[];
     recipes: Recipe[];
-    request: MenuRequest;
-    activeFilters: FilterState;
+    conditions: UnifiedConditions;
+    mode: ExecutionMode;
     suggestionStep: SuggestionStep;
     dinnerCandidates: Recipe[];
     selectedDinner: Recipe | null;
@@ -34,12 +28,12 @@ export interface UseMenuSuggestionReturn {
     limit: number;
 
     // Setters
-    setRequest: React.Dispatch<React.SetStateAction<MenuRequest>>;
+    setConditions: React.Dispatch<React.SetStateAction<UnifiedConditions>>;
+    setMode: React.Dispatch<React.SetStateAction<ExecutionMode>>;
     setError: React.Dispatch<React.SetStateAction<string | null>>;
 
     // Handlers
-    toggleFilter: (type: 'season' | 'difficulty' | 'cost' | 'mealType', value: string) => void;
-    handleGenerate: () => Promise<void>;
+    handleExecute: () => Promise<void>;
     handleSelectCandidate: (recipe: Recipe) => void;
     handleGenerateFullCourse: () => Promise<void>;
     handleDinnerOnly: () => void;
@@ -47,7 +41,7 @@ export interface UseMenuSuggestionReturn {
     cancelCourseConfirm: () => void;
 
     // Utils
-    getTargetServings: (participants: MenuRequest['participants']) => number;
+    getTargetServings: (participants: UnifiedConditions['participants']) => number;
     scaleIngredients: (ingredients: string[], baseServings: number, targetServings: number) => string[];
 }
 
@@ -60,17 +54,16 @@ export const useMenuSuggestion = (): UseMenuSuggestionReturn => {
     const [allRecipes, setAllRecipes] = useState<Recipe[]>([]);
     const [recipes, setRecipes] = useState<Recipe[]>([]);
 
-    // Request state
-    const [request, setRequest] = useState<MenuRequest>({
+    // Unified conditions state (SSOT)
+    const [conditions, setConditions] = useState<UnifiedConditions>({
         participants: 'solo',
         season: getSeasonFromMonth(),
-        effort: 'normal',
-        focus: 'dinner',
-        category: ''
+        // difficulty: undefined (指定なし)
+        mealType: 'dinner',
     });
 
-    // Filter state
-    const [activeFilters, setActiveFilters] = useState<FilterState>({});
+    // Execution mode
+    const [mode, setMode] = useState<ExecutionMode>('ai');
 
     // Suggestion flow state
     const [suggestionStep, setSuggestionStep] = useState<SuggestionStep>('input');
@@ -122,30 +115,34 @@ export const useMenuSuggestion = (): UseMenuSuggestionReturn => {
         fetchRecipes();
     }, []);
 
-    // Filter effect
-    useEffect(() => {
+    // Manual filter function (for 'manual' mode)
+    const applyManualFilter = useCallback(() => {
         if (allRecipes.length === 0) return;
 
-        const hasActiveFilter = Object.values(activeFilters).some(v => v !== undefined);
-        if (!hasActiveFilter) return;
-
         const filtered = allRecipes.filter(recipe => {
-            if (activeFilters.season && !recipe.season?.includes(activeFilters.season)) return false;
-            if (activeFilters.difficulty && recipe.difficulty !== activeFilters.difficulty) return false;
-            if (activeFilters.cost && recipe.cost !== activeFilters.cost) return false;
-            if (activeFilters.mealType) {
-                const mealMeals = ['breakfast', 'lunch', 'dinner'];
-                const snackMeals = ['snack', 'dessert'];
-                if (activeFilters.mealType === 'meal' && !mealMeals.includes(recipe.meal)) return false;
-                if (activeFilters.mealType === 'snack' && !snackMeals.includes(recipe.meal)) return false;
+            // Season filter
+            if (conditions.season && !recipe.season?.includes(conditions.season)) return false;
+            // Difficulty filter
+            if (conditions.difficulty && recipe.difficulty !== conditions.difficulty) return false;
+            // Cost filter
+            if (conditions.cost && recipe.cost !== conditions.cost) return false;
+            // MealType filter
+            if (conditions.mealType && recipe.meal !== conditions.mealType) return false;
+            // Text search
+            if (conditions.searchText) {
+                const searchLower = conditions.searchText.toLowerCase();
+                const nameMatch = recipe.name.toLowerCase().includes(searchLower);
+                const ingredientMatch = recipe.ingredients.some(i => i.toLowerCase().includes(searchLower));
+                if (!nameMatch && !ingredientMatch) return false;
             }
             return true;
         });
         setRecipes(filtered);
-    }, [activeFilters, allRecipes]);
+        setSuggestionStep('result');
+    }, [allRecipes, conditions]);
 
     // Utility functions
-    const getTargetServings = useCallback((participants: MenuRequest['participants']): number => {
+    const getTargetServings = useCallback((participants: UnifiedConditions['participants']): number => {
         switch (participants) {
             case 'solo': return 1;
             case 'pair': return 2;
@@ -181,45 +178,40 @@ export const useMenuSuggestion = (): UseMenuSuggestionReturn => {
     }, []);
 
     // Handler functions
-    const toggleFilter = useCallback((type: 'season' | 'difficulty' | 'cost' | 'mealType', value: string) => {
-        if (suggestionStep !== 'input') {
-            if (window.confirm('現在のAI提案結果を破棄して検索モードに戻りますか？')) {
-                setSuggestionStep('input');
-                setRecipes([]);
-            } else {
-                return;
-            }
+
+    // Unified execution handler (for both AI and manual modes)
+    const handleExecute = useCallback(async () => {
+        if (mode === 'manual') {
+            // Manual filter mode
+            applyManualFilter();
+            return;
         }
 
-        setActiveFilters(prev => ({
-            ...prev,
-            [type]: prev[type] === value ? undefined : value
-        }));
-    }, [suggestionStep]);
-
-    const handleGenerate = useCallback(async () => {
-        if (!geminiApiKey) return;
+        // AI mode
+        if (!geminiApiKey) {
+            alert('AIモードを使用するにはAPIキーを設定してください。\n設定 → レシピ設定からAPIキーを入力できます。');
+            return;
+        }
 
         if (!checkLimit()) {
             alert(`本日のAI利用上限（${limit}回）に達しました。\nまた明日ご利用ください。`);
             return;
         }
 
-        if (!window.confirm(`AIを呼び出して「夕食の候補」を生成しますか？\n（消費: 1回 / 本日の残り: ${remaining}回）`)) {
+        const mealLabel = { breakfast: '朝食', lunch: '昼食', dinner: '夕食', snack: 'おつまみ', dessert: 'デザート' }[conditions.mealType];
+        if (!window.confirm(`AIを呼び出して「${mealLabel}の候補」を生成しますか？\n（消費: 1回 / 本日の残り: ${remaining}回）`)) {
             return;
         }
 
         incrementUsage();
 
-        let candidates = recipes;
-        if (candidates.length === 0 && allRecipes.length > 0) {
-            candidates = allRecipes.filter(recipe => {
-                if (activeFilters.season && !recipe.season?.includes(activeFilters.season)) return false;
-                if (activeFilters.difficulty && recipe.difficulty !== activeFilters.difficulty) return false;
-                if (activeFilters.cost && recipe.cost !== activeFilters.cost) return false;
-                return true;
-            });
-        }
+        // Filter candidates based on conditions
+        let candidates = allRecipes.filter(recipe => {
+            if (conditions.season && !recipe.season?.includes(conditions.season)) return false;
+            if (conditions.difficulty && recipe.difficulty !== conditions.difficulty) return false;
+            if (conditions.cost && recipe.cost !== conditions.cost) return false;
+            return true;
+        });
         if (candidates.length === 0) {
             candidates = allRecipes;
         }
@@ -227,17 +219,17 @@ export const useMenuSuggestion = (): UseMenuSuggestionReturn => {
         setLoading(true);
         setError(null);
         setDinnerCandidates([]);
-        setActiveFilters({});
 
         try {
+            const menuRequest = toMenuRequest(conditions);
             const result = await generateMainSuggestions(
                 geminiApiKey,
-                request,
+                menuRequest,
                 cookingGears,
                 heatSources,
                 candidates,
                 apiModel,
-                request.focus
+                menuRequest.focus
             );
             setDinnerCandidates(result);
             setSuggestionStep('dinner-selection');
@@ -248,12 +240,13 @@ export const useMenuSuggestion = (): UseMenuSuggestionReturn => {
         } finally {
             setLoading(false);
         }
-    }, [geminiApiKey, checkLimit, limit, remaining, incrementUsage, recipes, allRecipes, activeFilters, request, cookingGears, heatSources, apiModel]);
+    }, [mode, geminiApiKey, checkLimit, limit, remaining, incrementUsage, allRecipes, conditions, cookingGears, heatSources, apiModel, applyManualFilter]);
 
     const handleSelectCandidate = useCallback((recipe: Recipe) => {
         if (!geminiApiKey) return;
 
-        if (request.focus === 'dinner') {
+        const menuRequest = toMenuRequest(conditions);
+        if (menuRequest.focus === 'dinner') {
             setPendingDinnerRecipe(recipe);
             setShowCourseConfirm(true);
         } else {
@@ -262,7 +255,7 @@ export const useMenuSuggestion = (): UseMenuSuggestionReturn => {
             setSuggestionStep('result');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-    }, [geminiApiKey, request.focus]);
+    }, [geminiApiKey, conditions]);
 
     const handleGenerateFullCourse = useCallback(async () => {
         if (!pendingDinnerRecipe || !geminiApiKey) return;
@@ -281,10 +274,11 @@ export const useMenuSuggestion = (): UseMenuSuggestionReturn => {
 
         try {
             const candidates = allRecipes;
+            const menuRequest = toMenuRequest(conditions);
             const courseRecipes = await generateCourseBasedOnDinner(
                 geminiApiKey,
                 pendingDinnerRecipe,
-                request,
+                menuRequest,
                 cookingGears,
                 heatSources,
                 candidates,
@@ -306,7 +300,7 @@ export const useMenuSuggestion = (): UseMenuSuggestionReturn => {
             setLoadingRecipeId(null);
             setPendingDinnerRecipe(null);
         }
-    }, [pendingDinnerRecipe, geminiApiKey, checkLimit, incrementUsage, allRecipes, request, cookingGears, heatSources, apiModel]);
+    }, [pendingDinnerRecipe, geminiApiKey, checkLimit, incrementUsage, allRecipes, conditions, cookingGears, heatSources, apiModel, addToHistory]);
 
     const handleDinnerOnly = useCallback(() => {
         if (!pendingDinnerRecipe) return;
@@ -336,8 +330,8 @@ export const useMenuSuggestion = (): UseMenuSuggestionReturn => {
         error,
         allRecipes,
         recipes,
-        request,
-        activeFilters,
+        conditions,
+        mode,
         suggestionStep,
         dinnerCandidates,
         selectedDinner,
@@ -350,12 +344,12 @@ export const useMenuSuggestion = (): UseMenuSuggestionReturn => {
         limit,
 
         // Setters
-        setRequest,
+        setConditions,
+        setMode,
         setError,
 
         // Handlers
-        toggleFilter,
-        handleGenerate,
+        handleExecute,
         handleSelectCandidate,
         handleGenerateFullCourse,
         handleDinnerOnly,
