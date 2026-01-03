@@ -207,7 +207,10 @@ function parseRecipes(data: unknown): Recipe[] {
   try {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const content = (data as any)?.candidates?.[0]?.content?.parts?.[0]?.text;
-    if (!content) throw new Error('No content in response');
+    if (!content) {
+      console.error('parseRecipes: No content in response. Raw data:', JSON.stringify(data).slice(0, 500));
+      throw new Error('No content in response');
+    }
 
     let jsonStr = content;
     const jsonMatch = content.match(/```json\s*([\s\S]*?)\s*```/);
@@ -215,31 +218,59 @@ function parseRecipes(data: unknown): Recipe[] {
       jsonStr = jsonMatch[1];
     }
 
-    const parsed = JSON.parse(jsonStr);
-    const recipes = parsed.recipes || [];
+    let parsed;
+    try {
+      parsed = JSON.parse(jsonStr);
+    } catch (jsonError) {
+      console.error('parseRecipes: JSON parse failed. Raw content:', jsonStr.slice(0, 500));
+      throw jsonError;
+    }
 
-    if (!Array.isArray(recipes)) return [];
+    const recipes = parsed.recipes || parsed || [];
+    console.log('parseRecipes: Parsed recipes count:', Array.isArray(recipes) ? recipes.length : 'not-array');
+
+    if (!Array.isArray(recipes)) {
+      console.warn('parseRecipes: recipes is not an array, returning empty');
+      return [];
+    }
 
     // UUID生成 (簡易版) とバリデーション
+    const generateId = () => {
+      try {
+        if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+          return crypto.randomUUID();
+        }
+      } catch (e) {
+        console.warn('crypto.randomUUID failed, using fallback');
+      }
+      return Math.random().toString(36).substring(2, 10) + Date.now().toString(36);
+    };
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return recipes.map((r: any) => ({
-      id: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2, 10) + new Date().getTime().toString(36),
-      name: r.name || '名称不明',
-      meal: r.meal || 'dinner',
-      description: r.description || '',
-      reason: r.reason || '',
-      ingredients: Array.isArray(r.ingredients) ? r.ingredients : [],
-      requiredGear: Array.isArray(r.requiredGear) ? r.requiredGear : [],
-      usedGearIds: Array.isArray(r.usedGearIds) ? r.usedGearIds : [],
-      usedHeatSourceIds: Array.isArray(r.usedHeatSourceIds) ? r.usedHeatSourceIds : [],
-      steps: Array.isArray(r.steps) ? r.steps : [],
-      cookTime: r.cookTime || '',
-      tips: r.tips || ''
-    }));
+    return recipes.map((r: any, index: number) => {
+      if (!r || typeof r !== 'object') {
+        console.warn(`parseRecipes: Invalid recipe at index ${index}:`, r);
+        return null;
+      }
+      return {
+        id: generateId(),
+        name: r.name || '名称不明',
+        meal: r.meal || 'dinner',
+        description: r.description || '',
+        reason: r.reason || '',
+        ingredients: Array.isArray(r.ingredients) ? r.ingredients : [],
+        requiredGear: Array.isArray(r.requiredGear) ? r.requiredGear : [],
+        usedGearIds: Array.isArray(r.usedGearIds) ? r.usedGearIds : [],
+        usedHeatSourceIds: Array.isArray(r.usedHeatSourceIds) ? r.usedHeatSourceIds : [],
+        steps: Array.isArray(r.steps) ? r.steps : [],
+        cookTime: r.cookTime || '',
+        tips: r.tips || ''
+      };
+    }).filter(Boolean) as Recipe[];
 
   } catch (error) {
-    console.error('Failed to parse recipes:', error);
-    throw new Error('AIからの応答を正常に読み取れませんでした。もう一度お試しください。');
+    console.error('parseRecipes: Failed to parse recipes:', error);
+    throw new Error(`AIからの応答を正常に読み取れませんでした。もう一度お試しください。(${error instanceof Error ? error.message : 'Unknown'})`);
   }
 }
 

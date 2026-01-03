@@ -86,6 +86,18 @@ export interface Recipe {
   reason?: string; // 提案理由
 }
 
+// レシピスナップショット（チェックリストに保存用）
+export interface SavedRecipe {
+  id: string;
+  name: string;
+  meal: string;
+  ingredients: string[];
+  steps: string[];
+  cookTime: string;
+  tips: string;
+  savedAt: string;
+}
+
 // デフォルト調理器具リスト
 export const DEFAULT_COOKING_GEARS: CookingGear[] = [
   { id: 'titanium-pot', name: 'チタンポット', owned: false },

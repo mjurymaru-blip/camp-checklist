@@ -1,12 +1,13 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { DEFAULT_TEMPLATES, DEFAULT_CATEGORIES } from '../types';
-import type { Checklist, ChecklistItem, Template, Category } from '../types';
+import type { Checklist, ChecklistItem, Template, Category, SavedRecipe } from '../types';
 
 interface ChecklistStore {
     checklists: Checklist[];
     templates: Template[];
     categories: Category[];
+    savedRecipesByChecklist: Record<string, SavedRecipe[]>; // チェックリストID → レシピ配列
 
     // チェックリスト操作
     addChecklist: (title: string, campsite?: string, date?: string, templateId?: string) => string;
@@ -36,6 +37,9 @@ interface ChecklistStore {
     importData: (data: Partial<ChecklistStore>) => void;
     // テンプレート複製
     duplicateTemplate: (sourceId: string, newName: string) => string;
+    // レシピスナップショット管理
+    saveRecipes: (checklistId: string, recipes: SavedRecipe[]) => void;
+    getSavedRecipes: (checklistId: string) => SavedRecipe[];
 }
 
 const generateId = () => Math.random().toString(36).substring(2, 9);
@@ -46,6 +50,7 @@ export const useChecklistStore = create<ChecklistStore>()(
             checklists: [],
             templates: DEFAULT_TEMPLATES,
             categories: DEFAULT_CATEGORIES,
+            savedRecipesByChecklist: {},
 
             addChecklist: (title, campsite, date, templateId) => {
                 const id = generateId();
@@ -90,17 +95,29 @@ export const useChecklistStore = create<ChecklistStore>()(
             },
 
             deleteChecklist: (id) => {
-                set(state => ({
-                    checklists: state.checklists.filter(c => c.id !== id),
-                }));
+                set(state => {
+                    // レシピも削除
+                    const newSavedRecipes = { ...state.savedRecipesByChecklist };
+                    delete newSavedRecipes[id];
+                    return {
+                        checklists: state.checklists.filter(c => c.id !== id),
+                        savedRecipesByChecklist: newSavedRecipes,
+                    };
+                });
             },
 
             archiveChecklist: (id) => {
-                set(state => ({
-                    checklists: state.checklists.map(c =>
-                        c.id === id ? { ...c, isArchived: true, updatedAt: new Date().toISOString() } : c
-                    ),
-                }));
+                set(state => {
+                    // レシピも削除
+                    const newSavedRecipes = { ...state.savedRecipesByChecklist };
+                    delete newSavedRecipes[id];
+                    return {
+                        checklists: state.checklists.map(c =>
+                            c.id === id ? { ...c, isArchived: true, updatedAt: new Date().toISOString() } : c
+                        ),
+                        savedRecipesByChecklist: newSavedRecipes,
+                    };
+                });
             },
 
             unarchiveChecklist: (id) => {
@@ -337,6 +354,20 @@ export const useChecklistStore = create<ChecklistStore>()(
                 }
 
                 return id;
+            },
+
+            // レシピスナップショット保存
+            saveRecipes: (checklistId, recipes) => {
+                set(state => ({
+                    savedRecipesByChecklist: {
+                        ...state.savedRecipesByChecklist,
+                        [checklistId]: recipes,
+                    },
+                }));
+            },
+
+            getSavedRecipes: (checklistId) => {
+                return get().savedRecipesByChecklist[checklistId] || [];
             },
         }),
         {

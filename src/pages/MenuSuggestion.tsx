@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useGearStore } from '../stores/gearStore';
+import { useChecklistStore } from '../stores/checklistStore';
 import { generateMainSuggestions, generateCourseBasedOnDinner, getSeasonFromMonth } from '../services/geminiService';
-import type { MenuRequest, Recipe } from '../types';
+import { buildShoppingList, toChecklistItems } from '../utils/shoppingListUtils';
+import type { MenuRequest, Recipe, SavedRecipe } from '../types';
 import { useRateLimiter } from '../hooks/useRateLimiter';
 
 export const MenuSuggestion = () => {
@@ -15,6 +17,13 @@ export const MenuSuggestion = () => {
     const [suggestionStep, setSuggestionStep] = useState<'input' | 'dinner-selection' | 'result'>('input');
     const [dinnerCandidates, setDinnerCandidates] = useState<Recipe[]>([]);
     const [selectedDinner, setSelectedDinner] = useState<Recipe | null>(null);
+    const [loadingRecipeId, setLoadingRecipeId] = useState<string | null>(null); // 特定ボタンのみloading
+
+    // 買い物リストモーダル用ステート
+    const [showShoppingModal, setShowShoppingModal] = useState(false);
+    const [targetChecklistId, setTargetChecklistId] = useState<string | null>(null);
+    const [selectedRecipesForShopping, setSelectedRecipesForShopping] = useState<Set<string>>(new Set()); // チェックリストに追加するレシピを選択
+    const { checklists, addItem, saveRecipes } = useChecklistStore();
 
     // 初回ロード時にレシピデータをフェッチ
     useEffect(() => {
@@ -259,7 +268,7 @@ export const MenuSuggestion = () => {
             }
             incrementUsage(); // Step 2 cost
 
-            setLoading(true);
+            setLoadingRecipeId(recipe.id);
             setError(null);
             setSelectedDinner(recipe);
 
@@ -287,7 +296,7 @@ export const MenuSuggestion = () => {
                 console.error(err);
                 setError(err instanceof Error ? err.message : '予期せぬエラーが発生しました');
             } finally {
-                setLoading(false);
+                setLoadingRecipeId(null);
             }
         }
         // 昼食・朝食の場合: そのまま完了
@@ -478,11 +487,11 @@ export const MenuSuggestion = () => {
 
                                     <button
                                         onClick={() => handleSelectCandidate(recipe)}
-                                        disabled={loading}
+                                        disabled={loadingRecipeId !== null}
                                         className="btn btn-primary btn-full"
                                         style={{ height: '40px' }}
                                     >
-                                        {loading
+                                        {loadingRecipeId === recipe.id
                                             ? '生成中...'
                                             : (request.focus === 'dinner' ? 'これにする！👉 他の食事も決める' : 'これにする！(決定)')
                                         }
@@ -518,6 +527,24 @@ export const MenuSuggestion = () => {
                                 🎉 {request.focus === 'dinner' ? 'ご提案のキャンプフルコース' : '決定したレシピ'}
                             </h3>
                             {selectedDinner && <p style={{ fontSize: '0.9rem', color: '#666' }}>メイン：{selectedDinner.name}</p>}
+
+                            {/* チェックリストに追加ボタン */}
+                            <button
+                                onClick={() => {
+                                    // 全レシピを選択した状態でモーダルを開く
+                                    setSelectedRecipesForShopping(new Set(recipes.map(r => r.id)));
+                                    // アクティブなチェックリストがあればそれをデフォルトに
+                                    const activeChecklists = checklists.filter(c => !c.isArchived);
+                                    if (activeChecklists.length > 0) {
+                                        setTargetChecklistId(activeChecklists[0].id);
+                                    }
+                                    setShowShoppingModal(true);
+                                }}
+                                className="btn btn-secondary"
+                                style={{ marginTop: '12px', fontSize: '0.875rem' }}
+                            >
+                                📋 チェックリストに追加
+                            </button>
                         </div>
                     ) : (
                         <h3 style={{ marginLeft: '8px', fontSize: '1.1rem', marginBottom: '16px' }}>🔍 レシピ検索結果</h3>
@@ -657,6 +684,146 @@ export const MenuSuggestion = () => {
             )}
 
             <div style={{ height: '80px' }} />
+
+            {/* 買い物リスト確認モーダル */}
+            {showShoppingModal && (
+                <div style={{
+                    position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+                    background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    zIndex: 1000, padding: '16px'
+                }}>
+                    <div style={{
+                        background: '#fff', borderRadius: '16px', maxWidth: '450px', width: '100%',
+                        maxHeight: '85vh', overflow: 'auto', boxShadow: '0 4px 24px rgba(0,0,0,0.2)'
+                    }}>
+                        <div style={{ padding: '20px', borderBottom: '1px solid #eee' }}>
+                            <h3 style={{ margin: 0, fontSize: '1.1rem' }}>🛒 食材をチェックリストに追加</h3>
+                        </div>
+                        <div style={{ padding: '16px' }}>
+                            {/* 追加先リスト選択 */}
+                            <div style={{ marginBottom: '16px' }}>
+                                <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.875rem', fontWeight: 600 }}>追加先リスト</label>
+                                <select
+                                    value={targetChecklistId || ''}
+                                    onChange={(e) => setTargetChecklistId(e.target.value)}
+                                    style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid var(--color-border)' }}
+                                >
+                                    {checklists.filter(c => !c.isArchived).map(c => (
+                                        <option key={c.id} value={c.id}>{c.title}</option>
+                                    ))}
+                                </select>
+                                {checklists.filter(c => !c.isArchived).length === 0 && (
+                                    <p style={{ color: '#d32f2f', fontSize: '0.8rem', marginTop: '8px' }}>
+                                        ❗ アクティブなチェックリストがありません。先にリストを作成してください。
+                                    </p>
+                                )}
+                            </div>
+
+                            {/* レシピ選択チェックボックス */}
+                            <div style={{ marginBottom: '16px' }}>
+                                <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.875rem', fontWeight: 600 }}>
+                                    追加するレシピを選択
+                                </label>
+                                <div style={{ background: '#f5f5f5', borderRadius: '8px', padding: '8px' }}>
+                                    {recipes.map(recipe => (
+                                        <label
+                                            key={recipe.id}
+                                            style={{
+                                                display: 'flex', alignItems: 'center', gap: '8px',
+                                                padding: '8px', cursor: 'pointer',
+                                                borderRadius: '6px', marginBottom: '4px',
+                                                background: selectedRecipesForShopping.has(recipe.id) ? '#e3f2fd' : 'transparent'
+                                            }}
+                                        >
+                                            <input
+                                                type="checkbox"
+                                                checked={selectedRecipesForShopping.has(recipe.id)}
+                                                onChange={(e) => {
+                                                    const newSet = new Set(selectedRecipesForShopping);
+                                                    if (e.target.checked) {
+                                                        newSet.add(recipe.id);
+                                                    } else {
+                                                        newSet.delete(recipe.id);
+                                                    }
+                                                    setSelectedRecipesForShopping(newSet);
+                                                }}
+                                                style={{ width: '18px', height: '18px' }}
+                                            />
+                                            <span style={{ fontSize: '0.9rem' }}>
+                                                {({ breakfast: '🍳', lunch: '🍞', dinner: '🍖', snack: '🍿', dessert: '🍰' } as Record<string, string>)[recipe.meal] || '🍽️'} {recipe.name}
+                                            </span>
+                                        </label>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* 食材プレビュー */}
+                            <div style={{ marginBottom: '16px' }}>
+                                <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.875rem', fontWeight: 600 }}>
+                                    追加される食材（{buildShoppingList(recipes.filter(r => selectedRecipesForShopping.has(r.id))).length}件）
+                                </label>
+                                <div style={{ maxHeight: '150px', overflow: 'auto', background: '#f9f9f9', borderRadius: '8px', padding: '8px' }}>
+                                    {buildShoppingList(recipes.filter(r => selectedRecipesForShopping.has(r.id))).map((item, i) => (
+                                        <div key={i} style={{ padding: '4px 8px', fontSize: '0.8rem', color: '#555' }}>
+                                            {item.name}{item.amount ? `（${item.amount}）` : ''}
+                                            <span style={{ color: '#999', marginLeft: '4px' }}>- {item.recipeName}</span>
+                                        </div>
+                                    ))}
+                                    {selectedRecipesForShopping.size === 0 && (
+                                        <p style={{ color: '#999', fontSize: '0.8rem', textAlign: 'center', padding: '16px' }}>
+                                            レシピを選択してください
+                                        </p>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                        <div style={{ padding: '16px', borderTop: '1px solid #eee', display: 'flex', gap: '8px' }}>
+                            <button
+                                onClick={() => setShowShoppingModal(false)}
+                                className="btn btn-secondary"
+                                style={{ flex: 1 }}
+                            >
+                                キャンセル
+                            </button>
+                            <button
+                                onClick={() => {
+                                    if (!targetChecklistId) {
+                                        alert('追加先のチェックリストを選択してください。');
+                                        return;
+                                    }
+                                    const selectedRecipes = recipes.filter(r => selectedRecipesForShopping.has(r.id));
+                                    const items = buildShoppingList(selectedRecipes);
+                                    const itemsToAdd = toChecklistItems(items, 'food', true);
+                                    itemsToAdd.forEach(item => {
+                                        addItem(targetChecklistId, item);
+                                    });
+
+                                    // レシピスナップショットを保存
+                                    const savedRecipes: SavedRecipe[] = selectedRecipes.map(r => ({
+                                        id: r.id,
+                                        name: r.name,
+                                        meal: r.meal,
+                                        ingredients: r.ingredients,
+                                        steps: r.steps,
+                                        cookTime: r.cookTime,
+                                        tips: r.tips,
+                                        savedAt: new Date().toISOString(),
+                                    }));
+                                    saveRecipes(targetChecklistId, savedRecipes);
+
+                                    setShowShoppingModal(false);
+                                    alert(`${itemsToAdd.length}件の食材と${savedRecipes.length}件のレシピを追加しました！`);
+                                }}
+                                className="btn btn-primary"
+                                style={{ flex: 1 }}
+                                disabled={checklists.filter(c => !c.isArchived).length === 0 || selectedRecipesForShopping.size === 0}
+                            >
+                                追加する
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

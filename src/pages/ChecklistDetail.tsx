@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useChecklistStore } from '../stores/checklistStore';
 import { CategorySection } from '../components/CategorySection';
+import type { SavedRecipe } from '../types';
 
 export function ChecklistDetail() {
     const { id } = useParams<{ id: string }>();
@@ -18,7 +19,8 @@ export function ChecklistDetail() {
         createTemplateFromChecklist,
         updateItem,
         deleteItem,
-        reorderItems
+        reorderItems,
+        getSavedRecipes,
     } = useChecklistStore();
     const [showAddModal, setShowAddModal] = useState(false);
     const [showMenuModal, setShowMenuModal] = useState(false);
@@ -27,6 +29,8 @@ export function ChecklistDetail() {
     const [newItemName, setNewItemName] = useState('');
     const [newItemCategory, setNewItemCategory] = useState(categories[0]?.id || '');
     const [newItemQuantity, setNewItemQuantity] = useState(1);
+    const [showRecipeModal, setShowRecipeModal] = useState(false);
+    const [expandedRecipeId, setExpandedRecipeId] = useState<string | null>(null);
 
     const checklist = checklists.find(c => c.id === id);
 
@@ -43,6 +47,8 @@ export function ChecklistDetail() {
             </div>
         );
     }
+
+    const savedRecipes: SavedRecipe[] = getSavedRecipes(checklist.id);
 
     const checkedCount = checklist.items.filter(item => item.checked).length;
     const totalCount = checklist.items.length;
@@ -127,6 +133,17 @@ export function ChecklistDetail() {
                     <div className="progress-bar" style={{ height: 8 }}>
                         <div className="progress-fill" style={{ width: `${progress}%` }} />
                     </div>
+
+                    {/* レシピ表示ボタン（保存レシピがある場合のみ） */}
+                    {savedRecipes.length > 0 && (
+                        <button
+                            onClick={() => setShowRecipeModal(true)}
+                            className="btn btn-secondary btn-full"
+                            style={{ marginTop: '12px', fontSize: '0.875rem' }}
+                        >
+                            🍳 レシピを見る（{savedRecipes.length}件）
+                        </button>
+                    )}
                 </div>
             </div>
 
@@ -303,6 +320,75 @@ export function ChecklistDetail() {
                             >
                                 保存する
                             </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* レシピ一覧モーダル */}
+            {showRecipeModal && (
+                <div className="modal-overlay" onClick={() => setShowRecipeModal(false)}>
+                    <div className="modal" onClick={e => e.stopPropagation()} style={{ maxHeight: '85vh', overflow: 'auto' }}>
+                        <div className="modal-header">
+                            <div className="modal-title">🍳 保存済みレシピ</div>
+                            <button className="modal-close" onClick={() => setShowRecipeModal(false)}>
+                                ✕
+                            </button>
+                        </div>
+                        <div className="modal-body" style={{ padding: '0' }}>
+                            {savedRecipes.map(recipe => (
+                                <div key={recipe.id} style={{ borderBottom: '1px solid var(--color-border)' }}>
+                                    <div
+                                        onClick={() => setExpandedRecipeId(expandedRecipeId === recipe.id ? null : recipe.id)}
+                                        style={{
+                                            padding: '16px',
+                                            cursor: 'pointer',
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'center',
+                                            background: expandedRecipeId === recipe.id ? '#f5f5f5' : 'transparent'
+                                        }}
+                                    >
+                                        <div>
+                                            <div style={{ fontWeight: 600, fontSize: '1rem' }}>
+                                                {({ breakfast: '🍳', lunch: '🍞', dinner: '🍖', snack: '🍿', dessert: '🍰' } as Record<string, string>)[recipe.meal] || '🍽️'} {recipe.name}
+                                            </div>
+                                            <div style={{ fontSize: '0.75rem', color: '#999', marginTop: '4px' }}>
+                                                ⏱ {recipe.cookTime}
+                                            </div>
+                                        </div>
+                                        <span style={{ fontSize: '1.2rem' }}>
+                                            {expandedRecipeId === recipe.id ? '▲' : '▼'}
+                                        </span>
+                                    </div>
+                                    {expandedRecipeId === recipe.id && (
+                                        <div style={{ padding: '0 16px 16px', background: '#fafafa' }}>
+                                            <div style={{ marginBottom: '12px' }}>
+                                                <div style={{ fontWeight: 600, fontSize: '0.875rem', marginBottom: '6px' }}>🥕 食材</div>
+                                                <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '0.85rem', color: '#555' }}>
+                                                    {recipe.ingredients.map((ing, i) => <li key={i}>{ing}</li>)}
+                                                </ul>
+                                            </div>
+                                            <div style={{ marginBottom: '12px' }}>
+                                                <div style={{ fontWeight: 600, fontSize: '0.875rem', marginBottom: '6px' }}>📝 手順</div>
+                                                <ol style={{ margin: 0, paddingLeft: '20px', fontSize: '0.85rem', color: '#555' }}>
+                                                    {recipe.steps.map((step, i) => <li key={i} style={{ marginBottom: '4px' }}>{step}</li>)}
+                                                </ol>
+                                            </div>
+                                            {recipe.tips && (
+                                                <div style={{ padding: '10px', background: '#e3f2fd', borderRadius: '8px', fontSize: '0.85rem', color: '#0d47a1' }}>
+                                                    💡 {recipe.tips}
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                            {savedRecipes.length === 0 && (
+                                <div style={{ padding: '32px', textAlign: 'center', color: '#999' }}>
+                                    保存されたレシピはありません
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
