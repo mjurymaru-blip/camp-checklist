@@ -11,6 +11,7 @@ interface FilterState {
     season?: string;
     difficulty?: string;
     cost?: string;
+    mealType?: 'meal' | 'snack'; // meal: 食事系(breakfast/lunch/dinner), snack: 軽食系(snack/dessert)
 }
 
 export interface UseMenuSuggestionReturn {
@@ -37,7 +38,7 @@ export interface UseMenuSuggestionReturn {
     setError: React.Dispatch<React.SetStateAction<string | null>>;
 
     // Handlers
-    toggleFilter: (type: 'season' | 'difficulty' | 'cost', value: string) => void;
+    toggleFilter: (type: 'season' | 'difficulty' | 'cost' | 'mealType', value: string) => void;
     handleGenerate: () => Promise<void>;
     handleSelectCandidate: (recipe: Recipe) => void;
     handleGenerateFullCourse: () => Promise<void>;
@@ -51,7 +52,7 @@ export interface UseMenuSuggestionReturn {
 }
 
 export const useMenuSuggestion = (): UseMenuSuggestionReturn => {
-    const { geminiApiKey, cookingGears, heatSources, apiModel } = useGearStore();
+    const { geminiApiKey, cookingGears, heatSources, apiModel, addToHistory } = useGearStore();
 
     // Core state
     const [loading, setLoading] = useState(false);
@@ -132,6 +133,12 @@ export const useMenuSuggestion = (): UseMenuSuggestionReturn => {
             if (activeFilters.season && !recipe.season?.includes(activeFilters.season)) return false;
             if (activeFilters.difficulty && recipe.difficulty !== activeFilters.difficulty) return false;
             if (activeFilters.cost && recipe.cost !== activeFilters.cost) return false;
+            if (activeFilters.mealType) {
+                const mealMeals = ['breakfast', 'lunch', 'dinner'];
+                const snackMeals = ['snack', 'dessert'];
+                if (activeFilters.mealType === 'meal' && !mealMeals.includes(recipe.meal)) return false;
+                if (activeFilters.mealType === 'snack' && !snackMeals.includes(recipe.meal)) return false;
+            }
             return true;
         });
         setRecipes(filtered);
@@ -174,7 +181,7 @@ export const useMenuSuggestion = (): UseMenuSuggestionReturn => {
     }, []);
 
     // Handler functions
-    const toggleFilter = useCallback((type: 'season' | 'difficulty' | 'cost', value: string) => {
+    const toggleFilter = useCallback((type: 'season' | 'difficulty' | 'cost' | 'mealType', value: string) => {
         if (suggestionStep !== 'input') {
             if (window.confirm('現在のAI提案結果を破棄して検索モードに戻りますか？')) {
                 setSuggestionStep('input');
@@ -290,6 +297,7 @@ export const useMenuSuggestion = (): UseMenuSuggestionReturn => {
 
             setRecipes(fullCourse);
             setSuggestionStep('result');
+            addToHistory(fullCourse); // 履歴に保存
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } catch (err) {
             console.error(err);
@@ -307,8 +315,9 @@ export const useMenuSuggestion = (): UseMenuSuggestionReturn => {
         setSuggestionStep('result');
         setShowCourseConfirm(false);
         setPendingDinnerRecipe(null);
+        addToHistory([pendingDinnerRecipe]); // 履歴に保存
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, [pendingDinnerRecipe]);
+    }, [pendingDinnerRecipe, addToHistory]);
 
     const handleBackToInput = useCallback(() => {
         setSuggestionStep('input');

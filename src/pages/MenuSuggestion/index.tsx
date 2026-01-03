@@ -6,9 +6,10 @@ import { buildShoppingList, toChecklistItems } from '../../utils/shoppingListUti
 import type { MenuRequest, SavedRecipe } from '../../types';
 import { useMenuSuggestion } from './hooks/useMenuSuggestion';
 import { RecipeCard } from './components/RecipeCard';
+import type { FavoriteRecipe } from '../../stores/gearStore';
 
 export const MenuSuggestion = () => {
-    const { geminiApiKey } = useGearStore();
+    const { geminiApiKey, favoriteRecipes, recipeHistory, removeFavorite, clearHistory } = useGearStore();
     const { checklists, addItem, saveRecipes } = useChecklistStore();
 
     // Use the custom hook for all suggestion logic
@@ -43,6 +44,9 @@ export const MenuSuggestion = () => {
 
     // Recipe expand state
     const [expandedRecipeIds, setExpandedRecipeIds] = useState<Set<string>>(new Set());
+
+    // Favorite detail modal
+    const [selectedFavorite, setSelectedFavorite] = useState<FavoriteRecipe | null>(null);
 
     const toggleExpand = (id: string) => {
         setExpandedRecipeIds(prev => {
@@ -217,9 +221,129 @@ export const MenuSuggestion = () => {
                                 {{ winter: '⛄️ 冬', summer: '🌻 夏', autumn: '🍁 秋', spring: '🌸 春' }[s]}
                             </button>
                         ))}
+                        {/* Meal Type filters */}
+                        {(['meal', 'snack'] as const).map(m => (
+                            <button key={m}
+                                onClick={() => toggleFilter('mealType', m)}
+                                className="btn"
+                                style={{
+                                    padding: '4px 12px', fontSize: '0.75rem', borderRadius: '20px',
+                                    background: activeFilters.mealType === m ? '#673ab7' : '#f0f0f0',
+                                    color: activeFilters.mealType === m ? '#fff' : '#333',
+                                    border: 'none', whiteSpace: 'nowrap'
+                                }}>
+                                {{ meal: '🍽️ 食事系', snack: '🍪 おつまみ・デザート' }[m]}
+                            </button>
+                        ))}
                     </div>
                 </div>
             </div>
+
+            {/* Favorites Section */}
+            {suggestionStep === 'input' && favoriteRecipes.length > 0 && (
+                <div className="card card-static" style={{ marginTop: '16px' }}>
+                    <div className="card-header" style={{ background: '#ffc107' }}>
+                        <div className="card-title" style={{ color: '#333' }}>
+                            ⭐ お気に入りレシピ（{favoriteRecipes.length}件）
+                        </div>
+                    </div>
+                    <div style={{ padding: '12px' }}>
+                        {favoriteRecipes.slice(0, 5).map(fav => (
+                            <div key={fav.id} style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                                padding: '8px',
+                                borderBottom: '1px solid #eee',
+                                cursor: 'pointer',
+                            }}
+                                onClick={() => setSelectedFavorite(fav)}
+                            >
+                                <div>
+                                    <span style={{ fontSize: '0.8rem', color: '#666' }}>
+                                        {({ breakfast: '🌅', lunch: '☀️', dinner: '🌙', snack: '🍪', dessert: '🍰' } as Record<string, string>)[fav.meal] || '🍽️'}
+                                    </span>{' '}
+                                    <strong style={{ fontSize: '0.9rem' }}>{fav.name}</strong>
+                                    <p style={{ margin: '4px 0 0', fontSize: '0.75rem', color: '#888' }}>
+                                        {fav.description.slice(0, 40)}...
+                                    </p>
+                                </div>
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        removeFavorite(fav.id);
+                                    }}
+                                    style={{
+                                        background: 'transparent',
+                                        border: 'none',
+                                        fontSize: '1rem',
+                                        cursor: 'pointer',
+                                        color: '#999',
+                                    }}
+                                    title="お気に入りを解除"
+                                >
+                                    ×
+                                </button>
+                            </div>
+                        ))}
+                        {favoriteRecipes.length > 5 && (
+                            <p style={{ textAlign: 'center', fontSize: '0.8rem', color: '#666', marginTop: '8px' }}>
+                                他 {favoriteRecipes.length - 5} 件...
+                            </p>
+                        )}
+                    </div>
+                </div>
+            )}
+
+            {/* History Section */}
+            {suggestionStep === 'input' && recipeHistory.length > 0 && (
+                <div className="card card-static" style={{ marginTop: '16px' }}>
+                    <div className="card-header" style={{ background: '#9e9e9e' }}>
+                        <div className="card-title" style={{ color: '#fff', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <span>📜 最近の提案履歴（{recipeHistory.length}件）</span>
+                            <button
+                                onClick={() => {
+                                    if (window.confirm('履歴をすべて削除しますか？')) {
+                                        clearHistory();
+                                    }
+                                }}
+                                style={{
+                                    background: 'transparent',
+                                    border: 'none',
+                                    color: '#fff',
+                                    fontSize: '0.75rem',
+                                    cursor: 'pointer',
+                                    padding: '4px 8px',
+                                }}
+                            >
+                                🗑 クリア
+                            </button>
+                        </div>
+                    </div>
+                    <div style={{ padding: '12px' }}>
+                        {recipeHistory.slice(0, 10).map(hist => (
+                            <div key={`${hist.id}-${hist.suggestedAt}`} style={{
+                                padding: '6px 8px',
+                                borderBottom: '1px solid #eee',
+                                fontSize: '0.85rem',
+                            }}>
+                                <span style={{ color: '#666' }}>
+                                    {({ breakfast: '🌅', lunch: '☀️', dinner: '🌙', snack: '🍪', dessert: '🍰' } as Record<string, string>)[hist.meal] || '🍽️'}
+                                </span>{' '}
+                                {hist.name}
+                                <span style={{ float: 'right', fontSize: '0.7rem', color: '#999' }}>
+                                    {new Date(hist.suggestedAt).toLocaleDateString()}
+                                </span>
+                            </div>
+                        ))}
+                        {recipeHistory.length > 10 && (
+                            <p style={{ textAlign: 'center', fontSize: '0.8rem', color: '#666', marginTop: '8px' }}>
+                                他 {recipeHistory.length - 10} 件...
+                            </p>
+                        )}
+                    </div>
+                </div>
+            )}
 
             {/* Dinner Selection */}
             {suggestionStep === 'dinner-selection' && (
@@ -501,6 +625,79 @@ export const MenuSuggestion = () => {
                                     キャンセル
                                 </button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Favorite Detail Modal */}
+            {selectedFavorite && (
+                <div style={{
+                    position: 'fixed',
+                    top: 0, left: 0, right: 0, bottom: 0,
+                    backgroundColor: 'rgba(0,0,0,0.5)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    zIndex: 1000,
+                    padding: '16px'
+                }}>
+                    <div className="card" style={{ maxWidth: '500px', width: '100%', maxHeight: '85vh', overflow: 'auto' }}>
+                        <div className="card-header" style={{ background: '#ffc107' }}>
+                            <div className="card-title" style={{ color: '#333' }}>
+                                ⭐ {selectedFavorite.name}
+                            </div>
+                        </div>
+                        <div style={{ padding: '16px' }}>
+                            <p style={{ margin: '0 0 12px', fontWeight: 'bold', color: '#e65100' }}>
+                                {selectedFavorite.description}
+                            </p>
+
+                            <div style={{ marginBottom: '12px' }}>
+                                <span style={{ fontSize: '0.85rem', color: '#666' }}>
+                                    ⏱️ {selectedFavorite.cookTime}
+                                </span>
+                            </div>
+
+                            <div style={{ marginBottom: '16px' }}>
+                                <strong>📦 材料:</strong>
+                                <ul style={{ margin: '8px 0', paddingLeft: '20px' }}>
+                                    {selectedFavorite.ingredients.map((ing, i) => (
+                                        <li key={i} style={{ fontSize: '0.9rem' }}>{ing}</li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {selectedFavorite.steps && selectedFavorite.steps.length > 0 && (
+                                <div style={{ marginBottom: '16px' }}>
+                                    <strong>👨‍🍳 作り方:</strong>
+                                    <ol style={{ margin: '8px 0', paddingLeft: '20px' }}>
+                                        {selectedFavorite.steps.map((step, i) => (
+                                            <li key={i} style={{ fontSize: '0.9rem', marginBottom: '4px' }}>{step}</li>
+                                        ))}
+                                    </ol>
+                                </div>
+                            )}
+
+                            {selectedFavorite.tips && (
+                                <div style={{
+                                    background: '#fff8e1',
+                                    padding: '8px',
+                                    borderRadius: '8px',
+                                    fontSize: '0.85rem',
+                                    marginBottom: '16px'
+                                }}>
+                                    <strong>💡Tips:</strong> {selectedFavorite.tips}
+                                </div>
+                            )}
+
+                            <button
+                                onClick={() => setSelectedFavorite(null)}
+                                className="btn btn-primary btn-full"
+                                style={{ marginTop: '8px' }}
+                            >
+                                閉じる
+                            </button>
                         </div>
                     </div>
                 </div>

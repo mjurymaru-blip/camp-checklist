@@ -1,4 +1,5 @@
 import type { Recipe, MenuRequest } from '../../../types';
+import { useGearStore } from '../../../stores/gearStore';
 
 interface RecipeCardProps {
     recipe: Recipe;
@@ -31,6 +32,8 @@ export const RecipeCard = ({
     onToggleExpand,
     isExpanded,
 }: RecipeCardProps) => {
+    const { addFavorite, removeFavorite, isFavorite } = useGearStore();
+    const isCurrentFavorite = isFavorite(recipe.id);
     const mealInfo = mealLabels[recipe.meal] || { label: recipe.meal, color: '#666' };
 
     // 候補選択画面用カード
@@ -101,12 +104,35 @@ export const RecipeCard = ({
         <div className="card card-interactive" style={{ marginBottom: '16px' }}>
             <div
                 className="card-header"
-                style={{ background: mealInfo.color, cursor: 'pointer' }}
-                onClick={() => onToggleExpand?.(recipe.id)}
+                style={{ background: mealInfo.color, cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
             >
-                <div className="card-title" style={{ color: 'white' }}>
+                <div
+                    className="card-title"
+                    style={{ color: 'white', flex: 1 }}
+                    onClick={() => onToggleExpand?.(recipe.id)}
+                >
                     {mealInfo.label}: {recipe.name}
                 </div>
+                <button
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        if (isCurrentFavorite) {
+                            removeFavorite(recipe.id);
+                        } else {
+                            addFavorite(recipe);
+                        }
+                    }}
+                    style={{
+                        background: 'transparent',
+                        border: 'none',
+                        fontSize: '1.2rem',
+                        cursor: 'pointer',
+                        padding: '4px 8px',
+                    }}
+                    title={isCurrentFavorite ? 'お気に入りを解除' : 'お気に入りに追加'}
+                >
+                    {isCurrentFavorite ? '⭐' : '☆'}
+                </button>
             </div>
             <div style={{ padding: '12px 16px' }}>
                 <p style={{ margin: '0 0 8px', fontWeight: 'bold', color: '#e65100' }}>
