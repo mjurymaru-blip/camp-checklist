@@ -25,6 +25,10 @@ export const MenuSuggestion = () => {
     const [selectedRecipesForShopping, setSelectedRecipesForShopping] = useState<Set<string>>(new Set()); // チェックリストに追加するレシピを選択
     const { checklists, addItem, saveRecipes } = useChecklistStore();
 
+    // 夕食のみ/フルコース確認モーダル用ステート
+    const [showCourseConfirm, setShowCourseConfirm] = useState(false);
+    const [pendingDinnerRecipe, setPendingDinnerRecipe] = useState<Recipe | null>(null);
+
     // 初回ロード時にレシピデータをフェッチ
     useEffect(() => {
         const fetchRecipes = async () => {
@@ -67,7 +71,7 @@ export const MenuSuggestion = () => {
     const [error, setError] = useState<string | null>(null);
 
     const [request, setRequest] = useState<MenuRequest>({
-        participants: 'pair',
+        participants: 'solo',
         season: getSeasonFromMonth(),
         effort: 'normal',
         focus: 'dinner',
@@ -259,45 +263,10 @@ export const MenuSuggestion = () => {
     const handleSelectCandidate = async (recipe: Recipe) => {
         if (!geminiApiKey) return;
 
-        // 夕食の場合: フルコース生成へ (Step 2)
+        // 夕食の場合: 確認モーダルを表示
         if (request.focus === 'dinner') {
-            // レート制限チェック
-            if (!checkLimit()) {
-                alert(`本日のAI利用上限に達しました。\n候補までは表示できましたが、フルコース生成はできませんでした。`);
-                return;
-            }
-            incrementUsage(); // Step 2 cost
-
-            setLoadingRecipeId(recipe.id);
-            setError(null);
-            setSelectedDinner(recipe);
-
-            try {
-                const candidates = allRecipes;
-                const courseRecipes = await generateCourseBasedOnDinner(
-                    geminiApiKey,
-                    recipe,
-                    request,
-                    cookingGears,
-                    heatSources,
-                    candidates,
-                    apiModel
-                );
-
-                const fullCourse = [recipe, ...courseRecipes];
-                const order = { breakfast: 1, lunch: 2, snack: 3, dinner: 4, dessert: 5 };
-                fullCourse.sort((a, b) => (order[a.meal] || 99) - (order[b.meal] || 99));
-
-                setRecipes(fullCourse);
-                setSuggestionStep('result');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            } catch (err) {
-                console.error(err);
-                setError(err instanceof Error ? err.message : '予期せぬエラーが発生しました');
-            } finally {
-                setLoadingRecipeId(null);
-            }
+            setPendingDinnerRecipe(recipe);
+            setShowCourseConfirm(true);
         }
         // 昼食・朝食の場合: そのまま完了
         else {
@@ -306,6 +275,63 @@ export const MenuSuggestion = () => {
             setSuggestionStep('result');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+    };
+
+    // フルコース生成を実行
+    const handleGenerateFullCourse = async () => {
+        if (!pendingDinnerRecipe || !geminiApiKey) return;
+
+        // レート制限チェック
+        if (!checkLimit()) {
+            alert(`本日のAI利用上限に達しました。\n候補までは表示できましたが、フルコース生成はできませんでした。`);
+            setShowCourseConfirm(false);
+            return;
+        }
+        incrementUsage(); // Step 2 cost
+
+        setShowCourseConfirm(false);
+        setLoadingRecipeId(pendingDinnerRecipe.id);
+        setError(null);
+        setSelectedDinner(pendingDinnerRecipe);
+
+        try {
+            const candidates = allRecipes;
+            const courseRecipes = await generateCourseBasedOnDinner(
+                geminiApiKey,
+                pendingDinnerRecipe,
+                request,
+                cookingGears,
+                heatSources,
+                candidates,
+                apiModel
+            );
+
+            const fullCourse = [pendingDinnerRecipe, ...courseRecipes];
+            const order = { breakfast: 1, lunch: 2, snack: 3, dinner: 4, dessert: 5 };
+            fullCourse.sort((a, b) => (order[a.meal] || 99) - (order[b.meal] || 99));
+
+            setRecipes(fullCourse);
+            setSuggestionStep('result');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        } catch (err) {
+            console.error(err);
+            setError(err instanceof Error ? err.message : '予期せぬエラーが発生しました');
+        } finally {
+            setLoadingRecipeId(null);
+            setPendingDinnerRecipe(null);
+        }
+    };
+
+    // 夕食のみで完了
+    const handleDinnerOnly = () => {
+        if (!pendingDinnerRecipe) return;
+        setRecipes([pendingDinnerRecipe]);
+        setSelectedDinner(pendingDinnerRecipe);
+        setSuggestionStep('result');
+        setShowCourseConfirm(false);
+        setPendingDinnerRecipe(null);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     const handleBackToInput = () => {
@@ -384,7 +410,7 @@ export const MenuSuggestion = () => {
                         <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.875rem', fontWeight: 600 }}>メインの食事</label>
                         <p style={{ fontSize: '0.8rem', color: '#666', marginBottom: '4px' }}>
                             {request.focus === 'dinner'
-                                ? '※夕食は「フルコース提案」になります（AI消費: 2回）'
+                                ? '※夕食のみ or フルコース提案を選択可（AI消費: 1〜2回）'
                                 : '※朝食・昼食は「単品提案」になります（AI消費: 1回）'}
                         </p>
                         <div style={{ display: 'flex', gap: '8px' }}>
@@ -820,6 +846,63 @@ export const MenuSuggestion = () => {
                             >
                                 追加する
                             </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* 夕食のみ/フルコース確認モーダル */}
+            {showCourseConfirm && pendingDinnerRecipe && (
+                <div style={{
+                    position: 'fixed',
+                    top: 0, left: 0, right: 0, bottom: 0,
+                    backgroundColor: 'rgba(0,0,0,0.5)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    zIndex: 1000,
+                    padding: '16px'
+                }}>
+                    <div className="card" style={{ maxWidth: '400px', width: '100%' }}>
+                        <div className="card-header">
+                            <div className="card-title">🍽️ メニュー構成を選択</div>
+                        </div>
+                        <div style={{ padding: '16px' }}>
+                            <p style={{ marginBottom: '16px', textAlign: 'center' }}>
+                                <strong>「{pendingDinnerRecipe.name}」</strong>を選択しました
+                            </p>
+                            <p style={{ marginBottom: '24px', textAlign: 'center', fontSize: '0.875rem', color: '#666' }}>
+                                朝食・昼食・おやつも一緒に提案しますか？
+                            </p>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                <button
+                                    onClick={handleGenerateFullCourse}
+                                    className="btn btn-primary"
+                                    style={{ padding: '12px', fontSize: '1rem' }}
+                                >
+                                    🍳 フルコースを生成する
+                                    <span style={{ display: 'block', fontSize: '0.75rem', opacity: 0.8 }}>
+                                        （AI追加リクエスト）
+                                    </span>
+                                </button>
+                                <button
+                                    onClick={handleDinnerOnly}
+                                    className="btn btn-secondary"
+                                    style={{ padding: '12px', fontSize: '1rem' }}
+                                >
+                                    🍲 夕食だけでOK
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        setShowCourseConfirm(false);
+                                        setPendingDinnerRecipe(null);
+                                    }}
+                                    className="btn"
+                                    style={{ padding: '8px', fontSize: '0.875rem', opacity: 0.7 }}
+                                >
+                                    キャンセル
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
