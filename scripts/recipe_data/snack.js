@@ -221,5 +221,171 @@ export const snackRecipes = [
         requiredGear: ['シェラカップ'], usedGearIds: [], usedHeatSourceIds: [],
         steps: ['焼いたマシュマロとポテチを交互に食べる。'],
         cookTime: '5分', tips: 'カロリーの暴力ですがキャンプだから許されます。'
+    },
+    // ===== 追加デザート・スナック（15件）=====
+    {
+        id: 'banana-pancake',
+        name: 'バナナパンケーキ',
+        meal: 'dessert', servings: 2, difficulty: 'easy', season: ['spring', 'summer', 'autumn', 'winter'],
+        calories: '約350kcal', activeTime: '15分', cleanupLevel: 1, prePrep: false, cost: 'low',
+        description: 'バナナを潰して生地に混ぜるふんわりパンケーキ。',
+        ingredients: ['ホットケーキミックス', 'バナナ', '卵', '牛乳', 'チョコソース'],
+        requiredGear: ['スキレット'], usedGearIds: ['skillet'], usedHeatSourceIds: ['single-burner'],
+        steps: ['バナナを潰して生地に混ぜる。', 'スキレットで両面を焼く。'],
+        cookTime: '約15分', tips: 'チョコソースをたっぷりかけて。'
+    },
+    {
+        id: 'churros',
+        name: 'スキレットチュロス',
+        meal: 'dessert', servings: 4, difficulty: 'normal', season: ['autumn', 'winter'],
+        calories: '約400kcal', activeTime: '20分', cleanupLevel: 2, prePrep: false, cost: 'low',
+        description: 'サクサクの揚げ生地にシナモンシュガーをまぶす。',
+        ingredients: ['強力粉', '水', 'バター', '卵', '砂糖', 'シナモン', '揚げ油'],
+        requiredGear: ['鍋（揚げ用）', '絞り袋'], usedGearIds: ['titanium-pot'], usedHeatSourceIds: ['single-burner'],
+        steps: ['水とバターを沸かし、粉を加えて練る。', '卵を加えて絞り出し揚げる。', 'シナモンシュガーをまぶす。'],
+        cookTime: '約25分', tips: 'チョコソースをつけて食べると最高。'
+    },
+    {
+        id: 'grilled-pineapple',
+        name: '焼きパイナップル',
+        meal: 'dessert', servings: 2, difficulty: 'easy', season: ['summer'],
+        calories: '約150kcal', activeTime: '10分', cleanupLevel: 1, prePrep: false, cost: 'mid',
+        description: '焼くことで甘みが増す。アイスを添えて。',
+        ingredients: ['パイナップル（缶詰またはカット）', 'バター', 'ハチミツ', 'シナモン'],
+        requiredGear: ['スキレット', '焼き網'], usedGearIds: ['skillet'], usedHeatSourceIds: ['single-burner', 'bonfire'],
+        steps: ['パイナップルをバターで焼く。', '焦げ目がついたらハチミツをかける。'],
+        cookTime: '約10分', tips: 'BBQのついでに焼くと簡単。'
+    },
+    {
+        id: 'waffle-maker',
+        name: 'キャンプワッフル',
+        meal: 'breakfast', servings: 2, difficulty: 'normal', season: ['spring', 'summer', 'autumn', 'winter'],
+        calories: '約450kcal', activeTime: '20分', cleanupLevel: 2, prePrep: false, cost: 'mid',
+        description: 'キャンプ用ワッフルメーカーで焼く本格ワッフル。',
+        ingredients: ['ワッフルミックス', '卵', '牛乳', 'バター', 'メープルシロップ'],
+        requiredGear: ['ワッフルメーカー（直火式）'], usedGearIds: ['skillet'], usedHeatSourceIds: ['single-burner', 'bonfire'],
+        steps: ['生地を作りワッフルメーカーに流し込む。', '両面を焼いてシロップをかける。'],
+        cookTime: '約20分', tips: 'フルーツとクリームを添えると豪華に。'
+    },
+    {
+        id: 'chocolate-fondue',
+        name: 'チョコレートフォンデュ',
+        meal: 'dessert', servings: 4, difficulty: 'easy', season: ['autumn', 'winter'],
+        calories: '約350kcal', activeTime: '10分', cleanupLevel: 1, prePrep: false, cost: 'mid',
+        description: 'フルーツやマシュマロをチョコにディップ。',
+        ingredients: ['板チョコ', '生クリーム', 'いちご', 'バナナ', 'マシュマロ'],
+        requiredGear: ['シェラカップ'], usedGearIds: ['sierra-cup'], usedHeatSourceIds: ['single-burner'],
+        steps: ['チョコを刻んで生クリームと溶かす。', 'フルーツを串に刺してディップ。'],
+        cookTime: '約10分', tips: '固まってきたら湯煎で温め直す。'
+    },
+    {
+        id: 'dutch-oven-brownie',
+        name: 'ダッチオーブンブラウニー',
+        meal: 'dessert', servings: 6, difficulty: 'normal', season: ['autumn', 'winter'],
+        calories: '約400kcal', activeTime: '20分', cleanupLevel: 2, prePrep: false, cost: 'mid',
+        description: '焚き火で焼く濃厚チョコブラウニー。',
+        ingredients: ['ブラウニーミックス', '卵', 'バター', 'くるみ'],
+        requiredGear: ['ダッチオーブン'], usedGearIds: ['bottom-wide-cooker'], usedHeatSourceIds: ['bonfire', 'wood-stove'],
+        steps: ['ミックスに卵とバターを混ぜる。', 'ダッチオーブンで上下から焼く。'],
+        cookTime: '約30分', tips: '焼きすぎ注意。少ししっとりで止める。'
+    },
+    {
+        id: 'roasted-marshmallow',
+        name: '焼きマシュマロ各種',
+        meal: 'dessert', servings: 4, difficulty: 'easy', season: ['spring', 'summer', 'autumn', 'winter'],
+        calories: '約150kcal', activeTime: '5分', cleanupLevel: 1, prePrep: false, cost: 'low',
+        description: '焚き火の定番。外はカリッと中はトロトロ。',
+        ingredients: ['マシュマロ', '焼き串'],
+        requiredGear: ['焼き串'], usedGearIds: [], usedHeatSourceIds: ['bonfire'],
+        steps: ['串に刺して焚き火の遠火でじっくり焼く。'],
+        cookTime: '約5分', tips: '回しながら焼くとムラなく焼ける。'
+    },
+    {
+        id: 'apple-compote',
+        name: 'りんごのコンポート',
+        meal: 'dessert', servings: 2, difficulty: 'easy', season: ['autumn', 'winter'],
+        calories: '約180kcal', activeTime: '15分', cleanupLevel: 1, prePrep: false, cost: 'low',
+        description: 'シナモン香る甘く煮たリンゴ。ヨーグルトに添えて。',
+        ingredients: ['りんご', '砂糖', '白ワイン（または水）', 'シナモン', 'レモン汁'],
+        requiredGear: ['鍋'], usedGearIds: ['titanium-pot'], usedHeatSourceIds: ['single-burner'],
+        steps: ['りんごを薄切りにして調味料と煮る。', '柔らかくなったら完成。'],
+        cookTime: '約15分', tips: '冷やしても温かくても美味しい。'
+    },
+    {
+        id: 'grilled-peach',
+        name: '焼き桃のアイス添え',
+        meal: 'dessert', servings: 2, difficulty: 'easy', season: ['summer'],
+        calories: '約250kcal', activeTime: '10分', cleanupLevel: 1, prePrep: false, cost: 'mid',
+        description: '半割りの桃をグリルでキャラメリゼ。',
+        ingredients: ['桃', 'バター', 'ブラウンシュガー', 'バニラアイス'],
+        requiredGear: ['焼き網', 'スキレット'], usedGearIds: ['skillet'], usedHeatSourceIds: ['bonfire', 'single-burner'],
+        steps: ['桃を半分に切り、切り口にバターと砂糖をのせる。', 'グリルで焼いてアイスを添える。'],
+        cookTime: '約10分', tips: '他の果物（ネクタリン、マンゴー）でも美味しい。'
+    },
+    {
+        id: 'cinnamon-roll',
+        name: 'シナモンロール',
+        meal: 'breakfast', servings: 4, difficulty: 'normal', season: ['autumn', 'winter'],
+        calories: '約350kcal', activeTime: '20分', cleanupLevel: 2, prePrep: true, cost: 'mid',
+        description: '市販の生地を使えば簡単。焼きたては最高。',
+        ingredients: ['冷凍パイシートまたはビスケット生地', 'シナモンシュガー', 'バター', 'クリームチーズフロスティング'],
+        requiredGear: ['スキレット', 'ダッチオーブン'], usedGearIds: ['skillet', 'bottom-wide-cooker'], usedHeatSourceIds: ['single-burner', 'bonfire'],
+        steps: ['生地を巻いてシナモンロールにする。', 'スキレットで蓋をして焼く。', 'フロスティングをかける。'],
+        cookTime: '約20分', tips: '缶入りの半焼成品を使うと超簡単。'
+    },
+    {
+        id: 'fruit-skewer',
+        name: 'フルーツ串焼き',
+        meal: 'dessert', servings: 4, difficulty: 'easy', season: ['summer'],
+        calories: '約120kcal', activeTime: '10分', cleanupLevel: 1, prePrep: false, cost: 'mid',
+        description: 'いろんなフルーツを串に刺して軽くグリル。',
+        ingredients: ['いちご', 'パイナップル', 'マンゴー', 'バナナ', 'ハチミツ'],
+        requiredGear: ['焼き串'], usedGearIds: [], usedHeatSourceIds: ['bonfire'],
+        steps: ['フルーツを串に刺す。', '軽く火を通し、ハチミツをかける。'],
+        cookTime: '約10分', tips: 'チョコソースをかけても美味しい。'
+    },
+    {
+        id: 'camembert-honey',
+        name: 'カマンベールのハチミツがけ',
+        meal: 'snack', servings: 2, difficulty: 'easy', season: ['spring', 'summer', 'autumn', 'winter'],
+        calories: '約300kcal', activeTime: '5分', cleanupLevel: 1, prePrep: false, cost: 'mid',
+        description: 'とろけたチーズにハチミツをたらり。ワインのお供に。',
+        ingredients: ['カマンベールチーズ', 'ハチミツ', 'くるみ', 'クラッカー'],
+        requiredGear: ['スキレット'], usedGearIds: ['skillet'], usedHeatSourceIds: ['single-burner'],
+        steps: ['カマンベールの上部を切り取る。', 'スキレットで温めてとろけさせる。', 'ハチミツとくるみをトッピング。'],
+        cookTime: '約5分', tips: 'ブルーチーズでも美味しい。'
+    },
+    {
+        id: 'pumpkin-pudding',
+        name: 'かぼちゃプリン',
+        meal: 'dessert', servings: 4, difficulty: 'normal', season: ['autumn'],
+        calories: '約200kcal', activeTime: '20分', cleanupLevel: 2, prePrep: true, cost: 'low',
+        description: '蒸し焼きで作る秋の味覚デザート。',
+        ingredients: ['かぼちゃ（茹でてマッシュ）', '卵', '牛乳', '砂糖', 'バニラエッセンス'],
+        requiredGear: ['シェラカップ', '鍋'], usedGearIds: ['sierra-cup', 'titanium-pot'], usedHeatSourceIds: ['single-burner'],
+        steps: ['材料を混ぜてシェラカップに流し入れる。', '鍋に水を張り、蒸し焼きにする。'],
+        cookTime: '約30分', tips: 'カラメルを作っておくと本格的。'
+    },
+    {
+        id: 'yakiimo-butter',
+        name: '焼き芋バター',
+        meal: 'snack', servings: 2, difficulty: 'easy', season: ['autumn', 'winter'],
+        calories: '約350kcal', activeTime: '10分', cleanupLevel: 1, prePrep: false, cost: 'low',
+        description: 'ホクホク焼き芋にバターをのせるシンプルな贅沢。',
+        ingredients: ['焼き芋（焚き火で作る or 市販）', 'バター', '塩'],
+        requiredGear: ['焚き火'], usedGearIds: [], usedHeatSourceIds: ['bonfire', 'wood-stove'],
+        steps: ['焼き芋を割ってバターを挟む。', '塩を少々振る。'],
+        cookTime: '約45分（芋から作る場合）', tips: 'ハチミツをかけてもGood。'
+    },
+    {
+        id: 'coffee-jelly',
+        name: 'コーヒーゼリー',
+        meal: 'dessert', servings: 4, difficulty: 'easy', season: ['summer'],
+        calories: '約100kcal', activeTime: '10分', cleanupLevel: 1, prePrep: true, cost: 'low',
+        description: '前日に仕込んで翌日食べるひんやりデザート。',
+        ingredients: ['コーヒー', 'ゼラチン', '砂糖', '生クリーム'],
+        requiredGear: ['シェラカップ', '鍋'], usedGearIds: ['sierra-cup', 'titanium-pot'], usedHeatSourceIds: ['single-burner'],
+        steps: ['コーヒーに砂糖とゼラチンを溶かす。', 'シェラカップに入れて冷やし固める。'],
+        cookTime: '仕込み10分', tips: '練乳をかけてもおいしい。'
     }
 ];

@@ -790,5 +790,420 @@
     ],
     "cookTime": "約15分",
     "tips": "うなぎは酒を振ってアルミホイルで蒸し焼きにするとふっくらします。"
+  },
+  {
+    "id": "hangou-rice",
+    "name": "兵式飯盒炊飯",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": true,
+    "cost": "low",
+    "description": "昔ながらの飯盒で炊く本格キャンプ飯。火加減の技術が試される。",
+    "ingredients": [
+      "米 (4合)",
+      "水 (適量)"
+    ],
+    "requiredGear": [
+      "兵式飯盒"
+    ],
+    "usedGearIds": [
+      "hangou"
+    ],
+    "usedHeatSourceIds": [
+      "bonfire",
+      "wood-stove"
+    ],
+    "steps": [
+      "米を研いで30分以上吸水させる。",
+      "中蓋の線まで水を入れる。",
+      "強火で沸騰させ、弱火で15分、逆さまにして10分蒸らす。"
+    ],
+    "cookTime": "約40分",
+    "tips": "湯気が出なくなってからひっくり返す。"
+  },
+  {
+    "id": "hangou-curry-rice",
+    "name": "飯盒カレー",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約800kcal",
+    "activeTime": "30分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "low",
+    "description": "飯盒の中蓋でご飯、本体でカレーを同時調理。",
+    "ingredients": [
+      "米",
+      "水",
+      "カレールー",
+      "肉",
+      "じゃがいも",
+      "玉ねぎ",
+      "人参"
+    ],
+    "requiredGear": [
+      "兵式飯盒"
+    ],
+    "usedGearIds": [
+      "hangou"
+    ],
+    "usedHeatSourceIds": [
+      "bonfire",
+      "wood-stove"
+    ],
+    "steps": [
+      "本体でカレーの具材を炒めて水で煮込む。",
+      "中蓋に米と水を入れて本体にセット。",
+      "一緒に火にかけて炊飯とカレーを同時に完成させる。"
+    ],
+    "cookTime": "約45分",
+    "tips": "ワイルドだが理にかなった調理法。"
+  },
+  {
+    "id": "dutch-oven-roast-chicken",
+    "name": "ダッチオーブンローストチキン",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "hard",
+    "season": [
+      "autumn",
+      "winter"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "30分",
+    "cleanupLevel": 3,
+    "prePrep": true,
+    "cost": "high",
+    "description": "丸鶏を焚き火でじっくりローストする豪快料理。",
+    "ingredients": [
+      "丸鶏 (1羽)",
+      "じゃがいも",
+      "玉ねぎ",
+      "にんにく",
+      "ローズマリー",
+      "オリーブオイル",
+      "塩コショウ"
+    ],
+    "requiredGear": [
+      "ダッチオーブン"
+    ],
+    "usedGearIds": [
+      "dutch-oven"
+    ],
+    "usedHeatSourceIds": [
+      "bonfire",
+      "wood-stove"
+    ],
+    "steps": [
+      "丸鶏に塩コショウとハーブを擦り込む。",
+      "野菜と一緒にダッチオーブンに入れる。",
+      "蓋に炭を乗せて上下から1時間以上焼く。"
+    ],
+    "cookTime": "約1時間30分",
+    "tips": "途中で肉汁をかけるとジューシーに。"
+  },
+  {
+    "id": "dutch-oven-bread",
+    "name": "ダッチオーブンパン",
+    "meal": "breakfast",
+    "servings": 6,
+    "difficulty": "normal",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約250kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "low",
+    "description": "焚き火で焼く手作りパン。外はパリッと中はふわふわ。",
+    "ingredients": [
+      "強力粉",
+      "ドライイースト",
+      "砂糖",
+      "塩",
+      "牛乳",
+      "バター"
+    ],
+    "requiredGear": [
+      "ダッチオーブン"
+    ],
+    "usedGearIds": [
+      "dutch-oven"
+    ],
+    "usedHeatSourceIds": [
+      "bonfire",
+      "wood-stove"
+    ],
+    "steps": [
+      "生地を作り一次発酵させる（家で済ませると楽）。",
+      "成形してダッチオーブンで二次発酵。",
+      "蓋に炭を乗せて焼く。"
+    ],
+    "cookTime": "約40分",
+    "tips": "ココット型があると成形が楽。"
+  },
+  {
+    "id": "dutch-oven-pot-roast",
+    "name": "ダッチオーブンポットロースト",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "autumn",
+      "winter"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "牛塊肉を野菜と一緒にじっくり煮込む。",
+    "ingredients": [
+      "牛肩ロース塊",
+      "じゃがいも",
+      "人参",
+      "玉ねぎ",
+      "セロリ",
+      "コンソメ",
+      "赤ワイン"
+    ],
+    "requiredGear": [
+      "ダッチオーブン"
+    ],
+    "usedGearIds": [
+      "dutch-oven"
+    ],
+    "usedHeatSourceIds": [
+      "bonfire",
+      "wood-stove"
+    ],
+    "steps": [
+      "肉に焼き色をつける。",
+      "野菜と水、調味料を入れて煮込む。",
+      "2時間以上弱火でコトコト。"
+    ],
+    "cookTime": "約2時間",
+    "tips": "前日から仕込むとさらに美味しい。"
+  },
+  {
+    "id": "alcohol-stove-ramen",
+    "name": "アルコールストーブで作るラーメン",
+    "meal": "lunch",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約450kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "ウルトラライトスタイルで作る定番ラーメン。",
+    "ingredients": [
+      "インスタントラーメン",
+      "水",
+      "卵",
+      "ネギ"
+    ],
+    "requiredGear": [
+      "クッカー（小）"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "alcohol-stove"
+    ],
+    "steps": [
+      "お湯を沸かして麺を茹でる。",
+      "スープを溶かして卵を落とす。"
+    ],
+    "cookTime": "約10分",
+    "tips": "燃料の量で火力と時間を調整。"
+  },
+  {
+    "id": "alcohol-stove-coffee",
+    "name": "アルストコーヒー",
+    "meal": "breakfast",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "0kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "アルコールストーブの静かな炎でお湯を沸かす贅沢な時間。",
+    "ingredients": [
+      "コーヒー豆",
+      "水"
+    ],
+    "requiredGear": [
+      "ケトル",
+      "ドリッパー"
+    ],
+    "usedGearIds": [
+      "sierra-cup"
+    ],
+    "usedHeatSourceIds": [
+      "alcohol-stove"
+    ],
+    "steps": [
+      "お湯を沸かす。",
+      "豆を挽いてドリップ。"
+    ],
+    "cookTime": "約10分",
+    "tips": "ガスより時間はかかるがその時間が良い。"
+  },
+  {
+    "id": "alcohol-stove-ochazuke",
+    "name": "アルストで茶漬け",
+    "meal": "breakfast",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "5分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "ミニマル装備でも温かい朝食が食べられる。",
+    "ingredients": [
+      "パックご飯",
+      "お茶漬けの素",
+      "水"
+    ],
+    "requiredGear": [
+      "シェラカップ"
+    ],
+    "usedGearIds": [
+      "sierra-cup"
+    ],
+    "usedHeatSourceIds": [
+      "alcohol-stove"
+    ],
+    "steps": [
+      "お湯を沸かす。",
+      "ご飯にかける。"
+    ],
+    "cookTime": "約5分",
+    "tips": "軽量装備の定番朝食。"
+  },
+  {
+    "id": "dutch-oven-stew",
+    "name": "ダッチオーブンビーフシチュー",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "winter"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "30分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "冬キャンプの定番。焚き火でコトコト煮込む。",
+    "ingredients": [
+      "牛肉（カレー・シチュー用）",
+      "じゃがいも",
+      "人参",
+      "玉ねぎ",
+      "シチュールー",
+      "水"
+    ],
+    "requiredGear": [
+      "ダッチオーブン"
+    ],
+    "usedGearIds": [
+      "dutch-oven"
+    ],
+    "usedHeatSourceIds": [
+      "bonfire",
+      "wood-stove"
+    ],
+    "steps": [
+      "肉と野菜を炒める。",
+      "水を加えて煮込む。",
+      "ルーを溶かして完成。"
+    ],
+    "cookTime": "約1時間",
+    "tips": "パンにつけて食べると最高。"
+  },
+  {
+    "id": "hangou-takikomi",
+    "name": "飯盒で炊き込みご飯",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "normal",
+    "season": [
+      "autumn"
+    ],
+    "calories": "約400kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": true,
+    "cost": "low",
+    "description": "飯盒で作る具だくさん炊き込みご飯。",
+    "ingredients": [
+      "米",
+      "鶏肉",
+      "きのこ",
+      "油揚げ",
+      "醤油",
+      "酒",
+      "出汁"
+    ],
+    "requiredGear": [
+      "兵式飯盒"
+    ],
+    "usedGearIds": [
+      "hangou"
+    ],
+    "usedHeatSourceIds": [
+      "bonfire",
+      "wood-stove"
+    ],
+    "steps": [
+      "米と調味料、水を入れる。",
+      "具材を上に乗せて炊飯する。"
+    ],
+    "cookTime": "約40分",
+    "tips": "秋のキノコを使うと贅沢。"
   }
 ]

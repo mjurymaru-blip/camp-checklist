@@ -11,6 +11,7 @@ import { riceRecipes } from './recipe_data/rice.js';
 import { snackRecipes } from './recipe_data/snack.js';
 import { vegetableRecipes } from './recipe_data/vegetable.js';
 import { soupRecipes } from './recipe_data/soup.js';
+import { convenienceRecipes } from './recipe_data/convenience.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -38,8 +39,9 @@ const main = () => {
     writeJson('snack.json', snackRecipes);
     writeJson('vegetable.json', vegetableRecipes);
     writeJson('soup.json', soupRecipes);
+    writeJson('convenience.json', convenienceRecipes);
 
-    const total = meatRecipes.length + seafoodRecipes.length + noodleRecipes.length + riceRecipes.length + snackRecipes.length + vegetableRecipes.length + soupRecipes.length;
+    const total = meatRecipes.length + seafoodRecipes.length + noodleRecipes.length + riceRecipes.length + snackRecipes.length + vegetableRecipes.length + soupRecipes.length + convenienceRecipes.length;
     console.log(`All recipes generated successfully! Total count: ${total}`);
 };
 

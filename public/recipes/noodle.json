@@ -991,5 +991,850 @@
     ],
     "cookTime": "5分",
     "tips": "金蝶ソースを持参する通もいます。"
+  },
+  {
+    "id": "skillet-pizza-margherita",
+    "name": "スキレットピザ・マルゲリータ",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "normal",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "25分",
+    "cleanupLevel": 2,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "生地から作る本格ピザ。スキレットで石窯風の焼き上がり。",
+    "ingredients": [
+      "ピザ生地（市販または冷凍）",
+      "トマトソース",
+      "モッツァレラチーズ",
+      "バジル",
+      "オリーブオイル"
+    ],
+    "requiredGear": [
+      "スキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner",
+      "bonfire"
+    ],
+    "steps": [
+      "スキレットにオイルを塗り生地を敷く。",
+      "ソースとチーズを乗せる。",
+      "蓋をして焼き、バジルを乗せる。"
+    ],
+    "cookTime": "約15分",
+    "tips": "蓋に炭を乗せると上火も効いてプロ級に。"
+  },
+  {
+    "id": "tortilla-pizza",
+    "name": "トルティーヤピザ",
+    "meal": "snack",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約400kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "トルティーヤで作る薄焼きピザ。生地を作る手間なし。",
+    "ingredients": [
+      "トルティーヤ",
+      "ピザソース（またはケチャップ）",
+      "チーズ",
+      "サラミ",
+      "ピーマン"
+    ],
+    "requiredGear": [
+      "スキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "スキレットにトルティーヤを乗せる。",
+      "ソースと具材を乗せて蓋をして焼く。"
+    ],
+    "cookTime": "約5分",
+    "tips": "パリパリ生地がクリスピーピザ風。"
+  },
+  {
+    "id": "naan-pizza",
+    "name": "ナンピザ",
+    "meal": "lunch",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約450kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "市販のナンを使った簡単ピザ。もちもち食感。",
+    "ingredients": [
+      "市販のナン",
+      "トマトソース",
+      "チーズ",
+      "ベーコン",
+      "オリーブ"
+    ],
+    "requiredGear": [
+      "スキレット",
+      "鉄板"
+    ],
+    "usedGearIds": [
+      "skillet",
+      "iron-plate"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "ナンに具材を乗せる。",
+      "スキレットで焼いてチーズを溶かす。"
+    ],
+    "cookTime": "約10分",
+    "tips": "カレー粉を振るとインド風に。"
+  },
+  {
+    "id": "pasta-vongole",
+    "name": "あさりのボンゴレビアンコ",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "normal",
+    "season": [
+      "spring",
+      "summer"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 2,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "あさりの旨味が染み出たシンプルパスタ。白ワインと。",
+    "ingredients": [
+      "パスタ",
+      "あさり（殻付きまたは缶詰）",
+      "にんにく",
+      "白ワイン",
+      "オリーブオイル",
+      "パセリ"
+    ],
+    "requiredGear": [
+      "鍋",
+      "フライパン"
+    ],
+    "usedGearIds": [
+      "titanium-pot",
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "twin-burner"
+    ],
+    "steps": [
+      "にんにくを炒め、あさりと白ワインを加えて蓋をする。",
+      "殻が開いたらパスタと茹で汁を加えて乳化させる。"
+    ],
+    "cookTime": "約20分",
+    "tips": "缶詰のあさりなら超簡単。汁も使って。"
+  },
+  {
+    "id": "pasta-bacon-mushroom",
+    "name": "ベーコンときのこのパスタ",
+    "meal": "lunch",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "autumn",
+      "winter"
+    ],
+    "calories": "約550kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "バター醤油の香りが食欲をそそる和風パスタ。",
+    "ingredients": [
+      "パスタ",
+      "ベーコン",
+      "しめじ",
+      "バター",
+      "醤油",
+      "刻み海苔"
+    ],
+    "requiredGear": [
+      "鍋",
+      "フライパン"
+    ],
+    "usedGearIds": [
+      "titanium-pot",
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "twin-burner"
+    ],
+    "steps": [
+      "パスタを茹でる。",
+      "ベーコンときのこをバターで炒める。",
+      "パスタを加えて醤油で味付け。"
+    ],
+    "cookTime": "約15分",
+    "tips": "にんにくを少し入れるとさらに香ばしい。"
+  },
+  {
+    "id": "dutch-oven-pizza",
+    "name": "ダッチオーブンピザ",
+    "meal": "dinner",
+    "servings": 4,
+    "difficulty": "hard",
+    "season": [
+      "autumn",
+      "winter"
+    ],
+    "calories": "約650kcal",
+    "activeTime": "30分",
+    "cleanupLevel": 3,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "焚き火でじっくり焼く本格ピザ。外はカリッと中はふんわり。",
+    "ingredients": [
+      "ピザ生地",
+      "トマトソース",
+      "モッツァレラチーズ",
+      "サラミ",
+      "ピーマン",
+      "オリーブ"
+    ],
+    "requiredGear": [
+      "ダッチオーブン"
+    ],
+    "usedGearIds": [
+      "bottom-wide-cooker"
+    ],
+    "usedHeatSourceIds": [
+      "bonfire",
+      "wood-stove"
+    ],
+    "steps": [
+      "ダッチオーブンを予熱する。",
+      "クッキングシートを敷いて生地と具材を入れる。",
+      "蓋に炭を乗せて上下から焼く。"
+    ],
+    "cookTime": "約25分",
+    "tips": "底が焦げやすいので注意。石を敷くとよい。"
+  },
+  {
+    "id": "pasta-tuna-mayo",
+    "name": "ツナマヨパスタ",
+    "meal": "lunch",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "子供も大好きなマヨネーズ味のパスタ。",
+    "ingredients": [
+      "パスタ",
+      "ツナ缶",
+      "マヨネーズ",
+      "醤油",
+      "刻み海苔",
+      "大葉"
+    ],
+    "requiredGear": [
+      "鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "パスタを茹でる。",
+      "ツナとマヨネーズ、醤油で和える。",
+      "トッピングを乗せる。"
+    ],
+    "cookTime": "約10分",
+    "tips": "温かいままでも冷やしても美味しい。"
+  },
+  {
+    "id": "gyoza-skin-pizza",
+    "name": "餃子の皮ミニピザ",
+    "meal": "snack",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約250kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "餃子の皮で作る一口サイズのミニピザ。おつまみに最高。",
+    "ingredients": [
+      "餃子の皮",
+      "ケチャップ",
+      "チーズ",
+      "ベーコン",
+      "コーン"
+    ],
+    "requiredGear": [
+      "スキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "スキレットに餃子の皮を並べる。",
+      "具材を乗せて蓋をして焼く。"
+    ],
+    "cookTime": "約10分",
+    "tips": "パリパリに焼くとスナック感覚。"
+  },
+  {
+    "id": "pasta-anchovy-cabbage",
+    "name": "キャベツとアンチョビのパスタ",
+    "meal": "lunch",
+    "servings": 2,
+    "difficulty": "normal",
+    "season": [
+      "spring",
+      "summer"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "アンチョビの塩気とキャベツの甘みが絶妙。",
+    "ingredients": [
+      "パスタ",
+      "キャベツ",
+      "アンチョビ",
+      "にんにく",
+      "唐辛子",
+      "オリーブオイル"
+    ],
+    "requiredGear": [
+      "鍋",
+      "フライパン"
+    ],
+    "usedGearIds": [
+      "titanium-pot",
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "twin-burner"
+    ],
+    "steps": [
+      "パスタとキャベツを一緒に茹でる。",
+      "にんにくとアンチョビを炒め、パスタを加える。"
+    ],
+    "cookTime": "約15分",
+    "tips": "アンチョビの塩気があるので塩は控えめに。"
+  },
+  {
+    "id": "pasta-mentaiko-cream",
+    "name": "明太子クリームパスタ",
+    "meal": "lunch",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "ピリ辛クリーミーな人気パスタ。",
+    "ingredients": [
+      "パスタ",
+      "明太子",
+      "生クリーム",
+      "バター",
+      "刻み海苔",
+      "大葉"
+    ],
+    "requiredGear": [
+      "鍋",
+      "フライパン"
+    ],
+    "usedGearIds": [
+      "titanium-pot",
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "twin-burner"
+    ],
+    "steps": [
+      "パスタを茹でる。",
+      "火を止めてから明太子、生クリーム、バターを和える。"
+    ],
+    "cookTime": "約15分",
+    "tips": "明太子は火を通しすぎないのがコツ。"
+  },
+  {
+    "id": "one-pot-cream-pasta",
+    "name": "ワンポット・クリームパスタ",
+    "meal": "lunch",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "autumn",
+      "winter"
+    ],
+    "calories": "約650kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "牛乳で直接パスタを煮込む濃厚ワンポット。",
+    "ingredients": [
+      "パスタ（早茹で）",
+      "牛乳",
+      "水",
+      "コンソメ",
+      "ベーコン",
+      "きのこ",
+      "粉チーズ"
+    ],
+    "requiredGear": [
+      "深型鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "水と牛乳、コンソメを沸かす。",
+      "パスタと具材を入れて表示時間煮込む。",
+      "粉チーズを加えて混ぜる。"
+    ],
+    "cookTime": "約15分",
+    "tips": "牛乳は沸騰させすぎると分離するので弱火で。"
+  },
+  {
+    "id": "one-pot-tuna-tomato",
+    "name": "ワンポット・ツナトマトパスタ",
+    "meal": "lunch",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "缶詰だけで完結するキャンプの味方。",
+    "ingredients": [
+      "パスタ",
+      "トマト缶",
+      "ツナ缶",
+      "水",
+      "コンソメ",
+      "にんにく",
+      "オリーブオイル"
+    ],
+    "requiredGear": [
+      "深型鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "全材料を鍋に入れて火にかける。",
+      "パスタが柔らかくなるまで煮込む。"
+    ],
+    "cookTime": "約15分",
+    "tips": "バジルを散らすと見た目アップ。"
+  },
+  {
+    "id": "one-pot-meat-sauce",
+    "name": "ワンポット・ミートソースパスタ",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約650kcal",
+    "activeTime": "20分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "ひき肉から作るワンポットミートソース。",
+    "ingredients": [
+      "パスタ",
+      "合い挽き肉",
+      "トマト缶",
+      "玉ねぎ",
+      "水",
+      "コンソメ",
+      "ケチャップ"
+    ],
+    "requiredGear": [
+      "深型鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "肉と玉ねぎを炒める。",
+      "トマト缶、水、コンソメを加えて煮立てる。",
+      "パスタを折って入れ、煮込む。"
+    ],
+    "cookTime": "約20分",
+    "tips": "時々かき混ぜてくっつき防止。"
+  },
+  {
+    "id": "one-pot-peperoncino",
+    "name": "ワンポット・ペペロンチーノ",
+    "meal": "lunch",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約450kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "にんにくと唐辛子の香りが食欲をそそる。",
+    "ingredients": [
+      "パスタ",
+      "にんにく",
+      "唐辛子",
+      "オリーブオイル",
+      "水",
+      "塩",
+      "パセリ"
+    ],
+    "requiredGear": [
+      "深型鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "にんにくと唐辛子を油で炒める。",
+      "水を加えてパスタを煮込む。",
+      "水分が飛んだら完成。"
+    ],
+    "cookTime": "約12分",
+    "tips": "ベーコンを加えるとボリュームアップ。"
+  },
+  {
+    "id": "one-pot-bacon-spinach",
+    "name": "ワンポット・ベーコンとほうれん草のパスタ",
+    "meal": "lunch",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "autumn",
+      "winter"
+    ],
+    "calories": "約550kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "クリームなしでもコクがあるバター醤油味。",
+    "ingredients": [
+      "パスタ",
+      "ベーコン",
+      "ほうれん草（冷凍可）",
+      "バター",
+      "醤油",
+      "水",
+      "コンソメ"
+    ],
+    "requiredGear": [
+      "深型鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "ベーコンを炒め、水とコンソメを加える。",
+      "パスタを煮込み、最後にほうれん草とバター醤油で仕上げる。"
+    ],
+    "cookTime": "約15分",
+    "tips": "冷凍ほうれん草なら解凍不要で便利。"
+  },
+  {
+    "id": "one-pot-shrimp-cream",
+    "name": "ワンポット・海老クリームパスタ",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "autumn",
+      "winter"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "冷凍海老で作るご馳走パスタ。",
+    "ingredients": [
+      "パスタ",
+      "冷凍海老",
+      "牛乳",
+      "水",
+      "コンソメ",
+      "バター",
+      "塩コショウ"
+    ],
+    "requiredGear": [
+      "深型鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "牛乳と水を沸かし、パスタと海老を煮込む。",
+      "バターを加えてとろみが出たら完成。"
+    ],
+    "cookTime": "約15分",
+    "tips": "アスパラやブロッコリーを加えても美味しい。"
+  },
+  {
+    "id": "one-pot-puttanesca",
+    "name": "ワンポット・プッタネスカ",
+    "meal": "lunch",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "オリーブとケッパーのパンチが効いた大人の味。",
+    "ingredients": [
+      "パスタ",
+      "トマト缶",
+      "アンチョビ",
+      "オリーブ",
+      "ケッパー",
+      "にんにく",
+      "水"
+    ],
+    "requiredGear": [
+      "深型鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "にんにくとアンチョビを炒める。",
+      "トマト缶と水、パスタを加えて煮込む。",
+      "オリーブとケッパーを加えて完成。"
+    ],
+    "cookTime": "約15分",
+    "tips": "唐辛子を加えると辛さアップ。"
+  },
+  {
+    "id": "one-pot-corn-butter",
+    "name": "ワンポット・コーンバターパスタ",
+    "meal": "lunch",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "summer",
+      "autumn"
+    ],
+    "calories": "約550kcal",
+    "activeTime": "12分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "子供も大好きな甘いコーンとバターの組み合わせ。",
+    "ingredients": [
+      "パスタ",
+      "コーン缶",
+      "バター",
+      "醤油",
+      "水",
+      "コンソメ",
+      "パセリ"
+    ],
+    "requiredGear": [
+      "深型鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "水とコンソメを沸かし、パスタを煮込む。",
+      "コーンとバター、醤油を加えて仕上げる。"
+    ],
+    "cookTime": "約12分",
+    "tips": "ブラックペッパーをたっぷりと。"
+  },
+  {
+    "id": "one-pot-tomato-cheese",
+    "name": "ワンポット・トマトチーズパスタ",
+    "meal": "dinner",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "チーズがとろける簡単ワンポット。",
+    "ingredients": [
+      "パスタ",
+      "トマト缶",
+      "ピザ用チーズ",
+      "水",
+      "コンソメ",
+      "オリーブオイル",
+      "バジル"
+    ],
+    "requiredGear": [
+      "深型鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "水とトマト缶、コンソメでパスタを煮込む。",
+      "最後にチーズを加えてとろけさせる。"
+    ],
+    "cookTime": "約15分",
+    "tips": "チーズは火を止めてから加えるととろける。"
+  },
+  {
+    "id": "one-pot-kimchi-pork",
+    "name": "ワンポット・キムチ豚パスタ",
+    "meal": "lunch",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "autumn",
+      "winter"
+    ],
+    "calories": "約600kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "ピリ辛で食欲増進。韓国風ワンポット。",
+    "ingredients": [
+      "パスタ",
+      "豚バラ肉",
+      "キムチ",
+      "水",
+      "鶏ガラスープの素",
+      "ごま油",
+      "ネギ"
+    ],
+    "requiredGear": [
+      "深型鍋"
+    ],
+    "usedGearIds": [
+      "titanium-pot"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "豚肉を炒める。",
+      "水とスープの素、パスタを加えて煮込む。",
+      "最後にキムチとごま油で仕上げる。"
+    ],
+    "cookTime": "約15分",
+    "tips": "卵黄をトッピングするとマイルドに。"
   }
 ]

@@ -100,11 +100,13 @@ export interface SavedRecipe {
 
 // デフォルト調理器具リスト
 export const DEFAULT_COOKING_GEARS: CookingGear[] = [
-  { id: 'titanium-pot', name: 'チタンポット', owned: false },
+  { id: 'titanium-pot', name: '深型クッカー（ポット）', owned: false },
   { id: 'iron-plate', name: '鉄鍋・鉄皿', owned: false },
   { id: 'griddle', name: 'マルチグリドル', owned: false },
   { id: 'mestin', name: 'メスティン', owned: false },
-  { id: 'bottom-wide-cooker', name: '底広クッカー', owned: false },
+  { id: 'bottom-wide-cooker', name: '浅型クッカー（鍋）', owned: false },
+  { id: 'dutch-oven', name: 'ダッチオーブン', owned: false },
+  { id: 'hangou', name: '兵式飯盒', owned: false },
   { id: 'steamer', name: '蒸し器', owned: false },
   { id: 'sierra-cup', name: 'シェラカップ', owned: false },
   { id: 'skillet', name: 'スキレット/鉄フライパン', owned: false },
@@ -117,7 +119,8 @@ export const DEFAULT_HEAT_SOURCES: HeatSource[] = [
   { id: 'cassette-stove', name: 'カセットコンロ', owned: false },
   { id: 'wood-stove', name: '薪ストーブ', owned: false },
   { id: 'bonfire', name: '焚き火台', owned: false },
-  { id: 'esbit', name: 'エスビット', owned: false },
+  { id: 'esbit', name: 'ポケットストーブ', owned: false },
+  { id: 'alcohol-stove', name: 'アルコールストーブ', owned: false },
 ];
 
 // デフォルトカテゴリ

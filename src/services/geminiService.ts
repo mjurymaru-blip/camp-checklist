@@ -188,13 +188,18 @@ function buildCoursePrompt(
 
 ## 回答形式（JSON）
 配列で4つのレシピ（朝・昼・つまみ・デザート）を返してください。
+**各レシピには必ず ingredients, steps, cookTime, tips を含めてください。**
 {
   "recipes": [
     {
       "name": "料理名",
       "meal": "breakfast" | "lunch" | "snack" | "dessert",
       "reason": "夕食の〇〇を使い回せるため、など",
-      ...
+      "description": "簡単な説明",
+      "ingredients": ["食材1 分量", "食材2 分量"],
+      "steps": ["手順1", "手順2", "手順3"],
+      "cookTime": "約15分",
+      "tips": "ポイントやコツ"
     }
   ]
 }`;
