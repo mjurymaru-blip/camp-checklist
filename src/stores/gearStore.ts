@@ -13,6 +13,7 @@ export interface FavoriteRecipe {
     steps: string[];
     cookTime: string;
     tips: string;
+    servings?: number; // 元のレシピの人数（スケーリング用）
     addedAt: string;
 }
 
@@ -112,6 +113,7 @@ export const useGearStore = create<GearStore>()(
                     steps: recipe.steps,
                     cookTime: recipe.cookTime,
                     tips: recipe.tips,
+                    servings: recipe.servings, // スケーリング用に保存
                     addedAt: new Date().toISOString(),
                 };
                 set((state) => ({

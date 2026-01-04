@@ -364,7 +364,9 @@ export function ChecklistDetail() {
                                     {expandedRecipeId === recipe.id && (
                                         <div style={{ padding: '0 16px 16px', background: '#fafafa' }}>
                                             <div style={{ marginBottom: '12px' }}>
-                                                <div style={{ fontWeight: 600, fontSize: '0.875rem', marginBottom: '6px' }}>🥕 食材</div>
+                                                <div style={{ fontWeight: 600, fontSize: '0.875rem', marginBottom: '6px' }}>
+                                                    🥕 材料{recipe.servings ? ` (${recipe.servings}人分)` : ''}
+                                                </div>
                                                 <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '0.85rem', color: '#555' }}>
                                                     {recipe.ingredients.map((ing, i) => <li key={i}>{ing}</li>)}
                                                 </ul>

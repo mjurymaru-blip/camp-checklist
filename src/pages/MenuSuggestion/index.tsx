@@ -386,7 +386,7 @@ export const MenuSuggestion = () => {
                             {/* Add to checklist button */}
                             <button
                                 onClick={() => {
-                                    setSelectedRecipesForShopping(new Set(recipes.map(r => r.id)));
+                                    setSelectedRecipesForShopping(new Set()); // 空で開始（必要なものだけ選択）
                                     const activeChecklists = checklists.filter(c => !c.isArchived);
                                     if (activeChecklists.length > 0) {
                                         setTargetChecklistId(activeChecklists[0].id);
@@ -500,10 +500,10 @@ export const MenuSuggestion = () => {
                             {/* Ingredient preview */}
                             <div style={{ marginBottom: '16px' }}>
                                 <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.875rem', fontWeight: 600 }}>
-                                    追加される食材（{buildShoppingList(recipes.filter(r => selectedRecipesForShopping.has(r.id))).length}件）
+                                    追加される食材（{buildShoppingList(recipes.filter(r => selectedRecipesForShopping.has(r.id)), targetServings).length}件）
                                 </label>
                                 <div style={{ maxHeight: '150px', overflow: 'auto', background: '#f9f9f9', borderRadius: '8px', padding: '8px' }}>
-                                    {buildShoppingList(recipes.filter(r => selectedRecipesForShopping.has(r.id))).map((item, i) => (
+                                    {buildShoppingList(recipes.filter(r => selectedRecipesForShopping.has(r.id)), targetServings).map((item, i) => (
                                         <div key={i} style={{ padding: '4px 8px', fontSize: '0.8rem', color: '#555' }}>
                                             {item.name}{item.amount ? `（${item.amount}）` : ''}
                                             <span style={{ color: '#999', marginLeft: '4px' }}>- {item.recipeName}</span>
@@ -530,21 +530,24 @@ export const MenuSuggestion = () => {
                                     onClick={() => {
                                         if (!targetChecklistId) return;
                                         const selectedRecipes = recipes.filter(r => selectedRecipesForShopping.has(r.id));
-                                        const items = buildShoppingList(selectedRecipes);
+                                        const items = buildShoppingList(selectedRecipes, targetServings);
                                         const itemsToAdd = toChecklistItems(items, 'food', true);
                                         itemsToAdd.forEach(item => {
                                             addItem(targetChecklistId, item);
                                         });
 
-                                        // Save recipe snapshots
+                                        // Save recipe snapshots with scaled ingredients
                                         const savedRecipes: SavedRecipe[] = selectedRecipes.map(r => ({
                                             id: r.id,
                                             name: r.name,
                                             meal: r.meal,
-                                            ingredients: r.ingredients,
+                                            ingredients: r.servings
+                                                ? scaleIngredients(r.ingredients, r.servings, targetServings)
+                                                : r.ingredients,
                                             steps: r.steps,
                                             cookTime: r.cookTime,
                                             tips: r.tips,
+                                            servings: targetServings, // スケーリング後の人数を保存
                                             savedAt: new Date().toISOString(),
                                         }));
                                         saveRecipes(targetChecklistId, savedRecipes);
@@ -648,9 +651,9 @@ export const MenuSuggestion = () => {
                             </div>
 
                             <div style={{ marginBottom: '16px' }}>
-                                <strong>📦 材料:</strong>
+                                <strong>📦 材料 ({targetServings}人分):</strong>
                                 <ul style={{ margin: '8px 0', paddingLeft: '20px' }}>
-                                    {selectedFavorite.ingredients.map((ing, i) => (
+                                    {scaleIngredients(selectedFavorite.ingredients, selectedFavorite.servings || 4, targetServings).map((ing, i) => (
                                         <li key={i} style={{ fontSize: '0.9rem' }}>{ing}</li>
                                     ))}
                                 </ul>

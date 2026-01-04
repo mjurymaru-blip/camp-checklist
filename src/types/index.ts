@@ -124,6 +124,7 @@ export interface SavedRecipe {
   steps: string[];
   cookTime: string;
   tips: string;
+  servings?: number; // スケーリング後の人数
   savedAt: string;
 }
 
