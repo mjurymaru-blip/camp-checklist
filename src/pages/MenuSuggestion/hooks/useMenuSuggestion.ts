@@ -33,7 +33,7 @@ export interface UseMenuSuggestionReturn {
     setError: React.Dispatch<React.SetStateAction<string | null>>;
 
     // Handlers
-    handleExecute: () => Promise<void>;
+    handleExecute: (overrideMode?: ExecutionMode) => Promise<void>;
     handleSelectCandidate: (recipe: Recipe) => void;
     handleGenerateFullCourse: () => Promise<void>;
     handleDinnerOnly: () => void;
@@ -128,12 +128,20 @@ export const useMenuSuggestion = (): UseMenuSuggestionReturn => {
             if (conditions.cost && recipe.cost !== conditions.cost) return false;
             // MealType filter
             if (conditions.mealType && recipe.meal !== conditions.mealType) return false;
+            // CleanupLevel filter
+            if (conditions.cleanupLevel && recipe.cleanupLevel !== conditions.cleanupLevel) return false;
+            // PrePrep filter
+            if (conditions.prePrep !== undefined && recipe.prePrep !== conditions.prePrep) return false;
+            // KidFriendly filter
+            if (conditions.kidFriendly && !recipe.kidFriendly) return false;
             // Text search
             if (conditions.searchText) {
                 const searchLower = conditions.searchText.toLowerCase();
                 const nameMatch = recipe.name.toLowerCase().includes(searchLower);
                 const ingredientMatch = recipe.ingredients.some(i => i.toLowerCase().includes(searchLower));
-                if (!nameMatch && !ingredientMatch) return false;
+                // Also search in tags
+                const tagMatch = recipe.tags?.some(t => t.toLowerCase().includes(searchLower));
+                if (!nameMatch && !ingredientMatch && !tagMatch) return false;
             }
             return true;
         });
@@ -180,8 +188,10 @@ export const useMenuSuggestion = (): UseMenuSuggestionReturn => {
     // Handler functions
 
     // Unified execution handler (for both AI and manual modes)
-    const handleExecute = useCallback(async () => {
-        if (mode === 'manual') {
+    const handleExecute = useCallback(async (overrideMode?: ExecutionMode) => {
+        const effectiveMode = overrideMode ?? mode;
+
+        if (effectiveMode === 'manual') {
             // Manual filter mode
             applyManualFilter();
             return;

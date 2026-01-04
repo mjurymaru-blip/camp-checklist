@@ -45,6 +45,9 @@ export const RecipeSchema = z.object({
     cost: CostSchema.optional(),
     isVegetarian: z.boolean().optional(),
     reason: z.string().optional(),
+    // New fields for enhanced filtering
+    kidFriendly: z.boolean().optional(),
+    tags: z.array(z.string()).optional(),
 });
 
 // Type inferred from schema

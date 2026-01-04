@@ -156,7 +156,7 @@ export const GearSettings = () => {
                 <div style={{ padding: '0 16px 16px', display: 'flex', flexDirection: 'column', gap: 12 }}>
                     <div style={{ fontSize: '0.8rem', color: '#666' }}>
                         使用するGeminiモデルを指定できます。<br />
-                        デフォルト: <code>gemini-1.5-flash</code>
+                        デフォルト: <code>gemini-2.5-flash</code>
                     </div>
 
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
@@ -165,7 +165,7 @@ export const GearSettings = () => {
                                 type="text"
                                 value={apiModel}
                                 onChange={(e) => setApiModel(e.target.value)}
-                                placeholder="gemini-1.5-flash"
+                                placeholder="gemini-2.5-flash"
                                 style={{
                                     flex: 1,
                                     padding: '10px',
@@ -197,8 +197,8 @@ export const GearSettings = () => {
                                 {/* リストが空の場合のフォールバック */}
                                 {availableModels.length === 0 && (
                                     <>
-                                        <option value="gemini-1.5-flash">gemini-1.5-flash (標準)</option>
-                                        <option value="gemini-1.5-pro">gemini-1.5-pro (高精度)</option>
+                                        <option value="gemini-2.5-flash">gemini-2.5-flash (標準)</option>
+                                        <option value="gemini-2.5-pro">gemini-2.5-pro (高精度)</option>
                                     </>
                                 )}
                             </select>

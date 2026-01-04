@@ -64,7 +64,7 @@ export const useGearStore = create<GearStore>()(
             cookingGears: DEFAULT_COOKING_GEARS,
             heatSources: DEFAULT_HEAT_SOURCES,
             geminiApiKey: '',
-            apiModel: 'gemini-1.5-flash',
+            apiModel: 'gemini-2.5-flash',
             availableModels: [],
             favoriteRecipes: [],
             recipeHistory: [],

@@ -154,7 +154,34 @@ export const RecipeCard = ({
                                 recipe.difficulty}
                         </span>
                     )}
+                    {recipe.cleanupLevel && (
+                        <span style={{ fontSize: '0.8rem', color: '#666' }}>
+                            🧹 {['楽', '普通', '多め'][recipe.cleanupLevel - 1]}
+                        </span>
+                    )}
+                    {recipe.activeTime && (
+                        <span style={{ fontSize: '0.8rem', color: '#666' }}>⚡ 実作業{recipe.activeTime}</span>
+                    )}
+                    {recipe.prePrep && (
+                        <span style={{ fontSize: '0.8rem', color: '#1565c0', background: '#e3f2fd', padding: '2px 6px', borderRadius: '4px' }}>
+                            🏠 下準備推奨
+                        </span>
+                    )}
+                    {recipe.kidFriendly && (
+                        <span style={{ fontSize: '0.8rem', color: '#e65100', background: '#fff3e0', padding: '2px 6px', borderRadius: '4px' }}>
+                            👶 子供OK
+                        </span>
+                    )}
                 </div>
+                {recipe.tags && recipe.tags.length > 0 && (
+                    <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginBottom: '8px' }}>
+                        {recipe.tags.map(tag => (
+                            <span key={tag} style={{ fontSize: '0.7rem', color: '#666', background: '#f0f0f0', padding: '2px 6px', borderRadius: '4px' }}>
+                                #{tag}
+                            </span>
+                        ))}
+                    </div>
+                )}
 
                 {isExpanded && (
                     <div

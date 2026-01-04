@@ -68,6 +68,9 @@ export interface UnifiedConditions {
   difficulty?: 'easy' | 'normal' | 'hard'; // optional: 指定なし可
   mealType: 'breakfast' | 'lunch' | 'dinner' | 'snack' | 'dessert';
   cost?: 'low' | 'mid' | 'high';
+  cleanupLevel?: 1 | 2 | 3; // 洗い物レベル
+  prePrep?: boolean;         // 下準備推奨フィルタ
+  kidFriendly?: boolean;     // 子供向けフィルタ
   searchText?: string; // recipe name / ingredients / category keyword
 }
 
@@ -103,6 +106,8 @@ export interface Recipe {
   prePrep?: boolean; // 下準備推奨
   cost?: 'low' | 'mid' | 'high';
   isVegetarian?: boolean;
+  kidFriendly?: boolean; // 子供向け
+  tags?: string[]; // 自由タグ
 
   description: string;
   ingredients: string[];

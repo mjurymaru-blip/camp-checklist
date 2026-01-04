@@ -15,7 +15,7 @@ export function getSeasonFromMonth(): MenuRequest['season'] {
 /**
  * APIキーの接続テスト
  */
-export async function testApiConnection(apiKey: string, model: string = 'gemini-1.5-flash'): Promise<{ success: boolean; message: string }> {
+export async function testApiConnection(apiKey: string, model: string = 'gemini-2.5-flash'): Promise<{ success: boolean; message: string }> {
   try {
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`,
@@ -232,7 +232,7 @@ export async function generateMainSuggestions(
   ownedGears: CookingGear[],
   ownedHeatSources: HeatSource[],
   availableRecipes: Recipe[] = [],
-  model: string = 'gemini-1.5-flash',
+  model: string = 'gemini-2.5-flash',
   mealType: 'breakfast' | 'lunch' | 'dinner' = 'dinner'
 ): Promise<Recipe[]> {
   const { gearNames, heatNames, recipeContext } = formatContext(ownedGears, ownedHeatSources, availableRecipes);
@@ -253,7 +253,7 @@ export async function generateCourseBasedOnDinner(
   ownedGears: CookingGear[],
   ownedHeatSources: HeatSource[],
   availableRecipes: Recipe[] = [],
-  model: string = 'gemini-1.5-flash'
+  model: string = 'gemini-2.5-flash'
 ): Promise<Recipe[]> {
   const { gearNames, heatNames, recipeContext } = formatContext(ownedGears, ownedHeatSources, availableRecipes);
 
@@ -272,7 +272,7 @@ export async function generateMenuSuggestion(
   ownedGears: CookingGear[],
   ownedHeatSources: HeatSource[],
   availableRecipes: Recipe[] = [],
-  model: string = 'gemini-1.5-flash'
+  model: string = 'gemini-2.5-flash'
 ): Promise<Recipe[]> {
   // Legacy support: Just return dinners
   return generateMainSuggestions(apiKey, request, ownedGears, ownedHeatSources, availableRecipes, model, 'dinner');

@@ -35,7 +35,13 @@
       "材料を全て鍋に入れ、沸騰させないように温める。"
     ],
     "cookTime": "約10分",
-    "tips": "安ワインでも美味しくなります。白ワインで作るのもあり。"
+    "tips": "安ワインでも美味しくなります。白ワインで作るのもあり。",
+    "kidFriendly": false,
+    "tags": [
+      "冬",
+      "大人",
+      "お酒"
+    ]
   },
   {
     "id": "popcorn",
@@ -54,6 +60,12 @@
     "cleanupLevel": 1,
     "prePrep": false,
     "cost": "low",
+    "kidFriendly": true,
+    "tags": [
+      "おやつ",
+      "簡単",
+      "子供喜ぶ"
+    ],
     "description": "ポンポン弾ける音が楽しい。出来立ては格別。",
     "ingredients": [
       "ポップコーン豆",
@@ -114,7 +126,13 @@
       "スキレットでチーズと具材を温め、チーズが溶けたらディップして食べる。"
     ],
     "cookTime": "約10分",
-    "tips": "黒胡椒を振るとアクセントになります。"
+    "tips": "黒胡椒を振るとアクセントになります。",
+    "kidFriendly": true,
+    "tags": [
+      "パーティー",
+      "冬",
+      "子供喜ぶ"
+    ]
   },
   {
     "id": "smoked-nuts",
@@ -152,7 +170,12 @@
       "15分〜30分ほど燻す。"
     ],
     "cookTime": "約30分",
-    "tips": "燻製直後より少し時間を置いた方が香りが馴染みます。"
+    "tips": "燻製直後より少し時間を置いた方が香りが馴染みます。",
+    "kidFriendly": true,
+    "tags": [
+      "おつまみ",
+      "時間かかる"
+    ]
   },
   {
     "id": "baked-apple",
@@ -192,7 +215,13 @@
       "ホイルで包んで焼くか、ダッチオーブンで焼く。"
     ],
     "cookTime": "約40分",
-    "tips": "バニラアイスを添えると最強です。"
+    "tips": "バニラアイスを添えると最強です。",
+    "kidFriendly": true,
+    "tags": [
+      "デザート",
+      "秋冬",
+      "子供喜ぶ"
+    ]
   },
   {
     "id": "french-toast",
@@ -234,7 +263,13 @@
       "弱火でじっくり中まで火を通す。"
     ],
     "cookTime": "約15分",
-    "tips": "蓋をして蒸し焼きにするとぷるぷるになります。"
+    "tips": "蓋をして蒸し焼きにするとぷるぷるになります。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "子供喜ぶ",
+      "甘い"
+    ]
   },
   {
     "id": "sweet-potato",
@@ -271,7 +306,13 @@
       "竹串がスッと通れば完成。"
     ],
     "cookTime": "約45分",
-    "tips": "濡れ新聞紙が蒸し焼き効果を生み出します。"
+    "tips": "濡れ新聞紙が蒸し焼き効果を生み出します。",
+    "kidFriendly": true,
+    "tags": [
+      "おやつ",
+      "秋冬",
+      "子供喜ぶ"
+    ]
   },
   {
     "id": "coffee",
@@ -313,7 +354,12 @@
       "粉を蒸らしながらゆっくりお湯を注ぐ。"
     ],
     "cookTime": "約10分",
-    "tips": "外で飲むコーヒーはなぜあんなに美味しいのでしょう。"
+    "tips": "外で飲むコーヒーはなぜあんなに美味しいのでしょう。",
+    "kidFriendly": false,
+    "tags": [
+      "朝食",
+      "大人"
+    ]
   },
   {
     "id": "ozoni",
@@ -354,7 +400,13 @@
       "焼いた餅を入れる。"
     ],
     "cookTime": "約20分",
-    "tips": "炭火で焼いた餅の香ばしさはキャンプならでは。"
+    "tips": "炭火で焼いた餅の香ばしさはキャンプならでは。",
+    "kidFriendly": true,
+    "tags": [
+      "和風",
+      "冬",
+      "正月"
+    ]
   },
   {
     "id": "amazake",
@@ -388,7 +440,13 @@
       "甘酒を温め、おろし生姜を加える。"
     ],
     "cookTime": "5分",
-    "tips": "牛乳で割るのもおすすめ。"
+    "tips": "牛乳で割るのもおすすめ。",
+    "kidFriendly": true,
+    "tags": [
+      "冬",
+      "和風",
+      "温まる"
+    ]
   },
   {
     "id": "fruit-punch",
@@ -421,7 +479,13 @@
       "ボウルにフルーツを入れ、直前にサイダーを注ぐ。"
     ],
     "cookTime": "5分",
-    "tips": "メントスを入れて噴水にするのは屋外ならではの遊び。"
+    "tips": "メントスを入れて噴水にするのは屋外ならではの遊び。",
+    "kidFriendly": true,
+    "tags": [
+      "夏",
+      "パーティー",
+      "子供喜ぶ"
+    ]
   },
   {
     "id": "hot-chocolate",
@@ -457,7 +521,13 @@
       "マシュマロが溶けてきたら飲み頃。"
     ],
     "cookTime": "5分",
-    "tips": "ラム酒を垂らすと大人用に。"
+    "tips": "ラム酒を垂らすと大人用に。",
+    "kidFriendly": true,
+    "tags": [
+      "冬",
+      "甘い",
+      "子供喜ぶ"
+    ]
   },
   {
     "id": "yakimochi-kinako",
@@ -493,7 +563,13 @@
       "お湯にくぐらせてきな粉をまぶすか、醤油をつけて海苔で巻く。"
     ],
     "cookTime": "約10分",
-    "tips": "網にくっつき注意。"
+    "tips": "網にくっつき注意。",
+    "kidFriendly": true,
+    "tags": [
+      "冬",
+      "和風",
+      "おやつ"
+    ]
   },
   {
     "id": "pancakes",
@@ -534,7 +610,13 @@
       "表面がプツプツしてきたら裏返す。"
     ],
     "cookTime": "約15分",
-    "tips": "高さを出すならセルクルを使うと良いです。"
+    "tips": "高さを出すならセルクルを使うと良いです。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "子供喜ぶ",
+      "甘い"
+    ]
   },
   {
     "id": "anko-butter-sand",
@@ -570,7 +652,12 @@
       "パンにあんこと厚切りのバターを挟んで焼く。"
     ],
     "cookTime": "約10分",
-    "tips": "カロリーは熱で消える説を信じましょう。"
+    "tips": "カロリーは熱で消える説を信じましょう。",
+    "kidFriendly": true,
+    "tags": [
+      "和風",
+      "デザート"
+    ]
   },
   {
     "id": "dried-fruits-cheese",
@@ -605,7 +692,12 @@
       "クラッカーに乗せる。"
     ],
     "cookTime": "5分",
-    "tips": "ナッツを入れても美味しい。"
+    "tips": "ナッツを入れても美味しい。",
+    "kidFriendly": true,
+    "tags": [
+      "おつまみ",
+      "ワイン"
+    ]
   },
   {
     "id": "edamame",
@@ -642,7 +734,12 @@
       "焦げ目がついたら塩を振る。"
     ],
     "cookTime": "約10分",
-    "tips": "手が汚れますが止まらなくなります。"
+    "tips": "手が汚れますが止まらなくなります。",
+    "kidFriendly": true,
+    "tags": [
+      "夏",
+      "おつまみ"
+    ]
   },
   {
     "id": "nachos",
@@ -679,7 +776,12 @@
       "チーズが溶けるまで加熱する。"
     ],
     "cookTime": "約10分",
-    "tips": "アボカドディップ（ワカモレ）があると完璧。"
+    "tips": "アボカドディップ（ワカモレ）があると完璧。",
+    "kidFriendly": true,
+    "tags": [
+      "パーティー",
+      "おつまみ"
+    ]
   },
   {
     "id": "cucumber-pickles",
@@ -712,7 +814,13 @@
       "食べる直前に割り箸を刺す。"
     ],
     "cookTime": "仕込み5分",
-    "tips": "半日以上漬けると美味しいです。"
+    "tips": "半日以上漬けると美味しいです。",
+    "kidFriendly": true,
+    "tags": [
+      "夏",
+      "さっぱり",
+      "前日準備"
+    ]
   },
   {
     "id": "hujin-dip",
@@ -743,7 +851,12 @@
       "焼いたマシュマロとポテチを交互に食べる。"
     ],
     "cookTime": "5分",
-    "tips": "カロリーの暴力ですがキャンプだから許されます。"
+    "tips": "カロリーの暴力ですがキャンプだから許されます。",
+    "kidFriendly": true,
+    "tags": [
+      "おやつ",
+      "甘い"
+    ]
   },
   {
     "id": "banana-pancake",
@@ -784,7 +897,13 @@
       "スキレットで両面を焼く。"
     ],
     "cookTime": "約15分",
-    "tips": "チョコソースをたっぷりかけて。"
+    "tips": "チョコソースをたっぷりかけて。",
+    "kidFriendly": true,
+    "tags": [
+      "デザート",
+      "子供喜ぶ",
+      "甘い"
+    ]
   },
   {
     "id": "churros",
@@ -827,7 +946,12 @@
       "シナモンシュガーをまぶす。"
     ],
     "cookTime": "約25分",
-    "tips": "チョコソースをつけて食べると最高。"
+    "tips": "チョコソースをつけて食べると最高。",
+    "kidFriendly": true,
+    "tags": [
+      "デザート",
+      "子供喜ぶ"
+    ]
   },
   {
     "id": "grilled-pineapple",
@@ -866,7 +990,13 @@
       "焦げ目がついたらハチミツをかける。"
     ],
     "cookTime": "約10分",
-    "tips": "BBQのついでに焼くと簡単。"
+    "tips": "BBQのついでに焼くと簡単。",
+    "kidFriendly": true,
+    "tags": [
+      "夏",
+      "BBQ",
+      "デザート"
+    ]
   },
   {
     "id": "waffle-maker",
@@ -908,7 +1038,12 @@
       "両面を焼いてシロップをかける。"
     ],
     "cookTime": "約20分",
-    "tips": "フルーツとクリームを添えると豪華に。"
+    "tips": "フルーツとクリームを添えると豪華に。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "子供喜ぶ"
+    ]
   },
   {
     "id": "chocolate-fondue",
@@ -947,7 +1082,13 @@
       "フルーツを串に刺してディップ。"
     ],
     "cookTime": "約10分",
-    "tips": "固まってきたら湯煎で温め直す。"
+    "tips": "固まってきたら湯煎で温め直す。",
+    "kidFriendly": true,
+    "tags": [
+      "デザート",
+      "パーティー",
+      "子供喜ぶ"
+    ]
   },
   {
     "id": "dutch-oven-brownie",
@@ -986,7 +1127,12 @@
       "ダッチオーブンで上下から焼く。"
     ],
     "cookTime": "約30分",
-    "tips": "焼きすぎ注意。少ししっとりで止める。"
+    "tips": "焼きすぎ注意。少ししっとりで止める。",
+    "kidFriendly": true,
+    "tags": [
+      "デザート",
+      "秋冬"
+    ]
   },
   {
     "id": "roasted-marshmallow",
@@ -1021,7 +1167,13 @@
       "串に刺して焚き火の遠火でじっくり焼く。"
     ],
     "cookTime": "約5分",
-    "tips": "回しながら焼くとムラなく焼ける。"
+    "tips": "回しながら焼くとムラなく焼ける。",
+    "kidFriendly": true,
+    "tags": [
+      "デザート",
+      "焚き火",
+      "子供喜ぶ"
+    ]
   },
   {
     "id": "apple-compote",
@@ -1060,7 +1212,12 @@
       "柔らかくなったら完成。"
     ],
     "cookTime": "約15分",
-    "tips": "冷やしても温かくても美味しい。"
+    "tips": "冷やしても温かくても美味しい。",
+    "kidFriendly": true,
+    "tags": [
+      "デザート",
+      "秋冬"
+    ]
   },
   {
     "id": "grilled-peach",
@@ -1099,7 +1256,12 @@
       "グリルで焼いてアイスを添える。"
     ],
     "cookTime": "約10分",
-    "tips": "他の果物（ネクタリン、マンゴー）でも美味しい。"
+    "tips": "他の果物（ネクタリン、マンゴー）でも美味しい。",
+    "kidFriendly": true,
+    "tags": [
+      "デザート",
+      "夏"
+    ]
   },
   {
     "id": "cinnamon-roll",
@@ -1141,7 +1303,12 @@
       "フロスティングをかける。"
     ],
     "cookTime": "約20分",
-    "tips": "缶入りの半焼成品を使うと超簡単。"
+    "tips": "缶入りの半焼成品を使うと超簡単。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "甘い"
+    ]
   },
   {
     "id": "fruit-skewer",
@@ -1177,7 +1344,13 @@
       "軽く火を通し、ハチミツをかける。"
     ],
     "cookTime": "約10分",
-    "tips": "チョコソースをかけても美味しい。"
+    "tips": "チョコソースをかけても美味しい。",
+    "kidFriendly": true,
+    "tags": [
+      "デザート",
+      "夏",
+      "子供喜ぶ"
+    ]
   },
   {
     "id": "camembert-honey",
@@ -1218,7 +1391,12 @@
       "ハチミツとくるみをトッピング。"
     ],
     "cookTime": "約5分",
-    "tips": "ブルーチーズでも美味しい。"
+    "tips": "ブルーチーズでも美味しい。",
+    "kidFriendly": true,
+    "tags": [
+      "おつまみ",
+      "ワイン"
+    ]
   },
   {
     "id": "pumpkin-pudding",
@@ -1258,7 +1436,13 @@
       "鍋に水を張り、蒸し焼きにする。"
     ],
     "cookTime": "約30分",
-    "tips": "カラメルを作っておくと本格的。"
+    "tips": "カラメルを作っておくと本格的。",
+    "kidFriendly": true,
+    "tags": [
+      "デザート",
+      "秋",
+      "前日準備"
+    ]
   },
   {
     "id": "yakiimo-butter",
@@ -1294,7 +1478,13 @@
       "塩を少々振る。"
     ],
     "cookTime": "約45分（芋から作る場合）",
-    "tips": "ハチミツをかけてもGood。"
+    "tips": "ハチミツをかけてもGood。",
+    "kidFriendly": true,
+    "tags": [
+      "秋冬",
+      "おやつ",
+      "子供喜ぶ"
+    ]
   },
   {
     "id": "coffee-jelly",
@@ -1333,6 +1523,1205 @@
       "シェラカップに入れて冷やし固める。"
     ],
     "cookTime": "仕込み10分",
-    "tips": "練乳をかけてもおいしい。"
+    "tips": "練乳をかけてもおいしい。",
+    "kidFriendly": false,
+    "tags": [
+      "デザート",
+      "夏",
+      "前日準備"
+    ]
+  },
+  {
+    "id": "blt-hotsand",
+    "name": "BLTホットサンド",
+    "meal": "breakfast",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約450kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "ベーコン・レタス・トマトの定番コンビ。朝から満足感。",
+    "ingredients": [
+      "食パン (2枚)",
+      "ベーコン (2枚)",
+      "レタス (2枚)",
+      "トマト (輪切り2枚)",
+      "マヨネーズ (適量)"
+    ],
+    "requiredGear": [
+      "ホットサンドメーカー"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "ベーコンをカリカリに焼く。",
+      "パンにマヨネーズを塗り、具材を挟んで焼く。"
+    ],
+    "cookTime": "約10分",
+    "tips": "トマトから水分が出るので最後に挟むのがコツ。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "ホットサンド"
+    ]
+  },
+  {
+    "id": "tuna-melt-hotsand",
+    "name": "ツナメルトホットサンド",
+    "meal": "breakfast",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約500kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "ツナとチーズがとろける幸せ。",
+    "ingredients": [
+      "食パン (2枚)",
+      "ツナ缶 (1/2缶)",
+      "スライスチーズ (1枚)",
+      "マヨネーズ (適量)",
+      "玉ねぎ (みじん切り少々)"
+    ],
+    "requiredGear": [
+      "ホットサンドメーカー"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "ツナとマヨネーズ、玉ねぎを混ぜる。",
+      "パンにチーズと一緒に挟んで焼く。"
+    ],
+    "cookTime": "約10分",
+    "tips": "ピクルスを加えるとアメリカンな味に。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "ホットサンド",
+      "子供喜ぶ"
+    ]
+  },
+  {
+    "id": "egg-ham-hotsand",
+    "name": "たまごハムホットサンド",
+    "meal": "breakfast",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約420kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": true,
+    "cost": "low",
+    "description": "たまごサラダとハムの王道コンビ。",
+    "ingredients": [
+      "食パン (2枚)",
+      "ゆで卵 (1個)",
+      "ハム (2枚)",
+      "マヨネーズ (適量)",
+      "塩こしょう (少々)"
+    ],
+    "requiredGear": [
+      "ホットサンドメーカー"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "ゆで卵を潰してマヨネーズと混ぜる。",
+      "パンにハムとたまごサラダを挟んで焼く。"
+    ],
+    "cookTime": "約10分",
+    "tips": "ゆで卵は前日に作っておくと朝が楽。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "ホットサンド",
+      "子供喜ぶ"
+    ]
+  },
+  {
+    "id": "pizza-hotsand",
+    "name": "ピザ風ホットサンド",
+    "meal": "breakfast",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約480kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "ケチャップとチーズで子供も喜ぶ味。",
+    "ingredients": [
+      "食パン (2枚)",
+      "ケチャップ (適量)",
+      "サラミ (3枚)",
+      "ピーマン (輪切り2枚)",
+      "シュレッドチーズ (ひとつかみ)"
+    ],
+    "requiredGear": [
+      "ホットサンドメーカー"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "パンにケチャップを塗り、具材を乗せて焼く。"
+    ],
+    "cookTime": "約10分",
+    "tips": "バジルがあればさらに本格的。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "ホットサンド",
+      "子供喜ぶ"
+    ]
+  },
+  {
+    "id": "chocolate-banana-hotsand",
+    "name": "チョコバナナホットサンド",
+    "meal": "breakfast",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約400kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "甘いもの好きのための朝食デザート。",
+    "ingredients": [
+      "食パン (2枚)",
+      "バナナ (1/2本)",
+      "板チョコ (3ピース)",
+      "バター (少々)"
+    ],
+    "requiredGear": [
+      "ホットサンドメーカー"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "バナナを薄切りにする。",
+      "パンにチョコとバナナを挟んで焼く。"
+    ],
+    "cookTime": "約10分",
+    "tips": "チョコが溶けてトロトロになったら食べ頃。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "デザート",
+      "子供喜ぶ"
+    ]
+  },
+  {
+    "id": "garlic-toast",
+    "name": "ガーリックトースト",
+    "meal": "breakfast",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "にんにくの香りで食欲倍増。スープと一緒に。",
+    "ingredients": [
+      "フランスパン (4切れ)",
+      "バター (20g)",
+      "にんにく (1片)",
+      "パセリ (少々)"
+    ],
+    "requiredGear": [
+      "スキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "バターをレンジまたは湯煎で溶かし、すりおろしにんにくを混ぜる。",
+      "パンに塗ってスキレットで焼く。"
+    ],
+    "cookTime": "約10分",
+    "tips": "チューブにんにくでも十分おいしい。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "パン"
+    ]
+  },
+  {
+    "id": "cinnamon-toast",
+    "name": "シナモントースト",
+    "meal": "breakfast",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約280kcal",
+    "activeTime": "5分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "甘くてスパイシー。コーヒーとの相性抜群。",
+    "ingredients": [
+      "食パン (1枚)",
+      "バター (10g)",
+      "砂糖 (小さじ1)",
+      "シナモン (少々)"
+    ],
+    "requiredGear": [
+      "焼き網またはスキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "パンをトーストする。",
+      "バターを塗り、砂糖とシナモンを振りかける。"
+    ],
+    "cookTime": "約5分",
+    "tips": "蜂蜜をかけてもおいしい。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "甘い"
+    ]
+  },
+  {
+    "id": "honey-toast",
+    "name": "はちみつバタートースト",
+    "meal": "breakfast",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約320kcal",
+    "activeTime": "5分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "シンプルイズベスト。自然の甘さが朝にぴったり。",
+    "ingredients": [
+      "食パン (1枚)",
+      "バター (10g)",
+      "はちみつ (適量)"
+    ],
+    "requiredGear": [
+      "焼き網またはスキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "パンをこんがり焼く。",
+      "バターを塗り、はちみつをかける。"
+    ],
+    "cookTime": "約5分",
+    "tips": "厚切りパンで贅沢に。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "甘い",
+      "子供喜ぶ"
+    ]
+  },
+  {
+    "id": "yaki-onigiri",
+    "name": "焼きおにぎり",
+    "meal": "breakfast",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約200kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": true,
+    "cost": "low",
+    "description": "醤油の香ばしさがたまらない。冷凍おにぎりでも◎",
+    "ingredients": [
+      "ごはん (茶碗2杯分)",
+      "醤油 (適量)",
+      "ごま油 (少々)"
+    ],
+    "requiredGear": [
+      "焼き網またはスキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner",
+      "bonfire"
+    ],
+    "steps": [
+      "おにぎりを握る。",
+      "網またはスキレットで両面を焼き、醤油を塗って再度焼く。"
+    ],
+    "cookTime": "約10分",
+    "tips": "冷凍の焼きおにぎりを持っていくと簡単。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "和風",
+      "子供喜ぶ"
+    ]
+  },
+  {
+    "id": "tkg-camp",
+    "name": "キャンプTKG（卵かけご飯）",
+    "meal": "breakfast",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約350kcal",
+    "activeTime": "3分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "究極の時短朝食。新鮮な卵があればそれだけで幸せ。",
+    "ingredients": [
+      "ごはん (1杯)",
+      "卵 (1個)",
+      "醤油 (適量)",
+      "ねぎ (少々)"
+    ],
+    "requiredGear": [
+      "シェラカップ"
+    ],
+    "usedGearIds": [
+      "sierra-cup"
+    ],
+    "usedHeatSourceIds": [],
+    "steps": [
+      "温かいごはんに卵をかけ、醤油を垂らす。",
+      "ねぎを散らして完成。"
+    ],
+    "cookTime": "約3分",
+    "tips": "海苔やかつお節を追加すると豪華に。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "和風",
+      "時短"
+    ]
+  },
+  {
+    "id": "ochazuke-camp",
+    "name": "キャンプお茶漬け",
+    "meal": "breakfast",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約280kcal",
+    "activeTime": "5分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "二日酔いの朝にも優しい。さらさらと食べられる。",
+    "ingredients": [
+      "ごはん (1杯)",
+      "お茶漬けの素 (1袋)",
+      "お湯 (適量)",
+      "わさび (お好みで)"
+    ],
+    "requiredGear": [
+      "シェラカップ",
+      "ケトル"
+    ],
+    "usedGearIds": [
+      "sierra-cup"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "ごはんにお茶漬けの素をかける。",
+      "熱いお湯を注ぐ。"
+    ],
+    "cookTime": "約5分",
+    "tips": "鮭フレークや梅干しを追加すると満足感アップ。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "和風",
+      "時短"
+    ]
+  },
+  {
+    "id": "salmon-onigiri",
+    "name": "鮭おにぎり",
+    "meal": "breakfast",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約220kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": true,
+    "cost": "mid",
+    "description": "定番の朝ごはん。前日に握っておくと楽。",
+    "ingredients": [
+      "ごはん (茶碗2杯分)",
+      "鮭フレーク (大さじ2)",
+      "海苔 (2枚)",
+      "塩 (少々)"
+    ],
+    "requiredGear": [
+      "ラップ"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [],
+    "steps": [
+      "ごはんに鮭を混ぜ込む。",
+      "おにぎりを握って海苔で巻く。"
+    ],
+    "cookTime": "約10分",
+    "tips": "鮭は前日に焼いてほぐしておくと本格的。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "和風",
+      "子供喜ぶ"
+    ]
+  },
+  {
+    "id": "fried-egg-camp",
+    "name": "スキレット目玉焼き",
+    "meal": "breakfast",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約150kcal",
+    "activeTime": "5分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "スキレットで焼くと端がカリカリに。",
+    "ingredients": [
+      "卵 (2個)",
+      "油 (少々)",
+      "塩こしょう (少々)"
+    ],
+    "requiredGear": [
+      "スキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "油を引いたスキレットを温める。",
+      "卵を割り入れ、蓋をして蒸し焼きにする。"
+    ],
+    "cookTime": "約5分",
+    "tips": "半熟か固焼きかはお好みで。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "簡単"
+    ]
+  },
+  {
+    "id": "sausage-grill",
+    "name": "朝のソーセージグリル",
+    "meal": "breakfast",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "パリッとジューシー。大人も子供も大好き。",
+    "ingredients": [
+      "ウインナー (6本)",
+      "粒マスタード (お好みで)",
+      "ケチャップ (お好みで)"
+    ],
+    "requiredGear": [
+      "スキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "スキレットでウインナーを転がしながら焼く。",
+      "全体に焼き色がついたら完成。"
+    ],
+    "cookTime": "約10分",
+    "tips": "切り込みを入れると食べやすい。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "子供喜ぶ",
+      "簡単"
+    ]
+  },
+  {
+    "id": "corn-soup-camp",
+    "name": "インスタントコーンスープ",
+    "meal": "breakfast",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "autumn",
+      "winter"
+    ],
+    "calories": "約100kcal",
+    "activeTime": "3分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "寒い朝に温まる。お湯を沸かすだけ。",
+    "ingredients": [
+      "コーンスープの素 (1袋)",
+      "お湯 (150ml)"
+    ],
+    "requiredGear": [
+      "シェラカップ",
+      "ケトル"
+    ],
+    "usedGearIds": [
+      "sierra-cup"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "お湯を沸かす。",
+      "シェラカップにスープの素を入れ、お湯を注いで混ぜる。"
+    ],
+    "cookTime": "約3分",
+    "tips": "クルトンを追加すると食べ応えアップ。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "冬",
+      "子供喜ぶ"
+    ]
+  },
+  {
+    "id": "bacon-egg-plate",
+    "name": "ベーコンエッグプレート",
+    "meal": "breakfast",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約400kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 2,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "スキレット一つでできるアメリカン朝食。",
+    "ingredients": [
+      "ベーコン (3枚)",
+      "卵 (2個)",
+      "トマト (1/4個)",
+      "塩こしょう (少々)"
+    ],
+    "requiredGear": [
+      "スキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "ベーコンを焼いて端に寄せる。",
+      "空いたスペースで卵を焼く。",
+      "トマトを添えて完成。"
+    ],
+    "cookTime": "約10分",
+    "tips": "パンを添えれば完璧な朝食セット。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "アメリカン"
+    ]
+  },
+  {
+    "id": "miso-soup-instant",
+    "name": "インスタント味噌汁",
+    "meal": "breakfast",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約40kcal",
+    "activeTime": "3分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "日本人の朝はやっぱりこれ。",
+    "ingredients": [
+      "インスタント味噌汁 (1袋)",
+      "お湯 (150ml)"
+    ],
+    "requiredGear": [
+      "シェラカップ",
+      "ケトル"
+    ],
+    "usedGearIds": [
+      "sierra-cup"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "お湯を沸かす。",
+      "シェラカップに味噌汁の素を入れ、お湯を注ぐ。"
+    ],
+    "cookTime": "約3分",
+    "tips": "乾燥わかめや麩を追加すると豪華に。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "和風"
+    ]
+  },
+  {
+    "id": "granola-yogurt",
+    "name": "グラノーラヨーグルト",
+    "meal": "breakfast",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer"
+    ],
+    "calories": "約350kcal",
+    "activeTime": "3分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "火を使わない朝食。暑い朝にぴったり。",
+    "ingredients": [
+      "グラノーラ (1カップ)",
+      "ヨーグルト (1パック)",
+      "蜂蜜 (適量)",
+      "フルーツ (お好みで)"
+    ],
+    "requiredGear": [
+      "シェラカップ"
+    ],
+    "usedGearIds": [
+      "sierra-cup"
+    ],
+    "usedHeatSourceIds": [],
+    "steps": [
+      "シェラカップにヨーグルトを入れる。",
+      "グラノーラとフルーツを乗せ、蜂蜜をかける。"
+    ],
+    "cookTime": "約3分",
+    "tips": "冷凍ブルーベリーを入れると保冷剤代わりにも。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "火を使わない",
+      "夏"
+    ]
+  },
+  {
+    "id": "yaki-banana",
+    "name": "焼きバナナ",
+    "meal": "dessert",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約150kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "皮ごと焼くととろとろに。子供に大人気。",
+    "ingredients": [
+      "バナナ (2本)",
+      "チョコソース (お好みで)",
+      "シナモン (少々)"
+    ],
+    "requiredGear": [
+      "焼き網"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [
+      "bonfire",
+      "single-burner"
+    ],
+    "steps": [
+      "バナナを皮ごと網に乗せる。",
+      "皮が真っ黒になるまで焼く。",
+      "皮をむいてチョコソースをかける。"
+    ],
+    "cookTime": "約10分",
+    "tips": "皮に切り込みを入れてチョコを挟んで焼いても◎",
+    "kidFriendly": true,
+    "tags": [
+      "デザート",
+      "子供喜ぶ",
+      "簡単"
+    ]
+  },
+  {
+    "id": "waffle-camp",
+    "name": "ホットサンドメーカーワッフル",
+    "meal": "dessert",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約400kcal",
+    "activeTime": "15分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "ホットサンドメーカーで作るなんちゃってワッフル。",
+    "ingredients": [
+      "ホットケーキミックス (100g)",
+      "卵 (1個)",
+      "牛乳 (80ml)",
+      "バター (10g)",
+      "メープルシロップ (適量)"
+    ],
+    "requiredGear": [
+      "ホットサンドメーカー"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "材料を混ぜて生地を作る。",
+      "ホットサンドメーカーに流し込み、両面焼く。"
+    ],
+    "cookTime": "約15分",
+    "tips": "ホイップクリームを添えると豪華。",
+    "kidFriendly": true,
+    "tags": [
+      "朝食",
+      "デザート",
+      "子供喜ぶ"
+    ]
+  },
+  {
+    "id": "fruit-skewer-camp",
+    "name": "フルーツスキュワー",
+    "meal": "dessert",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "summer"
+    ],
+    "calories": "約100kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "kidFriendly": true,
+    "tags": [
+      "夏",
+      "火を使わない",
+      "子供と作る"
+    ],
+    "description": "カラフルなフルーツを串刺しに。子供と一緒に作れる。",
+    "ingredients": [
+      "いちご (4個)",
+      "キウイ (1個)",
+      "パイン (4切れ)",
+      "ぶどう (8粒)"
+    ],
+    "requiredGear": [
+      "竹串"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [],
+    "steps": [
+      "フルーツを一口大にカットする。",
+      "竹串に交互に刺す。"
+    ],
+    "cookTime": "約10分",
+    "tips": "チョコソースやヨーグルトをディップに。"
+  },
+  {
+    "id": "ice-cream-sandwich",
+    "name": "アイスクリームサンド",
+    "meal": "dessert",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "summer"
+    ],
+    "calories": "約350kcal",
+    "activeTime": "5分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "クッキーでアイスを挟むだけ。夏の定番。",
+    "ingredients": [
+      "アイスクリーム (お好みの味)",
+      "ビスケット (4枚)"
+    ],
+    "requiredGear": [],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [],
+    "steps": [
+      "ビスケット2枚でアイスを挟む。"
+    ],
+    "cookTime": "約5分",
+    "tips": "クーラーボックスから出したてのアイスで。",
+    "kidFriendly": true,
+    "tags": [
+      "夏",
+      "デザート",
+      "子供喜ぶ"
+    ]
+  },
+  {
+    "id": "marshmallow-toast",
+    "name": "マシュマロトースト",
+    "meal": "dessert",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約350kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "トーストにマシュマロを乗せて焼くだけ。とろける幸せ。",
+    "ingredients": [
+      "食パン (1枚)",
+      "マシュマロ (8個)",
+      "チョコソース (お好みで)"
+    ],
+    "requiredGear": [
+      "スキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "パンにマシュマロを敷き詰める。",
+      "蓋をして弱火で焼き、マシュマロを溶かす。"
+    ],
+    "cookTime": "約10分",
+    "tips": "チョコソースをかけるとスモア風に。",
+    "kidFriendly": true,
+    "tags": [
+      "デザート",
+      "子供喜ぶ",
+      "甘い"
+    ]
+  },
+  {
+    "id": "hot-cocoa-float",
+    "name": "ホットココアフロート",
+    "meal": "dessert",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "winter"
+    ],
+    "calories": "約400kcal",
+    "activeTime": "5分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "温かいココアにアイスを浮かべる贅沢。",
+    "ingredients": [
+      "ココア (インスタント1杯分)",
+      "お湯 (150ml)",
+      "バニラアイス (1スクープ)"
+    ],
+    "requiredGear": [
+      "シェラカップ"
+    ],
+    "usedGearIds": [
+      "sierra-cup"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "ココアをお湯で溶かす。",
+      "アイスを浮かべる。"
+    ],
+    "cookTime": "約5分",
+    "tips": "アイスが溶けてクリーミーになる。",
+    "kidFriendly": true,
+    "tags": [
+      "デザート",
+      "冬",
+      "子供喜ぶ"
+    ]
+  },
+  {
+    "id": "kinako-mochi-dessert",
+    "name": "きなこ餅デザート",
+    "meal": "dessert",
+    "servings": 2,
+    "difficulty": "easy",
+    "season": [
+      "winter"
+    ],
+    "calories": "約250kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "焼いた餅にきな粉と黒蜜。和風デザートの定番。",
+    "ingredients": [
+      "切り餅 (2個)",
+      "きな粉 (大さじ2)",
+      "砂糖 (大さじ1)",
+      "黒蜜 (適量)"
+    ],
+    "requiredGear": [
+      "焼き網"
+    ],
+    "usedGearIds": [],
+    "usedHeatSourceIds": [
+      "bonfire"
+    ],
+    "steps": [
+      "餅を網で焼く。",
+      "きな粉と砂糖を混ぜたものにまぶす。",
+      "黒蜜をかける。"
+    ],
+    "cookTime": "約10分",
+    "tips": "炭火で焼くと香ばしさアップ。",
+    "kidFriendly": true,
+    "tags": [
+      "デザート",
+      "和風",
+      "冬"
+    ]
+  },
+  {
+    "id": "chocolate-fondue",
+    "name": "チョコレートフォンデュ",
+    "meal": "dessert",
+    "servings": 4,
+    "difficulty": "easy",
+    "season": [
+      "autumn",
+      "winter"
+    ],
+    "calories": "約300kcal",
+    "activeTime": "10分",
+    "cleanupLevel": 2,
+    "prePrep": false,
+    "cost": "mid",
+    "description": "みんなでワイワイ楽しめる。フルーツやマシュマロをディップ。",
+    "ingredients": [
+      "板チョコ (2枚)",
+      "生クリーム (50ml)",
+      "いちご (8個)",
+      "バナナ (1本)",
+      "マシュマロ (適量)"
+    ],
+    "requiredGear": [
+      "シェラカップ"
+    ],
+    "usedGearIds": [
+      "sierra-cup"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "チョコを刻んで生クリームと一緒に溶かす。",
+      "フルーツやマシュマロをディップして食べる。"
+    ],
+    "cookTime": "約10分",
+    "tips": "温度が下がったら再度温めればOK。",
+    "kidFriendly": true,
+    "tags": [
+      "デザート",
+      "パーティー",
+      "子供喜ぶ"
+    ]
+  },
+  {
+    "id": "condensed-milk-toast",
+    "name": "練乳トースト",
+    "meal": "dessert",
+    "servings": 1,
+    "difficulty": "easy",
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "calories": "約380kcal",
+    "activeTime": "5分",
+    "cleanupLevel": 1,
+    "prePrep": false,
+    "cost": "low",
+    "description": "シンプルだけど癖になる甘さ。",
+    "ingredients": [
+      "食パン (1枚)",
+      "バター (10g)",
+      "練乳 (適量)"
+    ],
+    "requiredGear": [
+      "焼き網またはスキレット"
+    ],
+    "usedGearIds": [
+      "skillet"
+    ],
+    "usedHeatSourceIds": [
+      "single-burner"
+    ],
+    "steps": [
+      "パンをこんがり焼く。",
+      "バターを塗り、練乳をかける。"
+    ],
+    "cookTime": "約5分",
+    "tips": "厚切りパンがおすすめ。",
+    "kidFriendly": true,
+    "tags": [
+      "デザート",
+      "甘い"
+    ]
   }
 ]
